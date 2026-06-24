@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meridian Dental — Family & Cosmetic Dentistry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --white: #fafaf8;
+        --teal: #1b4d4a;
+        --mint: #bfe0da;
+        --slate: #33403e;
+        --amber: #d98e3f;
+        --slate-soft: rgba(51, 64, 62, 0.62);
+        --hairline: rgba(51, 64, 62, 0.13);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--slate);
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      h1,
+      h2,
+      h3,
+      .display {
+        font-family: "Newsreader", serif;
+        font-weight: 500;
+        letter-spacing: -0.005em;
+        line-height: 1.08;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--teal);
+        font-weight: 600;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--teal);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(250, 250, 248, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--hairline);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Newsreader", serif;
+        font-size: 22px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .logo-mark {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--teal);
+        display: inline-block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        font-size: 14px;
+      }
+      .nav-links a {
+        position: relative;
+        padding: 4px 0;
+        color: var(--slate-soft);
+        transition: color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--slate);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--teal);
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        font-size: 13.5px;
+        font-weight: 600;
+        background: var(--teal);
+        color: var(--white);
+        padding: 11px 22px;
+        border-radius: 5px;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .nav-cta:hover {
+        background: #143b38;
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--slate);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 69px;
+        left: 0;
+        right: 0;
+        z-index: 49;
+        background: var(--white);
+        border-bottom: 1px solid var(--hairline);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+      }
+      .mobile-menu.open {
+        max-height: 480px;
+      }
+      .mobile-menu a {
+        padding: 18px 32px;
+        font-size: 15.5px;
+        color: var(--slate);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 32px 22px;
+        text-align: center;
+        display: block;
+        color: var(--white) !important;
+      }
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .mobile-menu {
+          display: flex;
+        }
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        padding-top: 90px;
+        background: linear-gradient(
+          180deg,
+          var(--mint) 0%,
+          rgba(191, 224, 218, 0.25) 55%,
+          var(--white) 100%
+        );
+      }
+      .hero-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(40px, 5.6vw, 68px);
+      }
+      .hero-sub {
+        margin-top: 22px;
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--slate-soft);
+        max-width: 460px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 15px 28px;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.25s ease;
+      }
+      .btn-primary {
+        background: var(--teal);
+        color: var(--white);
+      }
+      .btn-primary:hover {
+        background: #143b38;
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--slate);
+        color: var(--slate);
+      }
+      .btn-ghost:hover {
+        background: var(--slate);
+        color: var(--white);
+      }
+
+      .hero-card {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        padding: 36px;
+        box-shadow: 0 30px 60px -25px rgba(27, 77, 74, 0.2);
+      }
+      .hero-card-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .hero-card-row:last-child {
+        border-bottom: none;
+      }
+      .hero-card-row .label {
+        font-size: 14px;
+        color: var(--slate-soft);
+      }
+      .hero-card-row .value {
+        font-family: "Newsreader", serif;
+        font-size: 19px;
+        font-weight: 500;
+      }
+      .hero-card-row .value.ok {
+        color: var(--teal);
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero {
+          min-height: auto;
+          padding-bottom: 60px;
+        }
+      }
+
+      /* trust strip */
+      .trust-strip {
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+        padding: 28px 0;
+        background: var(--white);
+      }
+      .trust-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .trust-item {
+        text-align: center;
+        flex: 1;
+        min-width: 140px;
+      }
+      .trust-num {
+        font-family: "Newsreader", serif;
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--teal);
+      }
+      .trust-label {
+        font-size: 12.5px;
+        color: var(--slate-soft);
+        margin-top: 4px;
+        letter-spacing: 0.02em;
+      }
+
+      /* sections */
+      section {
+        padding: 104px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 58px 0;
+        }
+      }
+      .section-head {
+        max-width: 600px;
+        margin-bottom: 54px;
+      }
+      .section-head h2 {
+        font-size: clamp(28px, 4vw, 44px);
+        margin-top: 12px;
+      }
+      .section-head p {
+        color: var(--slate-soft);
+        font-size: 16px;
+        margin-top: 16px;
+        line-height: 1.65;
+      }
+      @media (max-width: 860px) {
+        .section-head {
+          margin-bottom: 34px;
+        }
+      }
+
+      /* ===== SERVICES ===== */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+      }
+      .service-card {
+        background: var(--white);
+        padding: 40px 32px;
+        transition: background 0.3s;
+      }
+      .service-card:hover {
+        background: rgba(191, 224, 218, 0.18);
+      }
+      .service-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--mint);
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        color: var(--teal);
+        font-size: 18px;
+      }
+      .service-card h3 {
+        font-size: 21px;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+      .service-card p {
+        color: var(--slate-soft);
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== CARE TIMELINE (signature element) ===== */
+      .timeline-wrap {
+        position: relative;
+        padding-left: 0;
+      }
+      .timeline-track {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .timeline-step {
+        display: grid;
+        grid-template-columns: 120px 28px 1fr;
+        gap: 0;
+        position: relative;
+      }
+      .timeline-step:last-child .timeline-line {
+        display: none;
+      }
+      .timeline-day {
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        color: var(--slate-soft);
+        font-size: 15px;
+        padding-top: 30px;
+      }
+      .timeline-node-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+      .timeline-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--teal);
+        margin-top: 32px;
+        flex-shrink: 0;
+        z-index: 1;
+        box-shadow: 0 0 0 4px var(--white);
+      }
+      .timeline-line {
+        position: absolute;
+        top: 38px;
+        bottom: -10px;
+        width: 2px;
+        background: var(--hairline);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .timeline-content {
+        padding: 22px 0 50px 28px;
+      }
+      .timeline-content h3 {
+        font-size: 22px;
+        font-weight: 500;
+      }
+      .timeline-content p {
+        color: var(--slate-soft);
+        font-size: 14.5px;
+        margin-top: 8px;
+        line-height: 1.6;
+        max-width: 480px;
+      }
+      .timeline-tag {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--teal);
+        font-weight: 600;
+        background: var(--mint);
+        padding: 5px 12px;
+        border-radius: 20px;
+      }
+      @media (max-width: 700px) {
+        .timeline-step {
+          grid-template-columns: 60px 24px 1fr;
+        }
+        .timeline-day {
+          font-size: 13px;
+          padding-top: 28px;
+        }
+        .timeline-content {
+          padding: 20px 0 40px 18px;
+        }
+      }
+
+      /* ===== PROVIDERS ===== */
+      .providers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .provider-card {
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 32px 28px;
+        transition: box-shadow 0.3s;
+      }
+      .provider-card:hover {
+        box-shadow: 0 16px 40px -20px rgba(27, 77, 74, 0.25);
+      }
+      .provider-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(150deg, var(--mint), var(--teal));
+        margin-bottom: 20px;
+      }
+      .provider-card h3 {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .provider-role {
+        color: var(--teal);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: block;
+        margin-top: 6px;
+      }
+      .provider-card p {
+        color: var(--slate-soft);
+        font-size: 14px;
+        margin-top: 14px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .providers-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .testi {
+        background: rgba(191, 224, 218, 0.15);
+        border: 1px solid var(--hairline);
+        padding: 30px 26px;
+        border-radius: 10px;
+      }
+      .testi-quote {
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        font-size: 17px;
+        line-height: 1.5;
+      }
+      .testi-name {
+        margin-top: 18px;
+        font-size: 12.5px;
+        color: var(--slate-soft);
+      }
+      .testi-name strong {
+        color: var(--teal);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== INSURANCE/PRICING ===== */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .price-card {
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 32px 28px;
+        transition: transform 0.3s;
+      }
+      .price-card:hover {
+        transform: translateY(-5px);
+      }
+      .price-card.featured {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: var(--white);
+      }
+      .price-card.featured .price-tier {
+        color: var(--mint);
+      }
+      .price-card.featured .price-feat {
+        color: rgba(250, 250, 248, 0.85);
+      }
+      .price-tier {
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--teal);
+        font-weight: 600;
+      }
+      .price-amt {
+        font-family: "Newsreader", serif;
+        font-size: 38px;
+        margin-top: 12px;
+        font-weight: 600;
+      }
+      .price-detail {
+        color: var(--slate-soft);
+        font-size: 13px;
+        margin-top: 4px;
+      }
+      .price-card.featured .price-detail {
+        color: rgba(250, 250, 248, 0.7);
+      }
+      .price-feats {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .price-feat {
+        font-size: 14px;
+        color: var(--slate-soft);
+        display: flex;
+        gap: 9px;
+      }
+      .price-feat::before {
+        content: "✓";
+        color: var(--teal);
+        font-weight: 600;
+      }
+      .price-card.featured .price-feat::before {
+        color: var(--mint);
+      }
+      .price-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 26px;
+      }
+      @media (max-width: 860px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== BOOKING FORM ===== */
+      .booking-section {
+        background: rgba(191, 224, 218, 0.12);
+        border-top: 1px solid var(--hairline);
+      }
+      .booking-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .booking-points {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .booking-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .booking-point-num {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--teal);
+        color: var(--white);
+        font-size: 12.5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .booking-point p {
+        font-size: 14px;
+        color: var(--slate-soft);
+        line-height: 1.55;
+      }
+      .booking-point strong {
+        color: var(--slate);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15.5px;
+      }
+      .booking-card {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 38px;
+        box-shadow: 0 20px 50px -30px rgba(27, 77, 74, 0.2);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: var(--slate-soft);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        padding: 12px 14px;
+        color: var(--slate);
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 14px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(51, 64, 62, 0.32);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--teal);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2333403E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .field-error {
+        font-size: 12px;
+        color: var(--amber);
+        margin-top: 6px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--amber);
+        background: rgba(217, 142, 63, 0.06);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .service-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .service-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        padding: 11px 8px;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--slate-soft);
+        user-select: none;
+      }
+      .service-chip:hover {
+        border-color: var(--teal);
+      }
+      .service-chip.active {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: var(--white);
+        font-weight: 500;
+      }
+      .booking-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 16px 28px;
+        border-radius: 6px;
+        background: var(--teal);
+        color: var(--white);
+        transition: all 0.25s;
+      }
+      .booking-submit:hover {
+        background: #143b38;
+      }
+      .booking-note {
+        font-size: 12px;
+        color: var(--slate-soft);
+        margin-top: 13px;
+        text-align: center;
+      }
+      .booking-success {
+        display: none;
+        text-align: center;
+        padding: 36px 12px;
+      }
+      .booking-success.show {
+        display: block;
+      }
+      .booking-success .check {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: var(--teal);
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--white);
+      }
+      .booking-success h3 {
+        font-size: 23px;
+        margin-bottom: 9px;
+      }
+      .booking-success p {
+        color: var(--slate-soft);
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .booking-success .summary {
+        margin-top: 22px;
+        padding: 16px 20px;
+        background: rgba(191, 224, 218, 0.2);
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--slate-soft);
+        display: inline-block;
+      }
+      .booking-success .summary div {
+        margin-bottom: 5px;
+      }
+      .booking-success .summary strong {
+        color: var(--slate);
+        font-weight: 600;
+      }
+      @media (max-width: 900px) {
+        .booking-layout {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .booking-card {
+          padding: 26px 22px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== CONTACT ===== */
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        margin-top: 56px;
+      }
+      .contact-pillar {
+        background: var(--white);
+        padding: 36px 32px;
+      }
+      .contact-pillar h3 {
+        font-size: 21px;
+        margin-bottom: 10px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .contact-pillar h3.email-heading {
+        font-size: 18px;
+      }
+      .contact-pillar p {
+        color: var(--slate-soft);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 36px;
+        }
+        .contact-pillar h3.email-heading {
+          font-size: 16px;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        padding: 56px 0 32px;
+        border-top: 1px solid var(--hairline);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 36px;
+      }
+      .footer-brand p {
+        color: var(--slate-soft);
+        font-size: 13.5px;
+        line-height: 1.6;
+        max-width: 280px;
+        margin-top: 12px;
+      }
+      .footer-col h4 {
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--slate-soft);
+        margin-bottom: 16px;
+      }
+      .footer-col a {
+        display: block;
+        color: var(--slate);
+        font-size: 14px;
+        margin-bottom: 10px;
+        opacity: 0.85;
+      }
+      .footer-col a:hover {
+        color: var(--teal);
+      }
+      .footer-bottom {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--hairline);
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--slate-soft);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo"
+          ><span class="logo-mark"></span>Meridian Dental</a
+        >
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#process">Your Visit</a>
+          <a href="#providers">Providers</a>
+          <a href="#contact">Book Now</a>
+        </div>
+        <a href="#contact" class="nav-cta">Book an appointment</a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#services">Services</a>
+        <a href="#process">Your Visit</a>
+        <a href="#providers">Providers</a>
+        <a href="#contact">Book Now</a>
+        <a href="#contact" class="btn btn-primary nav-cta"
+          >Book an appointment</a
+        >
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Family & Cosmetic Dentistry · Est. 2014</span>
+          <h1>Care that explains itself.</h1>
+          <p class="hero-sub">
+            Meridian Dental handles everything from routine cleanings to
+            cosmetic work, with every visit walked through clearly — what's
+            happening, why, and what's next.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book an appointment</a>
+            <a href="#services" class="btn btn-ghost">See our services</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-row">
+            <span class="label">Next available</span>
+            <span class="value ok">Today, 3:40 PM</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="label">Average wait time</span>
+            <span class="value">6 minutes</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="label">Payment options</span>
+            <span class="value">Cash, UPI, cards, EMI</span>
+          </div>
+          <div class="hero-card-row">
+            <span class="label">New patients</span>
+            <span class="value ok">Welcome</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-num">12,400+</div>
+            <div class="trust-label">Patients treated since 2014</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-num">4.8★</div>
+            <div class="trust-label">Average patient rating</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-num">6 min</div>
+            <div class="trust-label">Average wait time</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-num">EMI</div>
+            <div class="trust-label">Available on treatments above ₹10,000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we treat</span>
+          <h2>Three specialties, one clear plan.</h2>
+          <p>
+            Whether it's a routine check-up or cosmetic work, every visit starts
+            with a plain-language explanation of what we're treating and why.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">D</div>
+            <h3>General Dentistry</h3>
+            <p>
+              Cleanings, fillings, and check-ups, with clear before/after
+              explanations of any work done.
+            </p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">O</div>
+            <h3>Orthodontics</h3>
+            <p>
+              Braces and aligners for both teens and adults, with a visible
+              treatment timeline from day one.
+            </p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">C</div>
+            <h3>Cosmetic Dentistry</h3>
+            <p>
+              Whitening, veneers, and smile correction, with a preview of the
+              result before any work begins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" style="background: rgba(191, 224, 218, 0.1)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Your visit</span>
+          <h2>What actually happens, visit to visit.</h2>
+          <p>
+            A typical care journey, from your first call to long-term follow-up
+            — so you always know what's next.
+          </p>
+        </div>
+        <div class="timeline-wrap reveal">
+          <div class="timeline-track">
+            <div class="timeline-step">
+              <div class="timeline-day">Day 1</div>
+              <div class="timeline-node-col">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-tag">Intake</span>
+                <h3>First visit & assessment</h3>
+                <p>
+                  A full exam and digital X-rays to understand what's going on,
+                  with everything explained in plain terms — no jargon, no
+                  rushed explanations.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-day">Week 1</div>
+              <div class="timeline-node-col">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-tag">Treatment plan</span>
+                <h3>A plan you can see and ask about</h3>
+                <p>
+                  You leave with a written plan covering what's needed, roughly
+                  how long it'll take, and what it costs before any work begins.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-day">Ongoing</div>
+              <div class="timeline-node-col">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-tag">Active care</span>
+                <h3>Treatment, at your pace</h3>
+                <p>
+                  Appointments scheduled around your availability, with progress
+                  on fillings, aligners, or whitening checked at every visit.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-day">Follow-up</div>
+              <div class="timeline-node-col">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-tag">Maintenance</span>
+                <h3>Check-ins, not surprises</h3>
+                <p>
+                  Scheduled follow-ups to catch anything early, so small issues
+                  don't become big ones.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="providers">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Your care team</span>
+          <h2>Meet the people treating you.</h2>
+        </div>
+        <div class="providers-grid">
+          <div class="provider-card reveal">
+            <div class="provider-avatar"></div>
+            <h3>Dr. Kavita Sharma</h3>
+            <span class="provider-role">General & Family Dentistry</span>
+            <p>
+              14 years in practice. Dr. Sharma leads all general check-ups and
+              restorative work.
+            </p>
+          </div>
+          <div class="provider-card reveal">
+            <div class="provider-avatar"></div>
+            <h3>Dr. Arjun Reddy</h3>
+            <span class="provider-role">Orthodontics</span>
+            <p>
+              Specializes in adult and teen orthodontics, including clear
+              aligner programs.
+            </p>
+          </div>
+          <div class="provider-card reveal">
+            <div class="provider-avatar"></div>
+            <h3>Dr. Neha Kapoor</h3>
+            <span class="provider-role">Cosmetic Dentistry</span>
+            <p>
+              Specializes in whitening, veneers, and full smile makeovers, with
+              digital previews before treatment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: rgba(191, 224, 218, 0.1)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Patients say</span>
+          <h2>What care here actually feels like.</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <p class="testi-quote">
+              "First time a dentist actually explained the X-ray to me instead
+              of just pointing at it."
+            </p>
+            <p class="testi-name">
+              <strong>Ankit P.</strong> — Patient since 2019
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "Got my aligner plan explained with an actual timeline. No vague
+              'we'll see how it goes.'"
+            </p>
+            <p class="testi-name">
+              <strong>Riya M.</strong> — Patient since 2023
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "Six minute wait time isn't a slogan here — it's genuinely how
+              long I waited."
+            </p>
+            <p class="testi-name">
+              <strong>Tanvi D.</strong> — Patient since 2021
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Visit costs</span>
+          <h2>Transparent pricing, before you commit.</h2>
+          <p>
+            Clear, upfront pricing with no hidden charges — EMI available on
+            treatments above ₹10,000.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <span class="price-tier">Check-up</span>
+            <div class="price-amt">₹499</div>
+            <div class="price-detail">cleaning & exam</div>
+            <div class="price-feats">
+              <div class="price-feat">Full dental exam</div>
+              <div class="price-feat">Cleaning & polish</div>
+              <div class="price-feat">Digital X-ray if needed</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Book check-up</a>
+          </div>
+          <div class="price-card featured reveal">
+            <span class="price-tier">New Patient</span>
+            <div class="price-amt">₹899</div>
+            <div class="price-detail">full intake visit</div>
+            <div class="price-feats">
+              <div class="price-feat">Complete assessment</div>
+              <div class="price-feat">Written treatment plan</div>
+              <div class="price-feat">Cost estimate before treatment</div>
+            </div>
+            <a
+              href="#contact"
+              class="btn"
+              style="background: var(--white); color: var(--teal)"
+              >Book intake visit</a
+            >
+          </div>
+          <div class="price-card reveal">
+            <span class="price-tier">Whitening</span>
+            <div class="price-amt">₹8,999</div>
+            <div class="price-detail">in-office treatment</div>
+            <div class="price-feats">
+              <div class="price-feat">Single-visit whitening</div>
+              <div class="price-feat">Digital shade preview</div>
+              <div class="price-feat">Take-home touch-up kit</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Book whitening</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="booking-section">
+      <div class="wrap">
+        <div class="booking-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 32px">
+              <span class="eyebrow">Book a visit</span>
+              <h2>Schedule your appointment.</h2>
+              <p>
+                Fill in your details and we'll confirm by phone or email —
+                usually within the hour during clinic hours.
+              </p>
+            </div>
+            <div class="booking-points reveal">
+              <div class="booking-point">
+                <span class="booking-point-num">1</span>
+                <p>
+                  <strong>Choose a service</strong>General, orthodontics, or
+                  cosmetic — or let us guide you if you're unsure.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-num">2</span>
+                <p>
+                  <strong>Pick a time</strong>Choose any date and we'll match
+                  you to the next open slot.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-num">3</span>
+                <p>
+                  <strong>Get confirmed</strong>You'll see a confirmation
+                  immediately, with a follow-up call or email.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-card reveal">
+            <div id="bookingFormState">
+              <form id="appointmentForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Jordan Lee" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-email">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="form-group" id="group-service">
+                  <label>Choose a service</label>
+                  <div class="service-options">
+                    <div class="service-chip" data-value="General Dentistry">
+                      General
+                    </div>
+                    <div class="service-chip" data-value="Orthodontics">
+                      Orthodontics
+                    </div>
+                    <div class="service-chip" data-value="Cosmetic Dentistry">
+                      Cosmetic
+                    </div>
+                    <div class="service-chip" data-value="Not sure yet">
+                      Not sure yet
+                    </div>
+                  </div>
+                  <div class="field-error">Please select a service.</div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group" id="group-date">
+                    <label for="apptDate">Preferred date</label>
+                    <input type="date" id="apptDate" />
+                    <div class="field-error">
+                      Please choose a date (today or later).
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-time">
+                    <label for="apptTime">Preferred time</label>
+                    <select id="apptTime">
+                      <option value="">Select a time</option>
+                      <option value="9:00 AM">9:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="1:00 PM">1:00 PM</option>
+                      <option value="3:00 PM">3:00 PM</option>
+                      <option value="5:00 PM">5:00 PM</option>
+                    </select>
+                    <div class="field-error">Please pick a time slot.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="notes"
+                    >Notes
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="notes"
+                    placeholder="Reason for visit, or anything we should know?"
+                  ></textarea>
+                </div>
+                <button type="submit" class="booking-submit">
+                  Confirm appointment request
+                </button>
+                <p class="booking-note">
+                  No payment required now. We'll confirm availability before
+                  your visit.
+                </p>
+              </form>
+            </div>
+            <div id="bookingSuccess" class="booking-success">
+              <div class="check">✓</div>
+              <h3>Request received!</h3>
+              <p>
+                Thanks — your appointment request has been sent. We'll confirm
+                by phone or email shortly.
+              </p>
+              <div class="summary" id="summaryBox"></div>
+              <div>
+                <a href="#" class="btn btn-ghost" id="bookAnotherBtn"
+                  >Book another visit</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span class="eyebrow">Clinic</span>
+            <h3>21 Park Street, 2nd Floor</h3>
+            <p>
+              Open Monday–Saturday, 9:00 AM – 7:00 PM. Sundays by appointment
+              only. Parking available on-site.
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span class="eyebrow">Reach us</span>
+            <h3 class="email-heading">care@meridiandental.demo</h3>
+            <p>
+              +91 98765 12340 — call or WhatsApp. We typically reply within the
+              hour during clinic hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo"
+              ><span class="logo-mark"></span>Meridian Dental</a
+            >
+            <p>
+              Family and cosmetic dental care, explained clearly at every step.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Clinic</h4>
+            <a href="#services">Services</a>
+            <a href="#providers">Providers</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#contact">Book now</a>
+            <a href="#">Patient portal</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Meridian Dental. Demo website — for illustration purposes
+            only.</span
+          >
+          <span>Designed as a sample by [Your Name/Agency]</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2500);
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("open");
+          menuToggle.textContent = isOpen ? "✕" : "☰";
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            menuToggle.textContent = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      const form = document.getElementById("appointmentForm");
+      const dateInput = document.getElementById("apptDate");
+      const serviceChips = document.querySelectorAll(".service-chip");
+      let selectedService = "";
+
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      serviceChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          serviceChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedService = chip.dataset.value;
+          document.getElementById("group-service").classList.remove("invalid");
+        });
+      });
+
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const apptDate = dateInput.value;
+          const apptTime = document.getElementById("apptTime").value;
+          const notes = document.getElementById("notes").value.trim();
+
+          let valid = true;
+          setInvalid("group-name", !fullName);
+          if (!fullName) valid = false;
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-email", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-service", !selectedService);
+          if (!selectedService) valid = false;
+          setInvalid("group-date", !apptDate);
+          if (!apptDate) valid = false;
+          setInvalid("group-time", !apptTime);
+          if (!apptTime) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(".form-group.invalid");
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const dateObj = new Date(apptDate + "T00:00:00");
+          const friendlyDate = dateObj.toLocaleDateString(undefined, {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          const summaryBox = document.getElementById("summaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Service:</strong> ${selectedService}</div>
+        <div><strong>Date:</strong> ${friendlyDate}</div>
+        <div><strong>Time:</strong> ${apptTime}</div>
+        <div><strong>Contact:</strong> ${phone} · ${email}</div>
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+      `;
+          document.getElementById("bookingFormState").style.display = "none";
+          document.getElementById("bookingSuccess").classList.add("show");
+        });
+      }
+
+      const bookAnotherBtn = document.getElementById("bookAnotherBtn");
+      if (bookAnotherBtn) {
+        bookAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          serviceChips.forEach((c) => c.classList.remove("active"));
+          selectedService = "";
+          document
+            .querySelectorAll(".form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("bookingSuccess").classList.remove("show");
+          document.getElementById("bookingFormState").style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Forma — Movement, Strength, Stillness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1c1b19;
+        --bone: #f7f3ec;
+        --clay: #c9603b;
+        --sage: #8a9a7e;
+        --sand: #e8dfc8;
+        --ink-soft: rgba(247, 243, 236, 0.62);
+        --hairline: rgba(247, 243, 236, 0.14);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--ink);
+        color: var(--bone);
+        font-family: "Work Sans", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      h1,
+      h2,
+      h3,
+      .display {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.02;
+      }
+
+      .eyebrow {
+        font-family: "Work Sans", sans-serif;
+        font-size: 12.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--clay);
+        font-weight: 600;
+      }
+
+      /* ===== visible focus ===== */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--sand);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(28, 27, 25, 0.78);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--hairline);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 32px;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Fraunces", serif;
+        font-size: 21px;
+        font-weight: 600;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+      .logo span {
+        color: var(--clay);
+        font-style: italic;
+        font-weight: 500;
+      }
+      .nav-links {
+        display: flex;
+        gap: 36px;
+        font-size: 14px;
+        letter-spacing: 0.01em;
+      }
+      .nav-links a {
+        position: relative;
+        padding: 4px 0;
+        color: var(--ink-soft);
+        transition: color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--bone);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: var(--clay);
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: var(--bone);
+        color: var(--ink);
+        padding: 11px 22px;
+        border-radius: 2px;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .nav-cta:hover {
+        background: var(--clay);
+        color: var(--bone);
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--bone);
+        font-size: 24px;
+        cursor: pointer;
+        line-height: 1;
+        padding: 4px;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        z-index: 49;
+        background: var(--ink);
+        border-bottom: 1px solid var(--hairline);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+      }
+      .mobile-menu.open {
+        max-height: 480px;
+      }
+      .mobile-menu a {
+        padding: 18px 32px;
+        font-size: 15.5px;
+        color: var(--bone);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 32px 22px;
+        text-align: center;
+      }
+
+      @media (max-width: 860px) {
+        .mobile-menu {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        padding-top: 120px;
+        padding-bottom: 80px;
+        background:
+          radial-gradient(
+            ellipse 900px 600px at 85% 10%,
+            rgba(201, 96, 59, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 700px 500px at 5% 90%,
+            rgba(138, 154, 126, 0.12),
+            transparent 60%
+          );
+      }
+      .hero-grid {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 64px;
+        align-items: end;
+      }
+      .hero h1 {
+        font-size: clamp(48px, 7.2vw, 104px);
+        margin-top: 18px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--clay);
+        font-weight: 500;
+      }
+      .hero-sub {
+        margin-top: 28px;
+        font-size: 18px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        max-width: 480px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 38px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 16px 30px;
+        border-radius: 2px;
+        display: inline-block;
+        transition: all 0.25s ease;
+      }
+      .btn-primary {
+        background: var(--clay);
+        color: var(--bone);
+      }
+      .btn-primary:hover {
+        background: var(--bone);
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1px solid var(--hairline);
+        color: var(--bone);
+      }
+      .btn-ghost:hover {
+        border-color: var(--bone);
+        background: rgba(247, 243, 236, 0.06);
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        border-left: 1px solid var(--hairline);
+        padding-left: 32px;
+      }
+      .stat-num {
+        font-family: "Fraunces", serif;
+        font-size: 42px;
+        font-weight: 500;
+        color: var(--bone);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-stats {
+          flex-direction: row;
+          flex-wrap: wrap;
+          border-left: none;
+          border-top: 1px solid var(--hairline);
+          padding-left: 0;
+          padding-top: 24px;
+          gap: 32px;
+        }
+      }
+
+      /* marquee strip */
+      .marquee-strip {
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+        overflow: hidden;
+        padding: 16px 0;
+        background: rgba(247, 243, 236, 0.03);
+      }
+      .marquee-track {
+        display: flex;
+        gap: 48px;
+        white-space: nowrap;
+        width: max-content;
+        animation: scroll-left 32s linear infinite;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 17px;
+        color: var(--ink-soft);
+      }
+      .marquee-track span {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+      }
+      .marquee-track .dot {
+        color: var(--clay);
+        font-style: normal;
+      }
+      @keyframes scroll-left {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ===== SECTION SHARED ===== */
+      section {
+        padding: 120px 0;
+      }
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 64px;
+      }
+      .section-head h2 {
+        font-size: clamp(32px, 4.5vw, 52px);
+        margin-top: 14px;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        font-size: 16.5px;
+        margin-top: 18px;
+        line-height: 1.65;
+      }
+
+      @media (max-width: 860px) {
+        section {
+          padding: 64px 0;
+        }
+        .section-head {
+          margin-bottom: 40px;
+        }
+      }
+
+      /* ===== APPROACH / PILLARS ===== */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+      }
+      .contact-pillars {
+        grid-template-columns: 1fr 1fr;
+      }
+      .contact-pillars-spaced {
+        margin-top: 64px;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars-spaced {
+          margin-top: 40px;
+        }
+      }
+      .pillar {
+        background: var(--ink);
+        padding: 44px 36px;
+        position: relative;
+        transition: background 0.3s;
+      }
+      .pillar:hover {
+        background: rgba(247, 243, 236, 0.03);
+      }
+      .pillar-mark {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 15px;
+        color: var(--clay);
+        margin-bottom: 24px;
+        display: block;
+      }
+      .pillar h3 {
+        font-size: 24px;
+        margin-bottom: 14px;
+        font-weight: 500;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .email-heading {
+        font-size: 20px;
+      }
+      @media (max-width: 480px) {
+        .email-heading {
+          font-size: 17px;
+        }
+      }
+      .pillar p {
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+        .contact-pillars {
+          grid-template-columns: 1fr;
+        }
+        .pillar {
+          padding: 32px 28px;
+        }
+      }
+
+      /* ===== SCHEDULE (signature element) ===== */
+      .schedule-wrap {
+        border: 1px solid var(--hairline);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .schedule-head {
+        display: grid;
+        grid-template-columns: 160px repeat(6, 1fr);
+        background: rgba(247, 243, 236, 0.04);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .schedule-head div {
+        padding: 18px 14px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        text-align: center;
+        font-weight: 600;
+        border-left: 1px solid var(--hairline);
+      }
+      .schedule-head div:first-child {
+        border-left: none;
+        text-align: left;
+        color: var(--bone);
+      }
+      .schedule-head div.today {
+        color: var(--clay);
+      }
+
+      .schedule-row {
+        display: grid;
+        grid-template-columns: 160px repeat(6, 1fr);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .schedule-row:last-child {
+        border-bottom: none;
+      }
+      .time-cell {
+        padding: 20px 18px;
+        font-family: "Fraunces", serif;
+        font-size: 15px;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+      }
+      .class-cell {
+        border-left: 1px solid var(--hairline);
+        padding: 12px;
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .class-pill {
+        width: 100%;
+        text-align: center;
+        padding: 10px 6px;
+        border-radius: 3px;
+        font-size: 12.5px;
+        line-height: 1.3;
+        font-weight: 500;
+        transition: transform 0.2s;
+      }
+      .class-pill:hover {
+        transform: scale(1.04);
+      }
+      .class-pill.move {
+        background: rgba(201, 96, 59, 0.18);
+        color: #e8a480;
+        border: 1px solid rgba(201, 96, 59, 0.35);
+      }
+      .class-pill.strength {
+        background: rgba(138, 154, 126, 0.18);
+        color: #b9c7ac;
+        border: 1px solid rgba(138, 154, 126, 0.35);
+      }
+      .class-pill.still {
+        background: rgba(232, 223, 200, 0.12);
+        color: var(--sand);
+        border: 1px solid rgba(232, 223, 200, 0.25);
+      }
+      .schedule-legend {
+        display: flex;
+        gap: 28px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .legend-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      @media (max-width: 900px) {
+        .schedule-wrap {
+          overflow-x: auto;
+        }
+        .schedule-head,
+        .schedule-row {
+          min-width: 760px;
+        }
+      }
+
+      /* ===== TRAINERS ===== */
+      .trainers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .trainer-card {
+        background: rgba(247, 243, 236, 0.03);
+        border: 1px solid var(--hairline);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: border-color 0.3s;
+      }
+      .trainer-card:hover {
+        border-color: rgba(201, 96, 59, 0.4);
+      }
+      .trainer-photo {
+        height: 280px;
+        background: linear-gradient(160deg, #2a2825, #1c1b19);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 15px;
+        color: var(--ink-soft);
+        position: relative;
+        overflow: hidden;
+      }
+      .trainer-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 50% 30%,
+          rgba(201, 96, 59, 0.15),
+          transparent 65%
+        );
+      }
+      .trainer-info {
+        padding: 26px 24px;
+      }
+      .trainer-info h3 {
+        font-size: 21px;
+        font-weight: 500;
+      }
+      .trainer-role {
+        color: var(--clay);
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 6px;
+        display: block;
+        font-weight: 600;
+      }
+      .trainer-info p {
+        color: var(--ink-soft);
+        font-size: 14.5px;
+        margin-top: 14px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .trainers-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+      }
+      .testi {
+        background: var(--ink);
+        padding: 40px 32px;
+      }
+      .testi-quote {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 19px;
+        line-height: 1.5;
+        color: var(--bone);
+      }
+      .testi-name {
+        margin-top: 24px;
+        font-size: 13px;
+        color: var(--ink-soft);
+        letter-spacing: 0.02em;
+      }
+      .testi-name strong {
+        color: var(--sage);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== PRICING ===== */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .price-card {
+        border: 1px solid var(--hairline);
+        border-radius: 4px;
+        padding: 40px 32px;
+        position: relative;
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+      }
+      .price-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(247, 243, 236, 0.3);
+      }
+      .price-card.featured {
+        background: var(--clay);
+        border-color: var(--clay);
+      }
+      .price-card.featured .price-tier,
+      .price-card.featured .price-amt,
+      .price-card.featured .price-detail {
+        color: var(--bone);
+      }
+      .price-card.featured .price-feat {
+        color: rgba(247, 243, 236, 0.85);
+      }
+      .price-card.featured .price-feat::before {
+        color: var(--bone);
+      }
+      .price-tag {
+        position: absolute;
+        top: -12px;
+        right: 32px;
+        background: var(--bone);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border-radius: 20px;
+      }
+      .price-tier {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--clay);
+        font-weight: 600;
+      }
+      .price-card.featured .price-tier {
+        color: rgba(28, 27, 25, 0.7);
+      }
+      .price-amt {
+        font-family: "Fraunces", serif;
+        font-size: 46px;
+        margin-top: 14px;
+        font-weight: 500;
+      }
+      .price-detail {
+        color: var(--ink-soft);
+        font-size: 13.5px;
+        margin-top: 4px;
+      }
+      .price-feats {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+      .price-feat {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        display: flex;
+        gap: 10px;
+      }
+      .price-feat::before {
+        content: "—";
+        color: var(--clay);
+      }
+      .price-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 32px;
+      }
+      @media (max-width: 860px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== CTA BAND ===== */
+      .cta-band {
+        background: var(--sand);
+        color: var(--ink);
+        padding: 100px 0;
+        text-align: center;
+      }
+      .cta-band h2 {
+        font-size: clamp(34px, 5vw, 58px);
+        color: var(--ink);
+      }
+      .cta-band p {
+        margin-top: 18px;
+        font-size: 17px;
+        color: rgba(28, 27, 25, 0.7);
+        max-width: 480px;
+        margin-inline: auto;
+      }
+      .cta-band .btn-primary {
+        background: var(--ink);
+        color: var(--bone);
+        margin-top: 32px;
+      }
+      .cta-band .btn-primary:hover {
+        background: var(--clay);
+        color: var(--bone);
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        padding: 64px 0 36px;
+        border-top: 1px solid var(--hairline);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 40px;
+      }
+      .footer-brand .logo {
+        margin-bottom: 14px;
+      }
+      .footer-brand p {
+        color: var(--ink-soft);
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+      .footer-col h4 {
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 18px;
+      }
+      .footer-col a,
+      .footer-col p {
+        display: block;
+        color: var(--bone);
+        font-size: 14.5px;
+        margin-bottom: 11px;
+        opacity: 0.85;
+      }
+      .footer-col a:hover {
+        color: var(--clay);
+      }
+      .footer-bottom {
+        margin-top: 56px;
+        padding-top: 28px;
+        border-top: 1px solid var(--hairline);
+        display: flex;
+        justify-content: space-between;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      @media (max-width: 860px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+      }
+
+      /* ===== BOOKING FORM ===== */
+      .booking-section {
+        background: rgba(247, 243, 236, 0.03);
+        border-top: 1px solid var(--hairline);
+      }
+      .booking-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 64px;
+        align-items: start;
+      }
+      .booking-side {
+        padding-top: 8px;
+      }
+      .booking-points {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .booking-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .booking-point-num {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        color: var(--clay);
+        font-size: 18px;
+        flex-shrink: 0;
+        width: 28px;
+      }
+      .booking-point p {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+      .booking-point strong {
+        color: var(--bone);
+        font-weight: 500;
+        display: block;
+        margin-bottom: 3px;
+        font-family: "Fraunces", serif;
+        font-size: 16.5px;
+      }
+
+      .booking-card {
+        background: var(--ink);
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        padding: 40px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 9px;
+        font-weight: 600;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: rgba(247, 243, 236, 0.05);
+        border: 1px solid var(--hairline);
+        border-radius: 3px;
+        padding: 13px 14px;
+        color: var(--bone);
+        font-family: "Work Sans", sans-serif;
+        font-size: 14.5px;
+        transition:
+          border-color 0.25s,
+          background 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(247, 243, 236, 0.32);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--clay);
+        background: rgba(247, 243, 236, 0.08);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F7F3EC' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group select option {
+        background: var(--ink);
+        color: var(--bone);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 90px;
+        font-family: "Work Sans", sans-serif;
+      }
+      .field-error {
+        font-size: 12px;
+        color: var(--clay);
+        margin-top: 7px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--clay);
+        background: rgba(201, 96, 59, 0.07);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+
+      .service-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+      }
+      .service-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 3px;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--ink-soft);
+        user-select: none;
+      }
+      .service-chip:hover {
+        border-color: rgba(247, 243, 236, 0.4);
+        color: var(--bone);
+      }
+      .service-chip.active {
+        background: var(--clay);
+        border-color: var(--clay);
+        color: var(--bone);
+        font-weight: 500;
+      }
+
+      .booking-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 8px;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 17px 30px;
+        border-radius: 3px;
+        background: var(--clay);
+        color: var(--bone);
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .booking-submit:hover {
+        background: var(--bone);
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
+
+      .booking-note {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        margin-top: 14px;
+        text-align: center;
+      }
+
+      .booking-form-state,
+      .booking-success {
+        transition: opacity 0.3s ease;
+      }
+      .booking-success {
+        display: none;
+        text-align: center;
+        padding: 40px 12px;
+      }
+      .booking-success.show {
+        display: block;
+      }
+      .booking-success .check {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--sage);
+        margin: 0 auto 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        color: var(--ink);
+      }
+      .booking-success h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .booking-success p {
+        color: var(--ink-soft);
+        font-size: 14.5px;
+        line-height: 1.6;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .booking-success .summary {
+        margin-top: 24px;
+        padding: 18px 22px;
+        background: rgba(247, 243, 236, 0.04);
+        border: 1px solid var(--hairline);
+        border-radius: 4px;
+        text-align: left;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        display: inline-block;
+      }
+      .booking-success .summary div {
+        margin-bottom: 6px;
+      }
+      .booking-success .summary strong {
+        color: var(--bone);
+        font-weight: 500;
+      }
+      .booking-success .btn {
+        margin-top: 26px;
+      }
+
+      @media (max-width: 900px) {
+        .booking-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .booking-card {
+          padding: 28px 22px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .service-options {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* fade-in on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo">Studio <span>Forma</span></a>
+        <div class="nav-links">
+          <a href="#approach">Approach</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#trainers">Trainers</a>
+          <a href="#pricing">Membership</a>
+          <a href="#contact">Book Now</a>
+        </div>
+        <a href="#contact" class="nav-cta">Book a trial class</a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#approach">Approach</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#pricing">Membership</a>
+        <a href="#contact">Book Now</a>
+        <a href="#contact" class="btn btn-primary nav-cta"
+          >Book a trial class</a
+        >
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Boutique studio · Est. 2019</span>
+          <h1>Strength is a <em>practice,</em><br />not a punishment.</h1>
+          <p class="hero-sub">
+            Studio Forma blends strength training, breath-led movement, and
+            stillness into one membership — built for people who want to feel
+            strong, not just look it.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book a trial class</a>
+            <a href="#schedule" class="btn btn-ghost"
+              >View this week's schedule</a
+            >
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">1,200+</div>
+            <div class="stat-label">Members trained since 2019</div>
+          </div>
+          <div>
+            <div class="stat-num">14</div>
+            <div class="stat-label">Classes run every week</div>
+          </div>
+          <div>
+            <div class="stat-num">4.9★</div>
+            <div class="stat-label">Average member rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span
+          >Strength <span class="dot">●</span> Movement
+          <span class="dot">●</span> Breathwork
+          <span class="dot">●</span> Recovery
+          <span class="dot">●</span> Community <span class="dot">●</span></span
+        >
+        <span
+          >Strength <span class="dot">●</span> Movement
+          <span class="dot">●</span> Breathwork
+          <span class="dot">●</span> Recovery
+          <span class="dot">●</span> Community <span class="dot">●</span></span
+        >
+      </div>
+    </div>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our approach</span>
+          <h2>Three disciplines. One membership.</h2>
+          <p>
+            Most studios make you choose between lifting heavy and slowing down.
+            We built Forma so you don't have to — every membership moves across
+            all three rooms.
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <span class="pillar-mark">01 — Move</span>
+            <h3>Functional movement</h3>
+            <p>
+              Mobility-first sessions that restore range before we load it. The
+              room you start in, not the one you outgrow.
+            </p>
+          </div>
+          <div class="pillar reveal">
+            <span class="pillar-mark">02 — Lift</span>
+            <h3>Strength training</h3>
+            <p>
+              Small-group barbell and kettlebell programming, coached in groups
+              of eight or fewer so form is never guessed at.
+            </p>
+          </div>
+          <div class="pillar reveal">
+            <span class="pillar-mark">03 — Rest</span>
+            <h3>Breath & stillness</h3>
+            <p>
+              Closing the week with breath-led recovery sessions — because
+              adaptation happens in rest, not just in reps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">This week</span>
+          <h2>Walk in any day. There's always a room open.</h2>
+          <p>
+            A sample week — actual class times update live inside the member
+            app.
+          </p>
+        </div>
+
+        <div class="schedule-wrap reveal">
+          <div class="schedule-head">
+            <div>Time</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div class="today">Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+
+          <div class="schedule-row">
+            <div class="time-cell">6:30 AM</div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill move">Mobility</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill move">Mobility</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="time-cell">9:00 AM</div>
+            <div class="class-cell">
+              <div class="class-pill move">Movement</div>
+            </div>
+            <div class="class-cell"></div>
+            <div class="class-cell">
+              <div class="class-pill move">Movement</div>
+            </div>
+            <div class="class-cell"></div>
+            <div class="class-cell">
+              <div class="class-pill move">Movement</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+          </div>
+          <div class="schedule-row">
+            <div class="time-cell">12:30 PM</div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell"></div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+            <div class="class-cell"></div>
+          </div>
+          <div class="schedule-row">
+            <div class="time-cell">6:00 PM</div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill move">Mobility</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill move">Mobility</div>
+            </div>
+            <div class="class-cell">
+              <div class="class-pill strength">Strength</div>
+            </div>
+            <div class="class-cell"></div>
+          </div>
+          <div class="schedule-row">
+            <div class="time-cell">7:30 PM</div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+            <div class="class-cell"></div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+            <div class="class-cell"></div>
+            <div class="class-cell">
+              <div class="class-pill still">Breathwork</div>
+            </div>
+            <div class="class-cell"></div>
+          </div>
+        </div>
+
+        <div class="schedule-legend reveal">
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #e8a480"></span>
+            Strength
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: #b9c7ac"></span>
+            Movement / Mobility
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background: var(--sand)"></span>
+            Breathwork / Stillness
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainers">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Your coaches</span>
+          <h2>Coached by people, not playlists.</h2>
+          <p>
+            Every class is led live by a certified coach — no screens, no
+            recordings, no guessing if your form is right.
+          </p>
+        </div>
+        <div class="trainers-grid">
+          <div class="trainer-card reveal">
+            <div class="trainer-photo">Photo placeholder</div>
+            <div class="trainer-info">
+              <h3>Maya Reyes</h3>
+              <span class="trainer-role">Head Strength Coach</span>
+              <p>
+                8 years coaching Olympic lifting fundamentals. Maya leads our
+                6:30 AM strength block and most Saturday sessions.
+              </p>
+            </div>
+          </div>
+          <div class="trainer-card reveal">
+            <div class="trainer-photo">Photo placeholder</div>
+            <div class="trainer-info">
+              <h3>Devon Park</h3>
+              <span class="trainer-role">Movement & Mobility Lead</span>
+              <p>
+                Former physiotherapist turned coach. Devon designs every
+                mobility session around real-world movement limits.
+              </p>
+            </div>
+          </div>
+          <div class="trainer-card reveal">
+            <div class="trainer-photo">Photo placeholder</div>
+            <div class="trainer-info">
+              <h3>Aisha Khan</h3>
+              <span class="trainer-role">Breathwork Facilitator</span>
+              <p>
+                Certified in breath-led recovery practice. Aisha closes out the
+                week with our most-loved evening sessions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Members say</span>
+          <h2>What it actually feels like inside.</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <p class="testi-quote">
+              "I stopped dreading Mondays. The 6:30 strength block is the best
+              hour of my week, every week."
+            </p>
+            <p class="testi-name">
+              <strong>Priya S.</strong> — Member since 2022
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "First gym where the coach actually watched my form instead of
+              just counting reps."
+            </p>
+            <p class="testi-name">
+              <strong>Marcus T.</strong> — Member since 2023
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "The breathwork sessions sold me. I didn't expect a gym to also
+              fix my sleep."
+            </p>
+            <p class="testi-name">
+              <strong>Lena W.</strong> — Member since 2021
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Membership</span>
+          <h2>Pick your rhythm.</h2>
+          <p>
+            No joining fee. No lock-in contracts. Pause or cancel anytime from
+            the member app.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <span class="price-tier">Drop-in</span>
+            <div class="price-amt">$28</div>
+            <div class="price-detail">per class</div>
+            <div class="price-feats">
+              <div class="price-feat">Access to any single class</div>
+              <div class="price-feat">No commitment required</div>
+              <div class="price-feat">Great for first-timers</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Choose drop-in</a>
+          </div>
+          <div class="price-card featured reveal">
+            <span class="price-tag">Most popular</span>
+            <span class="price-tier">Unlimited</span>
+            <div class="price-amt">$159</div>
+            <div class="price-detail">per month</div>
+            <div class="price-feats">
+              <div class="price-feat">Unlimited classes, all rooms</div>
+              <div class="price-feat">Priority booking 48hrs early</div>
+              <div class="price-feat">One guest pass per month</div>
+            </div>
+            <a
+              href="#contact"
+              class="btn"
+              style="background: var(--ink); color: var(--bone)"
+              >Choose unlimited</a
+            >
+          </div>
+          <div class="price-card reveal">
+            <span class="price-tier">Founding</span>
+            <div class="price-amt">$129</div>
+            <div class="price-detail">per month, annual plan</div>
+            <div class="price-feats">
+              <div class="price-feat">Everything in Unlimited</div>
+              <div class="price-feat">Locked-in rate for 12 months</div>
+              <div class="price-feat">Free recovery session monthly</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Choose founding</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="wrap">
+        <h2 class="reveal">Your first class is on us.</h2>
+        <p class="reveal">
+          Come try a strength, movement, or breathwork session — no card
+          required, no pressure to join after.
+        </p>
+        <a href="#contact" class="btn btn-primary reveal"
+          >Book your free trial class</a
+        >
+      </div>
+    </div>
+
+    <section id="contact" class="booking-section">
+      <div class="wrap">
+        <div class="booking-layout">
+          <div class="booking-side">
+            <div class="section-head reveal" style="margin-bottom: 36px">
+              <span class="eyebrow">Book a session</span>
+              <h2>Reserve your spot.</h2>
+              <p>
+                Fill in your details and we'll confirm your class by email or
+                phone — usually within the hour during studio hours.
+              </p>
+            </div>
+            <div class="booking-points reveal">
+              <div class="booking-point">
+                <span class="booking-point-num">01</span>
+                <p>
+                  <strong>Pick a class</strong>Choose strength, movement, or
+                  breathwork — or let us recommend one if it's your first visit.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-num">02</span>
+                <p>
+                  <strong>Choose your time</strong>Pick any date and the time
+                  slots open up based on that day's actual schedule.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-num">03</span>
+                <p>
+                  <strong>Get confirmed</strong>You'll get a confirmation on
+                  screen right away, and a follow-up by email or phone.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-card reveal">
+            <div id="bookingFormState" class="booking-form-state">
+              <form id="appointmentForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Jordan Lee" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" id="group-email">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <div class="form-group" id="group-service">
+                  <label>Choose a class</label>
+                  <div class="service-options">
+                    <div class="service-chip" data-value="Strength">
+                      Strength
+                    </div>
+                    <div class="service-chip" data-value="Movement">
+                      Movement
+                    </div>
+                    <div class="service-chip" data-value="Breathwork">
+                      Breathwork
+                    </div>
+                  </div>
+                  <div class="field-error">Please select a class.</div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group" id="group-date">
+                    <label for="apptDate">Preferred date</label>
+                    <input type="date" id="apptDate" />
+                    <div class="field-error">
+                      Please choose a date (today or later).
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-time">
+                    <label for="apptTime">Preferred time</label>
+                    <select id="apptTime">
+                      <option value="">Select a time</option>
+                      <option value="6:30 AM">6:30 AM</option>
+                      <option value="9:00 AM">9:00 AM</option>
+                      <option value="12:30 PM">12:30 PM</option>
+                      <option value="6:00 PM">6:00 PM</option>
+                      <option value="7:30 PM">7:30 PM</option>
+                    </select>
+                    <div class="field-error">Please pick a time slot.</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="notes"
+                    >Notes
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="notes"
+                    placeholder="First time? Any injuries or preferences we should know about?"
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="booking-submit">
+                  Confirm appointment request
+                </button>
+                <p class="booking-note">
+                  No payment required now. We'll confirm availability before
+                  your first visit.
+                </p>
+              </form>
+            </div>
+
+            <div id="bookingSuccess" class="booking-success">
+              <div class="check">✓</div>
+              <h3>Request received!</h3>
+              <p>
+                Thanks — your appointment request has been sent. We'll confirm
+                by email or phone shortly.
+              </p>
+              <div class="summary" id="summaryBox"></div>
+              <div>
+                <a href="#" class="btn btn-ghost" id="bookAnotherBtn"
+                  >Book another session</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillars contact-pillars contact-pillars-spaced">
+          <div class="pillar">
+            <span class="pillar-mark">Studio</span>
+            <h3>142 Bellwood Ave, Unit 3</h3>
+            <p>
+              Open Monday–Saturday, 6:00 AM – 8:30 PM. Free street parking after
+              6 PM.
+            </p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-mark">Reach us</span>
+            <h3 class="email-heading">hello@studioforma.demo</h3>
+            <p>
+              +1 (555) 019-2847 — call or text. We typically reply within the
+              hour during studio hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">Studio <span>Forma</span></a>
+            <p>
+              A boutique strength, movement, and breathwork studio. Built for
+              people who want to feel strong, not just look it.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Studio</h4>
+            <a href="#approach">Approach</a>
+            <a href="#trainers">Coaches</a>
+            <a href="#pricing">Membership</a>
+          </div>
+          <div class="footer-col">
+            <h4>Schedule</h4>
+            <a href="#schedule">This week</a>
+            <a href="#contact">Book a trial</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Studio Forma. Demo website — for illustration purposes
+            only.</span
+          >
+          <span>Designed as a sample by [Your Name/Agency]</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+
+      // Safety net: if an element somehow never gets revealed (slow/unreliable
+      // observer on some devices), force it visible after a short delay so
+      // content never stays invisible/looks like a missing section.
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2500);
+
+      // ---- Mobile menu toggle ----
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("open");
+          menuToggle.textContent = isOpen ? "✕" : "☰";
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        // Close menu after tapping any link inside it
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            menuToggle.textContent = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      // ---- Appointment booking form ----
+      const form = document.getElementById("appointmentForm");
+      const dateInput = document.getElementById("apptDate");
+      const serviceChips = document.querySelectorAll(".service-chip");
+      let selectedService = "";
+
+      // Prevent picking a past date
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      // Service chip selection
+      serviceChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          serviceChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedService = chip.dataset.value;
+          document.getElementById("group-service").classList.remove("invalid");
+        });
+      });
+
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const apptDate = dateInput.value;
+          const apptTime = document.getElementById("apptTime").value;
+          const notes = document.getElementById("notes").value.trim();
+
+          let valid = true;
+
+          setInvalid("group-name", !fullName);
+          if (!fullName) valid = false;
+
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+
+          setInvalid("group-email", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+
+          setInvalid("group-service", !selectedService);
+          if (!selectedService) valid = false;
+
+          setInvalid("group-date", !apptDate);
+          if (!apptDate) valid = false;
+
+          setInvalid("group-time", !apptTime);
+          if (!apptTime) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(
+              ".form-group.invalid, #group-service.invalid",
+            );
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          // Build a friendly date string
+          const dateObj = new Date(apptDate + "T00:00:00");
+          const friendlyDate = dateObj.toLocaleDateString(undefined, {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          // In a real Hostinger Horizons build, this is where the form data
+          // gets sent to the backend (email notification + database record).
+          const summaryBox = document.getElementById("summaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Class:</strong> ${selectedService}</div>
+        <div><strong>Date:</strong> ${friendlyDate}</div>
+        <div><strong>Time:</strong> ${apptTime}</div>
+        <div><strong>Contact:</strong> ${phone} · ${email}</div>
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+      `;
+
+          document.getElementById("bookingFormState").style.display = "none";
+          document.getElementById("bookingSuccess").classList.add("show");
+        });
+      }
+
+      const bookAnotherBtn = document.getElementById("bookAnotherBtn");
+      if (bookAnotherBtn) {
+        bookAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          serviceChips.forEach((c) => c.classList.remove("active"));
+          selectedService = "";
+          document
+            .querySelectorAll(".form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("bookingSuccess").classList.remove("show");
+          document.getElementById("bookingFormState").style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>

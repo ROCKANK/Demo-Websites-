@@ -1,0 +1,1931 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalakriti — Buy Original Art Online, Paintings & More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --wall: #ffffff;
+        --madder: #b23a2e;
+        --ochre: #8a6d3b;
+        --charcoal: #1a1a1a;
+        --teal: #2f5c57;
+        --charcoal-soft: rgba(26, 26, 26, 0.58);
+        --hairline: rgba(26, 26, 26, 0.13);
+        --paper: #fafafa;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--wall);
+        color: var(--charcoal);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      h1,
+      h2,
+      h3,
+      .display {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--charcoal);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== TOP UTILITY BAR ===== */
+      .utility-bar {
+        background: var(--charcoal);
+        color: rgba(237, 231, 220, 0.75);
+        font-size: 12px;
+      }
+      .utility-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 28px;
+        max-width: 1320px;
+        margin: 0 auto;
+      }
+      .utility-links {
+        display: flex;
+        gap: 18px;
+      }
+      .utility-links a:hover {
+        color: var(--wall);
+      }
+      @media (max-width: 900px) {
+        .utility-bar {
+          display: none;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--paper);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .nav-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+        max-width: 1320px;
+        margin: 0 auto;
+        gap: 24px;
+      }
+      .logo {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        display: flex;
+        align-items: baseline;
+        gap: 2px;
+        flex-shrink: 0;
+      }
+      .logo .dot {
+        color: var(--madder);
+        font-weight: 700;
+      }
+      .nav-search {
+        flex: 1;
+        max-width: 420px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 9px 14px;
+        gap: 8px;
+      }
+      .nav-search input {
+        border: none;
+        outline: none;
+        font-size: 13.5px;
+        flex: 1;
+        background: transparent;
+        color: var(--charcoal);
+        font-family: "Inter", sans-serif;
+      }
+      .nav-search input::placeholder {
+        color: rgba(43, 39, 34, 0.4);
+      }
+      .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .nav-icons a {
+        color: var(--charcoal-soft);
+        transition: color 0.2s;
+      }
+      .nav-icons a:hover {
+        color: var(--madder);
+      }
+      .nav-cart {
+        background: var(--charcoal);
+        color: var(--wall);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12.5px;
+        font-weight: 600;
+      }
+      @media (max-width: 900px) {
+        .nav-search {
+          display: none;
+        }
+      }
+      @media (max-width: 900px) {
+        .nav-icons {
+          display: none;
+        }
+      }
+
+      .nav-cats {
+        border-top: 1px solid var(--hairline);
+        overflow-x: auto;
+      }
+      .nav-cats-row {
+        display: flex;
+        gap: 28px;
+        padding: 12px 28px;
+        max-width: 1320px;
+        margin: 0 auto;
+        font-size: 13.5px;
+        white-space: nowrap;
+      }
+      .nav-cats-row a {
+        color: var(--charcoal-soft);
+        transition: color 0.2s;
+        position: relative;
+        padding: 2px 0;
+      }
+      .nav-cats-row a:hover {
+        color: var(--madder);
+      }
+      .nav-cats-row a.featured {
+        color: var(--madder);
+        font-weight: 600;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        color: var(--charcoal);
+        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 10px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        background: var(--paper);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--charcoal);
+      }
+      .mobile-menu a {
+        padding: 16px 24px;
+        font-size: 15px;
+        color: var(--charcoal);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+        color: var(--wall) !important;
+        background: var(--charcoal);
+        padding: 14px;
+        border-radius: 2px;
+        font-weight: 600;
+      }
+      @media (max-width: 900px) {
+        .menu-toggle {
+          display: block;
+        }
+      }
+      @media (min-width: 901px) {
+        .nav-cats {
+          display: block;
+        }
+      }
+      @media (max-width: 900px) {
+        .nav-cats {
+          display: none;
+        }
+      }
+
+      .btn {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 13px 24px;
+        border-radius: 2px;
+        display: inline-block;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--charcoal);
+        color: var(--wall);
+      }
+      .btn-primary:hover {
+        background: var(--madder);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--charcoal);
+        color: var(--charcoal);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: var(--charcoal);
+        color: var(--wall);
+      }
+
+      /* ===== PROMO TILES ===== */
+      .promo-section {
+        padding: 32px 0 8px;
+      }
+      .promo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .promo-tile {
+        position: relative;
+        overflow: hidden;
+        min-height: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+      .promo-tile::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .promo-tile.t1::before {
+        background: #9c5048;
+      }
+      .promo-tile.t2::before {
+        background: #8a7048;
+      }
+      .promo-tile.t3::before {
+        background: #4a6e68;
+      }
+      .promo-tile::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.45),
+          transparent 55%
+        );
+      }
+      .promo-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+      }
+      .promo-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .promo-title {
+        font-family: "Inter", sans-serif;
+        font-size: 23px;
+        font-weight: 500;
+        margin-top: 6px;
+      }
+      .promo-link {
+        font-size: 13px;
+        margin-top: 10px;
+        display: inline-block;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      @media (max-width: 900px) {
+        .promo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== CATEGORY LINK ROWS ===== */
+      .link-rows-section {
+        padding: 36px 0;
+      }
+      .link-row-block {
+        margin-bottom: 28px;
+      }
+      .link-row-label {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--charcoal-soft);
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+      .link-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .link-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 9px 18px;
+        font-size: 13.5px;
+        color: var(--charcoal);
+        background: #fff;
+        transition: all 0.2s;
+      }
+      .link-chip:hover {
+        border-color: var(--madder);
+        color: var(--madder);
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-section {
+        background: var(--wall);
+        padding: 40px 0;
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+      .trust-item h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .trust-item p {
+        font-size: 13px;
+        color: var(--charcoal-soft);
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+      }
+
+      /* ===== PRODUCT GRID (price-first, dense, Saatchi-style) ===== */
+      .grid-section {
+        padding: 56px 0;
+      }
+      .section-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .section-title {
+        font-family: "Inter", sans-serif;
+        font-size: 26px;
+        font-weight: 500;
+      }
+      .section-viewall {
+        font-size: 13px;
+        color: var(--madder);
+        font-weight: 600;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+      }
+      .filter-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 8px 16px;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--charcoal-soft);
+        background: #fff;
+        user-select: none;
+      }
+      .filter-chip:hover {
+        border-color: var(--charcoal);
+      }
+      .filter-chip.active {
+        background: var(--charcoal);
+        border-color: var(--charcoal);
+        color: var(--wall);
+        font-weight: 500;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px 18px;
+      }
+      .product-card {
+        cursor: pointer;
+      }
+      .product-thumb {
+        aspect-ratio: 1/1.05;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 12px;
+        transition: opacity 0.2s;
+      }
+      .product-card:hover .product-thumb {
+        opacity: 0.88;
+      }
+
+      .product-thumb.p1 {
+        background: #a85a52;
+      }
+      .product-thumb.p2 {
+        background: #a38658;
+      }
+      .product-thumb.p3 {
+        background: #5c8580;
+      }
+      .product-thumb.p4 {
+        background: #7d6694;
+      }
+      .product-thumb.p5 {
+        background: #b07d5a;
+      }
+      .product-thumb.p6 {
+        background: #5e8a85;
+      }
+      .product-thumb.p7 {
+        background: #8a7258;
+      }
+      .product-thumb.p8 {
+        background: #6e8a95;
+      }
+      .product-price {
+        font-family: "Inter", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--charcoal);
+      }
+      .product-title {
+        font-size: 13.5px;
+        color: var(--charcoal);
+        margin-top: 4px;
+        font-weight: 500;
+      }
+      .product-artist {
+        font-size: 12.5px;
+        color: var(--charcoal-soft);
+        margin-top: 3px;
+      }
+      .product-medium {
+        font-size: 12px;
+        color: var(--charcoal-soft);
+        margin-top: 6px;
+      }
+      .product-size {
+        font-size: 12px;
+        color: var(--charcoal-soft);
+      }
+
+      @media (max-width: 900px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .product-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px 12px;
+        }
+      }
+
+      /* ===== PRICE FILTER ===== */
+      .price-filter-section {
+        padding: 8px 0 56px;
+      }
+      .price-filter-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .price-tile {
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 22px;
+        text-align: center;
+        background: #fff;
+        transition: all 0.2s;
+      }
+      .price-tile:hover {
+        border-color: var(--madder);
+      }
+      .price-tile-label {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .price-tile-sub {
+        font-size: 12px;
+        color: var(--charcoal-soft);
+        margin-top: 4px;
+      }
+      @media (max-width: 760px) {
+        .price-filter-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== ADVISORY CTA ===== */
+      .advisory-section {
+        background: var(--wall);
+        padding: 64px 0;
+      }
+      .advisory-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .advisory-text h2 {
+        font-size: clamp(26px, 3.4vw, 38px);
+      }
+      .advisory-text p {
+        margin-top: 14px;
+        font-size: 15.5px;
+        color: var(--charcoal-soft);
+        line-height: 1.65;
+        max-width: 460px;
+      }
+      .advisory-text .btn {
+        margin-top: 22px;
+      }
+      .advisory-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .advisory-cat-row {
+        background: var(--paper);
+        padding: 16px 22px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        transition: background 0.2s;
+      }
+      .advisory-cat-row:hover {
+        background: #fff;
+      }
+      .advisory-cat-row span:last-child {
+        color: var(--charcoal-soft);
+      }
+      @media (max-width: 860px) {
+        .advisory-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+
+      /* ===== ARTIST SUBMISSION ===== */
+      section.standalone {
+        padding: 90px 0;
+      }
+      @media (max-width: 860px) {
+        section.standalone {
+          padding: 54px 0;
+        }
+      }
+      .section-head {
+        max-width: 600px;
+        margin-bottom: 44px;
+      }
+      .eyebrow {
+        font-size: 11.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--madder);
+        font-weight: 600;
+      }
+      .section-head h2 {
+        font-size: clamp(26px, 3.6vw, 40px);
+        margin-top: 10px;
+      }
+      .section-head p {
+        color: var(--charcoal-soft);
+        font-size: 15.5px;
+        margin-top: 14px;
+        line-height: 1.6;
+      }
+
+      .artist-section {
+        background: var(--paper);
+        color: var(--charcoal);
+        border-top: 1px solid var(--hairline);
+      }
+      .artist-section .eyebrow {
+        color: var(--madder);
+      }
+      .artist-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .artist-side h2 {
+        color: var(--charcoal);
+      }
+      .artist-side p {
+        color: var(--charcoal-soft);
+      }
+      .artist-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 28px;
+      }
+      .artist-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .artist-point-mark {
+        color: var(--madder);
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        flex-shrink: 0;
+        width: 22px;
+      }
+      .artist-point p {
+        font-size: 13.5px;
+        color: var(--charcoal-soft);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .artist-point strong {
+        color: var(--charcoal);
+        display: block;
+        margin-bottom: 3px;
+        font-family: "Inter", sans-serif;
+        font-size: 15.5px;
+        font-weight: 600;
+      }
+
+      .artist-card {
+        background: #fff;
+        color: var(--charcoal);
+        border: 1px solid var(--hairline);
+        padding: 32px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--charcoal-soft);
+        margin-bottom: 7px;
+        font-weight: 600;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 11px 13px;
+        color: var(--charcoal);
+        font-family: "Inter", sans-serif;
+        font-size: 13.5px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(43, 39, 34, 0.32);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--madder);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232B2722' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 74px;
+      }
+      .field-error {
+        font-size: 11.5px;
+        color: var(--madder);
+        margin-top: 5px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--madder);
+        background: rgba(139, 46, 46, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .medium-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .medium-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 10px 8px;
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--charcoal-soft);
+        user-select: none;
+      }
+      .medium-chip:hover {
+        border-color: var(--charcoal);
+      }
+      .medium-chip.active {
+        background: var(--madder);
+        border-color: var(--madder);
+        color: var(--wall);
+        font-weight: 500;
+      }
+      .submit-btn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 4px;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 15px 26px;
+        border-radius: 2px;
+        background: var(--charcoal);
+        color: var(--wall);
+        transition: all 0.25s;
+      }
+      .submit-btn:hover {
+        background: var(--madder);
+      }
+      .form-note {
+        font-size: 11.5px;
+        color: var(--charcoal-soft);
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      .success-state {
+        display: none;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .success-state.show {
+        display: block;
+      }
+      .success-check {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--teal);
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: var(--wall);
+      }
+      .success-state h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .success-state p {
+        color: var(--charcoal-soft);
+        font-size: 13.5px;
+        line-height: 1.55;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .success-summary {
+        margin-top: 20px;
+        padding: 14px 18px;
+        background: rgba(43, 39, 34, 0.04);
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        text-align: left;
+        font-size: 12.5px;
+        color: var(--charcoal-soft);
+        display: inline-block;
+      }
+      .success-summary div {
+        margin-bottom: 5px;
+      }
+      .success-summary strong {
+        color: var(--charcoal);
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .artist-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .artist-card {
+          padding: 24px 20px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== INQUIRY ===== */
+      .inquiry-section {
+        background: #fff;
+        border-top: 1px solid var(--hairline);
+      }
+      .inquiry-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .inquiry-card {
+        background: var(--paper);
+        border: 1px solid var(--hairline);
+        border-radius: 2px;
+        padding: 32px;
+      }
+      @media (max-width: 900px) {
+        .inquiry-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .inquiry-card {
+          padding: 24px 20px;
+        }
+      }
+
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        margin-top: 48px;
+      }
+      .contact-pillar {
+        background: #fff;
+        padding: 30px 28px;
+      }
+      .contact-pillar h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .contact-pillar h3.email-heading {
+        font-size: 16.5px;
+      }
+      .contact-pillar p {
+        color: var(--charcoal-soft);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 30px;
+        }
+        .contact-pillar h3.email-heading {
+          font-size: 15px;
+        }
+      }
+
+      /* ===== FOOTER (dense, multi-column) ===== */
+      footer {
+        background: var(--charcoal);
+        color: rgba(237, 231, 220, 0.75);
+        padding-top: 48px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 32px;
+        padding-bottom: 36px;
+        border-bottom: 1px solid rgba(237, 231, 220, 0.12);
+      }
+      .footer-brand .logo {
+        color: var(--wall);
+      }
+      .footer-brand p {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 260px;
+        margin-top: 12px;
+        color: rgba(237, 231, 220, 0.55);
+      }
+      .footer-col h4 {
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(237, 231, 220, 0.5);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 9px;
+        color: rgba(237, 231, 220, 0.75);
+      }
+      .footer-col a:hover {
+        color: var(--ochre);
+      }
+      .footer-bottom {
+        padding: 22px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: rgba(237, 231, 220, 0.45);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="utility-bar">
+      <div class="utility-row">
+        <span>Free shipping on orders above ₹15,000 · 7-day returns</span>
+        <div class="utility-links">
+          <a href="#sell">Sell Your Art</a>
+          <a href="#contact">Help</a>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="nav-top">
+        <a href="#" class="logo">Kalakriti<span class="dot">.</span></a>
+        <div class="nav-search">
+          <span>⌕</span>
+          <input type="text" placeholder="Search artists, mediums, styles..." />
+        </div>
+        <div class="nav-icons">
+          <a href="#sell">Sell Your Art</a>
+          <a href="#contact">Account</a>
+          <div class="nav-cart">0</div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+      <div class="nav-cats">
+        <div class="nav-cats-row">
+          <a href="#gallery" class="featured">New Arrivals</a>
+          <a href="#gallery">Paintings</a>
+          <a href="#gallery">Folk Art</a>
+          <a href="#gallery">Sculpture</a>
+          <a href="#gallery">Printmaking</a>
+          <a href="#advisory">Art Advisory</a>
+          <a href="#sell">Sell Your Art</a>
+          <a href="#price-filter">Curated Deals</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <a href="#" class="logo">Kalakriti<span class="dot">.</span></a>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#gallery">New Arrivals</a>
+      <a href="#gallery">Paintings</a>
+      <a href="#gallery">Folk Art</a>
+      <a href="#gallery">Sculpture</a>
+      <a href="#advisory">Art Advisory</a>
+      <a href="#sell">Sell Your Art</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Talk to a curator</a>
+    </div>
+
+    <section class="promo-section">
+      <div class="wrap">
+        <div class="promo-grid">
+          <div class="promo-tile t1 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">Curated Affordable Finds</div>
+              <div class="promo-title">Art Under ₹15,000</div>
+              <a href="#price-filter" class="promo-link">Shop now →</a>
+            </div>
+          </div>
+          <div class="promo-tile t2 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">This Festive Season</div>
+              <div class="promo-title">Gifting Made Easy</div>
+              <a href="#gallery" class="promo-link">Explore gifts →</a>
+            </div>
+          </div>
+          <div class="promo-tile t3 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">Just Added</div>
+              <div class="promo-title">New This Week</div>
+              <a href="#gallery" class="promo-link">See new arrivals →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="link-rows-section">
+      <div class="wrap">
+        <div class="link-row-block reveal">
+          <div class="link-row-label">Shop by Category</div>
+          <div class="link-row">
+            <a href="#gallery" class="link-chip">Paintings</a>
+            <a href="#gallery" class="link-chip">Folk Art</a>
+            <a href="#gallery" class="link-chip">Sculpture</a>
+            <a href="#gallery" class="link-chip">Printmaking</a>
+            <a href="#gallery" class="link-chip">Mixed Media</a>
+          </div>
+        </div>
+        <div class="link-row-block reveal">
+          <div class="link-row-label">Curator Favourites</div>
+          <div class="link-row">
+            <a href="#gallery" class="link-chip">Best of 2026</a>
+            <a href="#gallery" class="link-chip">Bold Abstracts</a>
+            <a href="#gallery" class="link-chip">Folk Traditions</a>
+            <a href="#gallery" class="link-chip">Festive Picks</a>
+            <a href="#gallery" class="link-chip">Statement Sculpture</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <h3>Nationwide Selection</h3>
+            <p>
+              Original work from 340+ artists across India, from Kochi to
+              Santiniketan.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>7-Day Returns</h3>
+            <p>
+              Buy with confidence — return any piece within 7 days if it's not
+              right.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>4.8★ Buyer Rating</h3>
+            <p>
+              Thousands of buyers trust Kalakriti for original, authenticated
+              work.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>Artists Earn More</h3>
+            <p>
+              We take a smaller cut than traditional galleries, so artists keep
+              more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="grid-section">
+      <div class="wrap">
+        <div class="section-title-row reveal">
+          <h2 class="section-title">New Arrivals</h2>
+          <a href="#price-filter" class="section-viewall">View all →</a>
+        </div>
+        <div class="filter-row reveal">
+          <div class="filter-chip active">All work</div>
+          <div class="filter-chip">Painting</div>
+          <div class="filter-chip">Folk Art</div>
+          <div class="filter-chip">Sculpture</div>
+          <div class="filter-chip">Printmaking</div>
+        </div>
+        <div class="product-grid">
+          <div class="product-card reveal">
+            <div class="product-thumb p1"></div>
+            <div class="product-price">₹38,000</div>
+            <div class="product-title">Monsoon Over Kochi</div>
+            <div class="product-artist">Lakshmi Menon, Kochi</div>
+            <div class="product-medium">Oil on Canvas</div>
+            <div class="product-size">24 × 30 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p2"></div>
+            <div class="product-price">₹14,500</div>
+            <div class="product-title">Tree of Life, No. 4</div>
+            <div class="product-artist">Bharti Dudwe, Jitwarpur</div>
+            <div class="product-medium">Madhubani on Paper</div>
+            <div class="product-size">18 × 24 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p3"></div>
+            <div class="product-price">₹9,800</div>
+            <div class="product-title">Village Gathering</div>
+            <div class="product-artist">Rajesh Vangad, Dahanu</div>
+            <div class="product-medium">Warli on Canvas</div>
+            <div class="product-size">20 × 20 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p4"></div>
+            <div class="product-price">₹52,000</div>
+            <div class="product-title">Untitled (Blue Study)</div>
+            <div class="product-artist">Aditi Rao, Baroda</div>
+            <div class="product-medium">Acrylic on Canvas</div>
+            <div class="product-size">30 × 36 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p5"></div>
+            <div class="product-price">₹27,500</div>
+            <div class="product-title">Krishna and the Cows</div>
+            <div class="product-artist">Shyam Lal Sharma, Nathdwara</div>
+            <div class="product-medium">Pichwai on Cloth</div>
+            <div class="product-size">22 × 28 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p6"></div>
+            <div class="product-price">₹61,000</div>
+            <div class="product-title">Form in Bronze IV</div>
+            <div class="product-artist">Naveen Kumar, Santiniketan</div>
+            <div class="product-medium">Bronze Sculpture</div>
+            <div class="product-size">14 × 8 × 6 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p7"></div>
+            <div class="product-price">₹11,200</div>
+            <div class="product-title">Terracotta Dreams</div>
+            <div class="product-artist">Farida Khatun, Bankura</div>
+            <div class="product-medium">Terracotta Relief</div>
+            <div class="product-size">16 × 12 in</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p8"></div>
+            <div class="product-price">₹19,900</div>
+            <div class="product-title">Backwater Reflections</div>
+            <div class="product-artist">Tomy Mathew, Alleppey</div>
+            <div class="product-medium">Watercolour on Paper</div>
+            <div class="product-size">20 × 16 in</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price-filter" class="price-filter-section">
+      <div class="wrap">
+        <div class="section-title-row reveal">
+          <h2 class="section-title">Shop by Price</h2>
+        </div>
+        <div class="price-filter-grid">
+          <a href="#gallery" class="price-tile reveal">
+            <div class="price-tile-label">Under ₹10,000</div>
+            <div class="price-tile-sub">Affordable starting pieces</div>
+          </a>
+          <a href="#gallery" class="price-tile reveal">
+            <div class="price-tile-label">₹10,000 – ₹25,000</div>
+            <div class="price-tile-sub">Most popular range</div>
+          </a>
+          <a href="#gallery" class="price-tile reveal">
+            <div class="price-tile-label">₹25,000 – ₹50,000</div>
+            <div class="price-tile-sub">Statement pieces</div>
+          </a>
+          <a href="#gallery" class="price-tile reveal">
+            <div class="price-tile-label">₹50,000+</div>
+            <div class="price-tile-sub">Collector favourites</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="advisory" class="advisory-section">
+      <div class="wrap">
+        <div class="advisory-grid">
+          <div class="advisory-text reveal">
+            <span class="eyebrow">Personalised, curated experience</span>
+            <h2>Not sure where to start?</h2>
+            <p>
+              Our advisors offer free one-on-one guidance tailored to your
+              taste, space, and budget — no obligation to buy.
+            </p>
+            <a href="#contact" class="btn btn-primary"
+              >Connect with an advisor</a
+            >
+          </div>
+          <div class="advisory-categories reveal">
+            <a href="#gallery" class="advisory-cat-row"
+              ><span>Paintings</span><span>120+ pieces</span></a
+            >
+            <a href="#gallery" class="advisory-cat-row"
+              ><span>Folk Art</span><span>85+ pieces</span></a
+            >
+            <a href="#gallery" class="advisory-cat-row"
+              ><span>Sculpture</span><span>60+ pieces</span></a
+            >
+            <a href="#gallery" class="advisory-cat-row"
+              ><span>Printmaking</span><span>45+ pieces</span></a
+            >
+            <a href="#gallery" class="advisory-cat-row"
+              ><span>Mixed Media</span><span>30+ pieces</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sell" class="artist-section standalone">
+      <div class="wrap">
+        <div class="artist-grid">
+          <div class="artist-side">
+            <span class="eyebrow">For artists</span>
+            <h2 class="reveal">Sell your work, keep more of it.</h2>
+            <p
+              class="reveal"
+              style="margin-top: 14px; font-size: 15.5px; line-height: 1.6"
+            >
+              Kalakriti takes a smaller cut than traditional galleries, and you
+              set your own prices. Submit your details and our curation team
+              will review within 5 days.
+            </p>
+            <div class="artist-points reveal">
+              <div class="artist-point">
+                <span class="artist-point-mark">1</span>
+                <p>
+                  <strong>Submit your work</strong>Tell us about your practice
+                  and what you'd like to list.
+                </p>
+              </div>
+              <div class="artist-point">
+                <span class="artist-point-mark">2</span>
+                <p>
+                  <strong>Get curated</strong>We review for quality and
+                  originality, not fame or following.
+                </p>
+              </div>
+              <div class="artist-point">
+                <span class="artist-point-mark">3</span>
+                <p>
+                  <strong>Start selling</strong>List pieces, set your prices,
+                  and get paid directly when something sells.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="artist-card reveal">
+            <div id="artistFormState">
+              <form id="artistForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-aname">
+                    <label for="artistName">Full name</label>
+                    <input
+                      type="text"
+                      id="artistName"
+                      placeholder="e.g. Meera Iyer"
+                    />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-aphone">
+                    <label for="artistPhone">Phone number</label>
+                    <input
+                      type="tel"
+                      id="artistPhone"
+                      placeholder="+91 98765 43210"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group" id="group-aemail">
+                    <label for="artistEmail">Email</label>
+                    <input
+                      type="email"
+                      id="artistEmail"
+                      placeholder="you@example.com"
+                    />
+                    <div class="field-error">
+                      Please enter a valid email address.
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-acity">
+                    <label for="artistCity">City</label>
+                    <input
+                      type="text"
+                      id="artistCity"
+                      placeholder="e.g. Jaipur"
+                    />
+                    <div class="field-error">Please enter your city.</div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-amedium">
+                  <label>Primary medium</label>
+                  <div class="medium-options">
+                    <div class="medium-chip" data-value="Painting">
+                      Painting
+                    </div>
+                    <div class="medium-chip" data-value="Folk Art">
+                      Folk Art
+                    </div>
+                    <div class="medium-chip" data-value="Sculpture">
+                      Sculpture
+                    </div>
+                    <div class="medium-chip" data-value="Printmaking">
+                      Printmaking
+                    </div>
+                  </div>
+                  <div class="field-error">Please select a medium.</div>
+                </div>
+                <div class="form-group">
+                  <label for="artistPortfolio"
+                    >Portfolio or Instagram link
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="artistPortfolio"
+                    placeholder="instagram.com/yourhandle"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="artistNotes"
+                    >Tell us about your work
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="artistNotes"
+                    placeholder="Style, influences, what you'd like to list first..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                  Submit application
+                </button>
+                <p class="form-note">
+                  Our curation team typically responds within 5 working days.
+                </p>
+              </form>
+            </div>
+            <div id="artistSuccess" class="success-state">
+              <div class="success-check">✓</div>
+              <h3>Application received!</h3>
+              <p>
+                Thanks for sharing your work — our curation team will review it
+                and reach out within 5 working days.
+              </p>
+              <div class="success-summary" id="artistSummaryBox"></div>
+              <div style="margin-top: 22px">
+                <a
+                  href="#"
+                  class="btn btn-ghost"
+                  id="artistAnotherBtn"
+                  style="color: var(--charcoal)"
+                  >Submit another application</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="inquiry-section standalone">
+      <div class="wrap">
+        <div class="inquiry-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 28px">
+              <span class="eyebrow">For buyers</span>
+              <h2>Ask us anything.</h2>
+              <p>
+                Curious about a piece, framing, shipping, or a custom
+                commission? Send a quick inquiry and we'll get back to you.
+              </p>
+            </div>
+            <div class="artist-points reveal" style="margin-top: 0">
+              <div class="artist-point">
+                <span class="artist-point-mark" style="color: var(--madder)"
+                  >1</span
+                >
+                <p>
+                  <strong>Tell us what you're after</strong>A piece you saw, a
+                  budget range, or a style you love.
+                </p>
+              </div>
+              <div class="artist-point">
+                <span class="artist-point-mark" style="color: var(--madder)"
+                  >2</span
+                >
+                <p>
+                  <strong>We connect you with the artist</strong>Or recommend
+                  similar work if the original isn't available.
+                </p>
+              </div>
+              <div class="artist-point">
+                <span class="artist-point-mark" style="color: var(--madder)"
+                  >3</span
+                >
+                <p>
+                  <strong>You decide, no pressure</strong>Take your time — we're
+                  here to help you choose, not rush you.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="inquiry-card reveal">
+            <div id="inquiryFormState">
+              <form id="inquiryForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-iname">
+                    <label for="inquiryName">Full name</label>
+                    <input
+                      type="text"
+                      id="inquiryName"
+                      placeholder="Your name"
+                    />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-iphone">
+                    <label for="inquiryPhone">Phone number</label>
+                    <input
+                      type="tel"
+                      id="inquiryPhone"
+                      placeholder="+91 98765 43210"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-iemail">
+                  <label for="inquiryEmail">Email</label>
+                  <input
+                    type="email"
+                    id="inquiryEmail"
+                    placeholder="you@example.com"
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="form-group" id="group-iinterest">
+                  <label>What are you interested in?</label>
+                  <div class="medium-options">
+                    <div class="medium-chip" data-value="A specific piece">
+                      A specific piece
+                    </div>
+                    <div class="medium-chip" data-value="Custom commission">
+                      Custom commission
+                    </div>
+                    <div class="medium-chip" data-value="General browsing">
+                      General browsing
+                    </div>
+                    <div class="medium-chip" data-value="Shipping question">
+                      Shipping question
+                    </div>
+                  </div>
+                  <div class="field-error">Please select an option.</div>
+                </div>
+                <div class="form-group">
+                  <label for="inquiryMessage">Your message</label>
+                  <textarea
+                    id="inquiryMessage"
+                    placeholder="Tell us a bit more..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send inquiry</button>
+                <p class="form-note">
+                  We typically reply within a few hours during business hours.
+                </p>
+              </form>
+            </div>
+            <div id="inquirySuccess" class="success-state">
+              <div class="success-check">✓</div>
+              <h3>Inquiry sent!</h3>
+              <p>
+                Thanks for reaching out — we'll get back to you shortly with
+                more details.
+              </p>
+              <div class="success-summary" id="inquirySummaryBox"></div>
+              <div style="margin-top: 22px">
+                <a
+                  href="#"
+                  class="btn btn-ghost"
+                  id="inquiryAnotherBtn"
+                  style="color: var(--charcoal)"
+                  >Send another inquiry</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span class="eyebrow">Studio Office</span>
+            <h3>14 Lansdowne Road, 3rd Floor</h3>
+            <p>
+              Open Monday–Saturday, 10:00 AM – 7:00 PM. Visits by appointment
+              only.
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span class="eyebrow">Reach us</span>
+            <h3 class="email-heading">hello@kalakriti.demo</h3>
+            <p>
+              +91 98123 45670 — call or WhatsApp. We typically reply within a
+              few hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="logo">Kalakriti<span class="dot">.</span></a>
+            <p>
+              Original art, direct from Indian artists. No prints, no
+              reproductions — just work with a story.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>For Buyers</h4>
+            <a href="#advisory">Art Advisory</a>
+            <a href="#contact">Help Centre</a>
+            <a href="#contact">Returns</a>
+            <a href="#gallery">Curated Collections</a>
+          </div>
+          <div class="footer-col">
+            <h4>For Artists</h4>
+            <a href="#sell">Sell on Kalakriti</a>
+            <a href="#sell">Artist Program</a>
+            <a href="#contact">Commissions</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Kalakriti. Demo website — for illustration purposes
+            only.</span
+          >
+          <span>Designed as a sample by [Your Name/Agency]</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2000);
+
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () =>
+          mobileMenu.classList.add("open"),
+        );
+        menuClose.addEventListener("click", () =>
+          mobileMenu.classList.remove("open"),
+        );
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          );
+        });
+      }
+
+      document.querySelectorAll(".filter-row .filter-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-row .filter-chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+        });
+      });
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+
+      const artistForm = document.getElementById("artistForm");
+      const artistMediumChips = document.querySelectorAll(
+        "#group-amedium .medium-chip",
+      );
+      let selectedMedium = "";
+
+      artistMediumChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          artistMediumChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedMedium = chip.dataset.value;
+          document.getElementById("group-amedium").classList.remove("invalid");
+        });
+      });
+
+      if (artistForm) {
+        artistForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("artistName").value.trim();
+          const phone = document.getElementById("artistPhone").value.trim();
+          const email = document.getElementById("artistEmail").value.trim();
+          const city = document.getElementById("artistCity").value.trim();
+          const portfolio = document
+            .getElementById("artistPortfolio")
+            .value.trim();
+          const notes = document.getElementById("artistNotes").value.trim();
+
+          let valid = true;
+          setInvalid("group-aname", !name);
+          if (!name) valid = false;
+          setInvalid("group-aphone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-aemail", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-acity", !city);
+          if (!city) valid = false;
+          setInvalid("group-amedium", !selectedMedium);
+          if (!selectedMedium) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(
+              "#artistForm .form-group.invalid",
+            );
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const summaryBox = document.getElementById("artistSummaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${name}</div>
+        <div><strong>City:</strong> ${city}</div>
+        <div><strong>Medium:</strong> ${selectedMedium}</div>
+        <div><strong>Contact:</strong> ${phone} · ${email}</div>
+        ${portfolio ? `<div><strong>Portfolio:</strong> ${portfolio}</div>` : ""}
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+      `;
+          document.getElementById("artistFormState").style.display = "none";
+          document.getElementById("artistSuccess").classList.add("show");
+        });
+      }
+
+      const artistAnotherBtn = document.getElementById("artistAnotherBtn");
+      if (artistAnotherBtn) {
+        artistAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          artistForm.reset();
+          artistMediumChips.forEach((c) => c.classList.remove("active"));
+          selectedMedium = "";
+          document
+            .querySelectorAll("#artistForm .form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("artistSuccess").classList.remove("show");
+          document.getElementById("artistFormState").style.display = "block";
+        });
+      }
+
+      const inquiryForm = document.getElementById("inquiryForm");
+      const inquiryChips = document.querySelectorAll(
+        "#group-iinterest .medium-chip",
+      );
+      let selectedInterest = "";
+
+      inquiryChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          inquiryChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedInterest = chip.dataset.value;
+          document
+            .getElementById("group-iinterest")
+            .classList.remove("invalid");
+        });
+      });
+
+      if (inquiryForm) {
+        inquiryForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("inquiryName").value.trim();
+          const phone = document.getElementById("inquiryPhone").value.trim();
+          const email = document.getElementById("inquiryEmail").value.trim();
+          const message = document
+            .getElementById("inquiryMessage")
+            .value.trim();
+
+          let valid = true;
+          setInvalid("group-iname", !name);
+          if (!name) valid = false;
+          setInvalid("group-iphone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-iemail", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-iinterest", !selectedInterest);
+          if (!selectedInterest) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(
+              "#inquiryForm .form-group.invalid",
+            );
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const summaryBox = document.getElementById("inquirySummaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${name}</div>
+        <div><strong>Interested in:</strong> ${selectedInterest}</div>
+        <div><strong>Contact:</strong> ${phone} · ${email}</div>
+        ${message ? `<div><strong>Message:</strong> ${message}</div>` : ""}
+      `;
+          document.getElementById("inquiryFormState").style.display = "none";
+          document.getElementById("inquirySuccess").classList.add("show");
+        });
+      }
+
+      const inquiryAnotherBtn = document.getElementById("inquiryAnotherBtn");
+      if (inquiryAnotherBtn) {
+        inquiryAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          inquiryForm.reset();
+          inquiryChips.forEach((c) => c.classList.remove("active"));
+          selectedInterest = "";
+          document
+            .querySelectorAll("#inquiryForm .form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("inquirySuccess").classList.remove("show");
+          document.getElementById("inquiryFormState").style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>
