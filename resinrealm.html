@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>resin.realm — Flower Preservation Keepsakes, Jabalpur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --lavender: #e8dff0;
+        --plum: #5b3a6b;
+        --plum-deep: #332540;
+        --peach: #f4c9a8;
+        --white: #fffcf9;
+        --ink-soft: rgba(51, 37, 64, 0.62);
+        --hairline: rgba(51, 37, 64, 0.13);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--plum-deep);
+        font-family: "Nunito", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.005em;
+        line-height: 1.15;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--plum);
+        font-weight: 700;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--plum);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(255, 252, 249, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--hairline);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 28px;
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Quicksand", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--plum-deep);
+        display: flex;
+        align-items: baseline;
+        gap: 1px;
+      }
+      .logo .dot {
+        color: var(--peach);
+        font-weight: 700;
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .nav-links a {
+        position: relative;
+        padding: 4px 0;
+        color: var(--ink-soft);
+        transition: color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--plum-deep);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--peach);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 700;
+        background: var(--plum);
+        color: #fff;
+        padding: 11px 22px;
+        border-radius: 24px;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .nav-cta:hover {
+        background: var(--plum-deep);
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--plum-deep);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 69px;
+        left: 0;
+        right: 0;
+        z-index: 49;
+        background: var(--white);
+        border-bottom: 1px solid var(--hairline);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+      }
+      .mobile-menu.open {
+        max-height: 460px;
+      }
+      .mobile-menu a {
+        padding: 17px 28px;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--plum-deep);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu a:last-child {
+        border-bottom: none;
+      }
+      .mobile-menu .nav-cta {
+        margin: 16px 28px 20px;
+        text-align: center;
+        display: block;
+        color: #fff !important;
+      }
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .mobile-menu {
+          display: flex;
+        }
+      }
+
+      .btn {
+        font-size: 13px;
+        font-weight: 700;
+        padding: 14px 28px;
+        border-radius: 24px;
+        display: inline-block;
+        transition: all 0.25s ease;
+      }
+      .btn-primary {
+        background: var(--plum);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--plum-deep);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--plum-deep);
+        color: var(--plum-deep);
+      }
+      .btn-ghost:hover {
+        background: var(--plum-deep);
+        color: #fff;
+      }
+
+      /* ===== HERO — pressed flower motif ===== */
+      .hero {
+        min-height: 94vh;
+        display: flex;
+        align-items: center;
+        padding-top: 90px;
+        background: radial-gradient(
+          ellipse 700px 500px at 85% 15%,
+          rgba(232, 223, 240, 0.6),
+          transparent 60%
+        );
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(34px, 4.8vw, 54px);
+      }
+      .hero-text h1 .accent {
+        color: var(--plum);
+      }
+      .hero-sub {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--ink-soft);
+        max-width: 440px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .hero-hearts {
+        margin-top: 30px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--lavender);
+        padding: 10px 18px;
+        border-radius: 24px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--plum-deep);
+      }
+
+      .press-frame {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .press-card {
+        width: 320px;
+        aspect-ratio: 4/5;
+        border-radius: 16px;
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 30px 60px -30px rgba(91, 58, 107, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .press-card::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1.5px dashed rgba(91, 58, 107, 0.25);
+        border-radius: 10px;
+      }
+      .press-card-inner {
+        font-family: "Quicksand", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+      .press-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          165deg,
+          rgba(244, 201, 168, 0.25),
+          rgba(232, 223, 240, 0.5)
+        );
+        z-index: 0;
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .press-card {
+          width: 260px;
+          margin: 0 auto;
+        }
+      }
+
+      /* marquee */
+      .marquee-strip {
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+        overflow: hidden;
+        padding: 14px 0;
+        background: var(--lavender);
+      }
+      .marquee-track {
+        display: flex;
+        gap: 42px;
+        white-space: nowrap;
+        width: max-content;
+        animation: scroll-left 30s linear infinite;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+        font-size: 14.5px;
+        color: var(--plum-deep);
+      }
+      .marquee-track span {
+        display: flex;
+        align-items: center;
+        gap: 42px;
+      }
+      .marquee-track .dot {
+        color: var(--peach);
+      }
+      @keyframes scroll-left {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      section {
+        padding: 92px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 54px 0;
+        }
+      }
+      .section-head {
+        max-width: 560px;
+        margin-bottom: 46px;
+      }
+      .section-head h2 {
+        font-size: clamp(26px, 3.6vw, 40px);
+        margin-top: 10px;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        font-size: 15px;
+        margin-top: 14px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .section-head {
+          margin-bottom: 30px;
+        }
+      }
+
+      /* ===== WORLDWIDE TRUST STRIP (signature element) ===== */
+      .world-strip {
+        background: var(--plum-deep);
+        color: #fff;
+        border-radius: 20px;
+        padding: 42px 36px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .world-headline {
+        font-family: "Quicksand", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+      }
+      .world-headline span {
+        color: var(--peach);
+      }
+      .world-stat-num {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--peach);
+      }
+      .world-stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 3px;
+      }
+      @media (max-width: 860px) {
+        .world-strip {
+          grid-template-columns: 1fr 1fr;
+          padding: 32px 24px;
+          gap: 22px;
+        }
+        .world-headline {
+          grid-column: 1/-1;
+        }
+      }
+
+      /* ===== SERVICES ===== */
+      .signature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+      .signature-card {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+      }
+      .signature-card:hover {
+        box-shadow: 0 20px 40px -26px rgba(91, 58, 107, 0.28);
+      }
+      .signature-visual {
+        aspect-ratio: 16/10;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(155deg, var(--lavender), var(--peach));
+      }
+      .signature-visual.v2 {
+        background: linear-gradient(155deg, var(--peach), var(--lavender));
+      }
+      .signature-visual-label {
+        font-family: "Quicksand", sans-serif;
+        font-size: 13.5px;
+        color: var(--plum-deep);
+        opacity: 0.6;
+      }
+      .signature-body {
+        padding: 24px 26px;
+      }
+      .signature-tag {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--plum);
+        font-weight: 700;
+      }
+      .signature-card h3 {
+        font-size: 22px;
+        margin-top: 8px;
+      }
+      .signature-card p {
+        color: var(--ink-soft);
+        font-size: 14px;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+      .signature-price {
+        font-family: "Quicksand", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--plum);
+        margin-top: 14px;
+      }
+      @media (max-width: 760px) {
+        .signature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .gallery-item {
+        aspect-ratio: 1/1;
+        border-radius: 14px;
+        position: relative;
+        overflow: hidden;
+      }
+      .gallery-item.g1 {
+        background: linear-gradient(155deg, #f4c9a8, #e8a878);
+      }
+      .gallery-item.g2 {
+        background: linear-gradient(155deg, #e8dff0, #c9b5de);
+      }
+      .gallery-item.g3 {
+        background: linear-gradient(155deg, #d9e5d2, #b5cca8);
+      }
+      .gallery-item.g4 {
+        background: linear-gradient(155deg, #f0d9e0, #e0afc0);
+      }
+      .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 140px 160px at 50% 30%,
+          rgba(255, 255, 255, 0.3),
+          transparent 65%
+        );
+      }
+      @media (max-width: 760px) {
+        .gallery-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .testi {
+        background: var(--lavender);
+        border: 1px solid var(--hairline);
+        padding: 26px 24px;
+        border-radius: 16px;
+      }
+      .testi-quote {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .testi-name {
+        margin-top: 16px;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+      }
+      .testi-name strong {
+        color: var(--plum);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== ORDER FORM ===== */
+      .order-section {
+        background: var(--lavender);
+        border-top: 1px solid var(--hairline);
+      }
+      .order-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .order-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 24px;
+      }
+      .order-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .order-point-mark {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--plum);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .order-point p {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .order-point strong {
+        color: var(--plum-deep);
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .order-card {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        padding: 34px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-group {
+        margin-bottom: 17px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11.5px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 7px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 12px 14px;
+        color: var(--plum-deep);
+        font-family: "Nunito", sans-serif;
+        font-size: 14px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(51, 37, 64, 0.32);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--plum);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 78px;
+      }
+      .field-error {
+        font-size: 12px;
+        color: #c0577a;
+        margin-top: 6px;
+        display: none;
+      }
+      .form-group.invalid input {
+        border-color: #c0577a;
+        background: rgba(192, 87, 122, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .item-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .item-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 11px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--ink-soft);
+        user-select: none;
+        background: var(--white);
+        font-weight: 600;
+      }
+      .item-chip:hover {
+        border-color: var(--plum);
+      }
+      .item-chip.active {
+        background: var(--plum);
+        border-color: var(--plum);
+        color: #fff;
+      }
+      .order-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 16px 28px;
+        border-radius: 24px;
+        background: var(--plum);
+        color: #fff;
+        transition: all 0.25s;
+      }
+      .order-submit:hover {
+        background: var(--plum-deep);
+      }
+      .order-note {
+        font-size: 12px;
+        color: var(--ink-soft);
+        margin-top: 13px;
+        text-align: center;
+      }
+
+      .order-success {
+        display: none;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .order-success.show {
+        display: block;
+      }
+      .success-check {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #6b9e7c;
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #fff;
+      }
+      .order-success h3 {
+        font-size: 21px;
+        margin-bottom: 8px;
+      }
+      .order-success p {
+        color: var(--ink-soft);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .order-summary {
+        margin-top: 20px;
+        padding: 16px 18px;
+        background: var(--lavender);
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--ink-soft);
+        display: inline-block;
+      }
+      .order-summary div {
+        margin-bottom: 5px;
+      }
+      .order-summary strong {
+        color: var(--plum-deep);
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .order-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .order-card {
+          padding: 24px 20px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== CONTACT PILLARS ===== */
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: 48px;
+      }
+      .contact-pillar {
+        background: var(--white);
+        padding: 28px 26px;
+      }
+      .contact-pillar h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .contact-pillar h3.email-heading {
+        font-size: 15.5px;
+      }
+      .contact-pillar p {
+        color: var(--ink-soft);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 30px;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        padding: 52px 0 30px;
+        border-top: 1px solid var(--hairline);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 32px;
+      }
+      .footer-brand p {
+        color: var(--ink-soft);
+        font-size: 13.5px;
+        line-height: 1.6;
+        max-width: 280px;
+        margin-top: 14px;
+      }
+      .footer-col h4 {
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        color: var(--plum-deep);
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        opacity: 0.85;
+      }
+      .footer-col a:hover {
+        color: var(--plum);
+      }
+      .footer-bottom {
+        margin-top: 44px;
+        padding-top: 22px;
+        border-top: 1px solid var(--hairline);
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--ink-soft);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo">resin<span class="dot">.</span>realm</a>
+        <div class="nav-links">
+          <a href="#services">What We Make</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Order Now</a>
+        </div>
+        <a href="#contact" class="nav-cta">Join the list 💌</a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#services">What We Make</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Order Now</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Join the list 💌</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Flower Preservation · Jabalpur</span>
+          <h1 class="reveal">
+            Where moments<br />become <span class="accent">keepsakes.</span> ✨
+          </h1>
+          <p class="hero-sub reveal">
+            resin.realm turns your flowers, petals, and little mementos into
+            resin keepsakes you'll actually keep — handmade in Jabalpur, shipped
+            worldwide.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#contact" class="btn btn-primary">Place an order</a>
+            <a href="#services" class="btn btn-ghost">See what we make</a>
+          </div>
+          <div class="hero-hearts reveal">
+            💗 400+ happy hearts across India & beyond
+          </div>
+        </div>
+        <div class="press-frame reveal">
+          <div class="press-card">
+            <div class="press-bg"></div>
+            <div class="press-card-inner">— pressed in resin —</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span
+          >Flower Preservation <span class="dot">●</span> Keepsake Frames
+          <span class="dot">●</span> Keychains <span class="dot">●</span> Custom
+          Orders <span class="dot">●</span> Worldwide Shipping
+          <span class="dot">●</span></span
+        >
+        <span
+          >Flower Preservation <span class="dot">●</span> Keepsake Frames
+          <span class="dot">●</span> Keychains <span class="dot">●</span> Custom
+          Orders <span class="dot">●</span> Worldwide Shipping
+          <span class="dot">●</span></span
+        >
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="world-strip reveal">
+          <div class="world-headline">
+            Loved by <span>400+ hearts</span>, shipped across the world 🌍
+          </div>
+          <div>
+            <div class="world-stat-num">499+</div>
+            <div class="world-stat-label">Instagram community</div>
+          </div>
+          <div>
+            <div class="world-stat-num">372</div>
+            <div class="world-stat-label">Posts of pure keepsakes</div>
+          </div>
+          <div>
+            <div class="world-stat-num">🌍</div>
+            <div class="world-stat-label">Worldwide shipping</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we make</span>
+          <h2>Two favourites, endlessly personal.</h2>
+          <p>
+            Every piece starts with something you send us — a flower, a petal, a
+            little memory worth keeping.
+          </p>
+        </div>
+        <div class="signature-grid">
+          <div class="signature-card reveal">
+            <div class="signature-visual">
+              <span class="signature-visual-label"
+                >— pressed flower frame —</span
+              >
+            </div>
+            <div class="signature-body">
+              <span class="signature-tag">Most loved</span>
+              <h3>Flower Preservation</h3>
+              <p>
+                Send us flowers from a special day — we preserve them in clear
+                resin, so the moment stays exactly as you remember it.
+              </p>
+              <div class="signature-price">Starting at ₹899</div>
+            </div>
+          </div>
+          <div class="signature-card reveal">
+            <div class="signature-visual v2">
+              <span class="signature-visual-label">— custom keepsake —</span>
+            </div>
+            <div class="signature-body">
+              <span class="signature-tag">Made just for you</span>
+              <h3>Custom Keepsakes</h3>
+              <p>
+                Got something specific in mind? Tell us what it is — petals,
+                small mementos, even handwritten notes — and we'll bring it to
+                life.
+              </p>
+              <div class="signature-price">Starting at ₹699</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="background: var(--lavender)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our work</span>
+          <h2>A little peek into the studio. 📸</h2>
+        </div>
+        <div class="gallery-strip">
+          <div class="gallery-item g1 reveal"></div>
+          <div class="gallery-item g2 reveal"></div>
+          <div class="gallery-item g3 reveal"></div>
+          <div class="gallery-item g4 reveal"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Happy hearts say</span>
+          <h2>What 400+ orders sound like. 💌</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <p class="testi-quote">
+              "Sent flowers from my best friend's wedding and got back something
+              I'll keep forever. Worth every rupee."
+            </p>
+            <p class="testi-name">
+              <strong>Sana T.</strong> — Flower preservation
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "Shipped to me in the UK and arrived perfectly packed. Didn't
+              expect that level of care honestly."
+            </p>
+            <p class="testi-name">
+              <strong>Priya D.</strong> — Worldwide order
+            </p>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">
+              "My custom order had a tiny note from my late grandmother pressed
+              into it. They got every detail right."
+            </p>
+            <p class="testi-name">
+              <strong>Naina A.</strong> — Custom keepsake
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="order-section">
+      <div class="wrap">
+        <div class="order-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 0">
+              <span class="eyebrow">Join the list 💌</span>
+              <h2>Let's make your keepsake.</h2>
+              <p>
+                Tell us a little about what you have in mind, and we'll get back
+                to you with pricing and next steps.
+              </p>
+            </div>
+            <div class="order-points reveal">
+              <div class="order-point">
+                <span class="order-point-mark">1</span>
+                <p>
+                  <strong>Tell us what you need</strong>Flower preservation, a
+                  custom keepsake, or you're not sure yet.
+                </p>
+              </div>
+              <div class="order-point">
+                <span class="order-point-mark">2</span>
+                <p>
+                  <strong>Send your items</strong>We'll guide you on the safest
+                  way to send flowers or mementos.
+                </p>
+              </div>
+              <div class="order-point">
+                <span class="order-point-mark">3</span>
+                <p>
+                  <strong>We craft & ship</strong>Carefully packed and shipped
+                  anywhere in the world. 🌍
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-card reveal">
+            <div id="orderFormState">
+              <form id="orderForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Your name" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone / WhatsApp number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+91 98765 43210"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-email">
+                  <label for="email"
+                    >Email
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="form-group" id="group-item">
+                  <label>What would you like to order?</label>
+                  <div class="item-options">
+                    <div class="item-chip" data-value="Flower Preservation">
+                      Flower Preservation
+                    </div>
+                    <div class="item-chip" data-value="Custom Keepsake">
+                      Custom Keepsake
+                    </div>
+                    <div class="item-chip" data-value="Gift Order">
+                      Gift Order
+                    </div>
+                    <div class="item-chip" data-value="Not sure yet">
+                      Not sure yet
+                    </div>
+                  </div>
+                  <div class="field-error">Please select an option.</div>
+                </div>
+                <div class="form-group">
+                  <label for="city"
+                    >City / Country
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(for shipping)</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="e.g. Jabalpur, India / London, UK..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="notes"
+                    >Tell us more
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="notes"
+                    placeholder="What's the occasion? Any colours or details we should know?"
+                  ></textarea>
+                </div>
+                <button type="submit" class="order-submit">
+                  Send order request 💌
+                </button>
+                <p class="order-note">
+                  No payment required yet. We'll confirm details and pricing
+                  first.
+                </p>
+              </form>
+            </div>
+            <div id="orderSuccess" class="order-success">
+              <div class="success-check">✓</div>
+              <h3>Request received! 🎉</h3>
+              <p>
+                Thank you — we'll reach out by phone or WhatsApp shortly to talk
+                through your keepsake.
+              </p>
+              <div class="order-summary" id="summaryBox"></div>
+              <div style="margin-top: 22px">
+                <a href="#" class="btn btn-ghost" id="orderAnotherBtn"
+                  >Send another request</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span class="eyebrow">Studio</span>
+            <h3>Jabalpur, India</h3>
+            <p>
+              Orders by appointment — shipping worldwide on every keepsake. ✈️
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span class="eyebrow">Reach us</span>
+            <h3 class="email-heading">hello@resinrealm.demo</h3>
+            <p>
+              DM on Instagram or WhatsApp — we typically reply within a few
+              hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">resin<span class="dot">.</span>realm</a>
+            <p>
+              Where moments become keepsakes. Flower preservation and custom
+              resin keepsakes, shipped worldwide from Jabalpur. ❤️✨
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#services">What We Make</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Order Now</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a
+              href="https://www.instagram.com/resin._realm"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/share/19Vuqcs6WD/"
+              target="_blank"
+              rel="noopener"
+              >Facebook</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 resin.realm. Demo website — for illustration purposes
+            only.</span
+          >
+          <span>Designed as a sample by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2200);
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("open");
+          menuToggle.textContent = isOpen ? "✕" : "☰";
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            menuToggle.textContent = "☰";
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      const form = document.getElementById("orderForm");
+      const itemChips = document.querySelectorAll(".item-chip");
+      let selectedItem = "";
+
+      itemChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          itemChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedItem = chip.dataset.value;
+          document.getElementById("group-item").classList.remove("invalid");
+        });
+      });
+
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+      function isValidEmail(value) {
+        return value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const city = document.getElementById("city").value.trim();
+          const notes = document.getElementById("notes").value.trim();
+
+          let valid = true;
+          setInvalid("group-name", !fullName);
+          if (!fullName) valid = false;
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-email", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-item", !selectedItem);
+          if (!selectedItem) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(".form-group.invalid");
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const summaryBox = document.getElementById("summaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Order:</strong> ${selectedItem}</div>
+        <div><strong>Contact:</strong> ${phone}${email ? " · " + email : ""}</div>
+        ${city ? `<div><strong>Location:</strong> ${city}</div>` : ""}
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+      `;
+          document.getElementById("orderFormState").style.display = "none";
+          document.getElementById("orderSuccess").classList.add("show");
+        });
+      }
+
+      const orderAnotherBtn = document.getElementById("orderAnotherBtn");
+      if (orderAnotherBtn) {
+        orderAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          itemChips.forEach((c) => c.classList.remove("active"));
+          selectedItem = "";
+          document
+            .querySelectorAll(".form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("orderSuccess").classList.remove("show");
+          document.getElementById("orderFormState").style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>

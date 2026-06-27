@@ -1,0 +1,1596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resin Riwayat — Shop Handcrafted Resin Art Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Karla:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blush: #fbf1ea;
+        --rose: #b85c7a;
+        --gold: #c9a24b;
+        --sage: #8fa088;
+        --ink: #2e2620;
+        --ink-soft: rgba(46, 38, 32, 0.6);
+        --hairline: rgba(46, 38, 32, 0.13);
+        --cream: #fffdfa;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Karla", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Karla", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.005em;
+        line-height: 1.15;
+      }
+
+      .eyebrow {
+        font-size: 11.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--rose);
+        font-weight: 700;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== TOP STRIP ===== */
+      .top-strip {
+        background: var(--ink);
+        color: rgba(251, 241, 234, 0.85);
+        font-size: 12px;
+      }
+      .top-strip-row {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 8px 28px;
+      }
+      @media (max-width: 700px) {
+        .top-strip-row span:last-child {
+          display: none;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--cream);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .nav-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 28px;
+        max-width: 1280px;
+        margin: 0 auto;
+        gap: 20px;
+      }
+      .logo {
+        font-family: "Allura", cursive;
+        font-size: 27px;
+        color: var(--ink);
+        flex-shrink: 0;
+      }
+      .logo .dot {
+        color: var(--rose);
+      }
+      .nav-search {
+        flex: 1;
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 20px;
+        padding: 9px 16px;
+        gap: 8px;
+      }
+      .nav-search input {
+        border: none;
+        outline: none;
+        font-size: 13px;
+        flex: 1;
+        background: transparent;
+        color: var(--ink);
+        font-family: "Karla", sans-serif;
+      }
+      .nav-search input::placeholder {
+        color: rgba(46, 38, 32, 0.4);
+      }
+      .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .nav-icons a {
+        color: var(--ink-soft);
+        transition: color 0.2s;
+      }
+      .nav-icons a:hover {
+        color: var(--rose);
+      }
+      .nav-cart {
+        background: var(--rose);
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+      @media (max-width: 900px) {
+        .nav-search {
+          display: none;
+        }
+        .nav-icons {
+          display: none;
+        }
+      }
+
+      .nav-cats {
+        border-top: 1px solid var(--hairline);
+        overflow-x: auto;
+      }
+      .nav-cats-row {
+        display: flex;
+        gap: 26px;
+        padding: 11px 28px;
+        max-width: 1280px;
+        margin: 0 auto;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .nav-cats-row a {
+        color: var(--ink-soft);
+        transition: color 0.2s;
+        font-weight: 500;
+      }
+      .nav-cats-row a:hover {
+        color: var(--rose);
+      }
+      .nav-cats-row a.featured {
+        color: var(--rose);
+        font-weight: 700;
+      }
+      @media (max-width: 900px) {
+        .nav-cats {
+          display: none;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        color: var(--ink);
+        font-size: 19px;
+        cursor: pointer;
+        padding: 6px 10px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        background: var(--cream);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--ink);
+      }
+      .mobile-menu a {
+        padding: 16px 24px;
+        font-size: 15px;
+        color: var(--ink);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+        color: #fff !important;
+        background: var(--rose);
+        padding: 14px;
+        border-radius: 24px;
+        font-weight: 600;
+      }
+      @media (max-width: 900px) {
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      .btn {
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 13px 24px;
+        border-radius: 22px;
+        display: inline-block;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--rose);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--ink);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--ink);
+        color: var(--ink);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      /* ===== PROMO TILES ===== */
+      .promo-section {
+        padding: 30px 0 6px;
+      }
+      .promo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .promo-tile {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        min-height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 22px;
+      }
+      .promo-tile::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .promo-tile.t1::before {
+        background: linear-gradient(160deg, #f3dde4, #e8c9d4);
+      }
+      .promo-tile.t2::before {
+        background: linear-gradient(160deg, #e9e4d8, #dcd3be);
+      }
+      .promo-tile.t3::before {
+        background: linear-gradient(160deg, #dce5da, #c8d4c4);
+      }
+      .promo-content {
+        position: relative;
+        z-index: 2;
+        color: var(--ink);
+      }
+      .promo-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.7;
+        font-weight: 600;
+      }
+      .promo-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      .promo-link {
+        font-size: 12.5px;
+        margin-top: 10px;
+        display: inline-block;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 600;
+      }
+      @media (max-width: 860px) {
+        .promo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== LINK ROWS ===== */
+      .link-rows-section {
+        padding: 34px 0;
+      }
+      .link-row-block {
+        margin-bottom: 26px;
+      }
+      .link-row-label {
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 700;
+        margin-bottom: 13px;
+      }
+      .link-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .link-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: var(--ink);
+        background: #fff;
+        transition: all 0.2s;
+      }
+      .link-chip:hover {
+        border-color: var(--rose);
+        color: var(--rose);
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-section {
+        padding: 36px 0;
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .trust-item h3 {
+        font-size: 14.5px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .trust-item p {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== PRODUCT GRID ===== */
+      .grid-section {
+        padding: 52px 0;
+      }
+      .section-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 22px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .section-title {
+        font-size: 23px;
+        font-weight: 700;
+      }
+      .section-viewall {
+        font-size: 12.5px;
+        color: var(--rose);
+        font-weight: 700;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 9px;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+      }
+      .filter-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        padding: 8px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--ink-soft);
+        background: #fff;
+        user-select: none;
+      }
+      .filter-chip:hover {
+        border-color: var(--ink);
+      }
+      .filter-chip.active {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px 16px;
+      }
+      .product-card {
+        cursor: pointer;
+      }
+      .product-thumb {
+        aspect-ratio: 1/1.05;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 11px;
+        transition: opacity 0.2s;
+      }
+      .product-card:hover .product-thumb {
+        opacity: 0.88;
+      }
+      .product-thumb.p1 {
+        background: linear-gradient(155deg, #f3dde4, #e8c9d4);
+      }
+      .product-thumb.p2 {
+        background: linear-gradient(155deg, #e9e4d8, #dcd3be);
+      }
+      .product-thumb.p3 {
+        background: linear-gradient(155deg, #dce5da, #c8d4c4);
+      }
+      .product-thumb.p4 {
+        background: linear-gradient(155deg, #f0e2c9, #e0c896);
+      }
+      .product-thumb.p5 {
+        background: linear-gradient(155deg, #e8d5de, #d9b8c8);
+      }
+      .product-thumb.p6 {
+        background: linear-gradient(155deg, #dde3d5, #c2cdb8);
+      }
+      .product-thumb.p7 {
+        background: linear-gradient(155deg, #efe0d0, #dec49c);
+      }
+      .product-thumb.p8 {
+        background: linear-gradient(155deg, #f0dce3, #e3bccc);
+      }
+      .product-price {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .product-title {
+        font-size: 13px;
+        color: var(--ink);
+        margin-top: 3px;
+        font-weight: 600;
+      }
+      .product-meta {
+        font-size: 11.5px;
+        color: var(--ink-soft);
+        margin-top: 5px;
+      }
+
+      @media (max-width: 900px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .product-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 14px 10px;
+        }
+      }
+
+      /* ===== PRICE FILTER ===== */
+      .price-filter-section {
+        padding: 6px 0 52px;
+      }
+      .price-filter-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .price-tile {
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        transition: all 0.2s;
+      }
+      .price-tile:hover {
+        border-color: var(--rose);
+      }
+      .price-tile-label {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .price-tile-sub {
+        font-size: 11.5px;
+        color: var(--ink-soft);
+        margin-top: 3px;
+      }
+      @media (max-width: 760px) {
+        .price-filter-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== CUSTOM ORDER CTA ===== */
+      .custom-section {
+        background: var(--blush);
+        padding: 56px 0;
+      }
+      .custom-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .custom-text h2 {
+        font-size: clamp(24px, 3.2vw, 34px);
+      }
+      .custom-text p {
+        margin-top: 12px;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        max-width: 420px;
+      }
+      .custom-text .btn {
+        margin-top: 20px;
+      }
+      .custom-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .custom-cat-row {
+        background: var(--cream);
+        padding: 15px 20px;
+        font-size: 13.5px;
+        display: flex;
+        justify-content: space-between;
+        transition: background 0.2s;
+      }
+      .custom-cat-row:hover {
+        background: #fff;
+      }
+      .custom-cat-row span:last-child {
+        color: var(--ink-soft);
+      }
+      @media (max-width: 860px) {
+        .custom-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+      }
+
+      /* ===== ORDER FORM ===== */
+      section.standalone {
+        padding: 72px 0;
+      }
+      @media (max-width: 860px) {
+        section.standalone {
+          padding: 48px 0;
+        }
+      }
+      .section-head {
+        max-width: 560px;
+        margin-bottom: 38px;
+      }
+      .section-head h2 {
+        font-size: clamp(24px, 3.4vw, 36px);
+        margin-top: 8px;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        font-size: 14.5px;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+
+      .order-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 42px;
+        align-items: start;
+      }
+      .order-points {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 22px;
+      }
+      .order-point {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .order-point-mark {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--rose);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .order-point p {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .order-point strong {
+        color: var(--ink);
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14.5px;
+        font-weight: 700;
+      }
+
+      .order-card {
+        background: var(--blush);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        padding: 30px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 13px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 11px 13px;
+        color: var(--ink);
+        font-family: "Karla", sans-serif;
+        font-size: 13.5px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(46, 38, 32, 0.32);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--rose);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 70px;
+      }
+      .field-error {
+        font-size: 11.5px;
+        color: var(--rose);
+        margin-top: 5px;
+        display: none;
+      }
+      .form-group.invalid input {
+        border-color: var(--rose);
+        background: rgba(184, 92, 122, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .item-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .item-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 10px 8px;
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--ink-soft);
+        user-select: none;
+        background: #fff;
+      }
+      .item-chip:hover {
+        border-color: var(--rose);
+      }
+      .item-chip.active {
+        background: var(--rose);
+        border-color: var(--rose);
+        color: #fff;
+        font-weight: 600;
+      }
+      .order-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 4px;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 15px 26px;
+        border-radius: 22px;
+        background: var(--rose);
+        color: #fff;
+        transition: all 0.25s;
+      }
+      .order-submit:hover {
+        background: var(--ink);
+      }
+      .order-note {
+        font-size: 11.5px;
+        color: var(--ink-soft);
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      .order-success {
+        display: none;
+        text-align: center;
+        padding: 28px 10px;
+      }
+      .order-success.show {
+        display: block;
+      }
+      .success-check {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--sage);
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        color: #fff;
+      }
+      .order-success h3 {
+        font-size: 19px;
+        margin-bottom: 7px;
+      }
+      .order-success p {
+        color: var(--ink-soft);
+        font-size: 13.5px;
+        line-height: 1.5;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .order-summary {
+        margin-top: 18px;
+        padding: 14px 16px;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        text-align: left;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        display: inline-block;
+      }
+      .order-summary div {
+        margin-bottom: 4px;
+      }
+      .order-summary strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .order-layout {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .order-card {
+          padding: 22px 18px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 40px;
+      }
+      .contact-pillar {
+        background: #fff;
+        padding: 24px 22px;
+      }
+      .contact-pillar h3 {
+        font-size: 16px;
+        margin-bottom: 7px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        font-weight: 700;
+      }
+      .contact-pillar h3.email-heading {
+        font-size: 14px;
+      }
+      .contact-pillar p {
+        color: var(--ink-soft);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 26px;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--ink);
+        color: rgba(251, 241, 234, 0.7);
+        padding-top: 44px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(251, 241, 234, 0.12);
+      }
+      .footer-brand .logo {
+        color: #fff;
+      }
+      .footer-brand p {
+        font-size: 12.5px;
+        line-height: 1.55;
+        max-width: 260px;
+        margin-top: 12px;
+        color: rgba(251, 241, 234, 0.55);
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(251, 241, 234, 0.45);
+        margin-bottom: 13px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 12.5px;
+        margin-bottom: 9px;
+        color: rgba(251, 241, 234, 0.75);
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: rgba(251, 241, 234, 0.4);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="top-strip-row">
+        <span>✨ Pan India Shipping on every order</span>
+        <span>DM or use the form below to order</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="nav-top">
+        <a href="#" class="logo">Resin Riwayat<span class="dot">.</span></a>
+        <div class="nav-search">
+          <span>⌕</span>
+          <input
+            type="text"
+            placeholder="Search varmala, hadiya sets, gifts..."
+          />
+        </div>
+        <div class="nav-icons">
+          <a href="#contact">Custom Order</a>
+          <a href="#contact">Track Order</a>
+          <div class="nav-cart">0</div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+      <div class="nav-cats">
+        <div class="nav-cats-row">
+          <a href="#shop" class="featured">New Arrivals</a>
+          <a href="#shop">Varmala Preservation</a>
+          <a href="#shop">Hadiya Sets</a>
+          <a href="#shop">Keychains</a>
+          <a href="#shop">Nameplates</a>
+          <a href="#custom">Custom Orders</a>
+          <a href="#price-filter">Shop by Price</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <a href="#" class="logo">Resin Riwayat<span class="dot">.</span></a>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#shop">New Arrivals</a>
+      <a href="#shop">Varmala Preservation</a>
+      <a href="#shop">Hadiya Sets</a>
+      <a href="#custom">Custom Orders</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Place a custom order</a>
+    </div>
+
+    <section class="promo-section">
+      <div class="wrap">
+        <div class="promo-grid">
+          <div class="promo-tile t1 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">Most Requested</div>
+              <div class="promo-title">Varmala Preservation</div>
+              <a href="#shop" class="promo-link">Shop now →</a>
+            </div>
+          </div>
+          <div class="promo-tile t2 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">Wedding Season</div>
+              <div class="promo-title">Hadiya Gift Sets</div>
+              <a href="#shop" class="promo-link">Explore sets →</a>
+            </div>
+          </div>
+          <div class="promo-tile t3 reveal">
+            <div class="promo-content">
+              <div class="promo-eyebrow">Made For You</div>
+              <div class="promo-title">Custom Orders</div>
+              <a href="#custom" class="promo-link">Start an order →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="link-rows-section">
+      <div class="wrap">
+        <div class="link-row-block reveal">
+          <div class="link-row-label">Shop by Category</div>
+          <div class="link-row">
+            <a href="#shop" class="link-chip">Varmala Preservation</a>
+            <a href="#shop" class="link-chip">Hadiya Sets</a>
+            <a href="#shop" class="link-chip">Keychains</a>
+            <a href="#shop" class="link-chip">Nameplates</a>
+            <a href="#shop" class="link-chip">Decor Pieces</a>
+          </div>
+        </div>
+        <div class="link-row-block reveal">
+          <div class="link-row-label">Shop by Occasion</div>
+          <div class="link-row">
+            <a href="#shop" class="link-chip">Wedding Keepsakes</a>
+            <a href="#shop" class="link-chip">Anniversary Gifts</a>
+            <a href="#shop" class="link-chip">Festive Gifting</a>
+            <a href="#shop" class="link-chip">Home Decor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <h3>Handmade, Always</h3>
+            <p>
+              Every piece made by hand by Zainab & Nilofar — no two are exactly
+              alike.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>Pan India Shipping</h3>
+            <p>Carefully packed and shipped safely anywhere in India.</p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>Made From Your Own Items</h3>
+            <p>
+              Send us your varmala or keepsakes — we preserve the actual piece,
+              not a copy.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>576+ Followers & Growing</h3>
+            <p>
+              A small, growing studio based in Jabalpur — every order matters to
+              us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="grid-section">
+      <div class="wrap">
+        <div class="section-title-row reveal">
+          <h2 class="section-title">New Arrivals</h2>
+          <a href="#price-filter" class="section-viewall">View all →</a>
+        </div>
+        <div class="filter-row reveal">
+          <div class="filter-chip active">All items</div>
+          <div class="filter-chip">Varmala Preservation</div>
+          <div class="filter-chip">Hadiya Sets</div>
+          <div class="filter-chip">Keychains</div>
+          <div class="filter-chip">Nameplates</div>
+        </div>
+        <div class="product-grid">
+          <div class="product-card reveal">
+            <div class="product-thumb p1"></div>
+            <div class="product-price">₹1,499</div>
+            <div class="product-title">Classic Varmala Preservation</div>
+            <div class="product-meta">Clear resin · Round frame</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p2"></div>
+            <div class="product-price">₹999</div>
+            <div class="product-title">Floral Hadiya Set (Set of 5)</div>
+            <div class="product-meta">Gold-flecked resin</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p3"></div>
+            <div class="product-price">₹349</div>
+            <div class="product-title">Dried Flower Keychain</div>
+            <div class="product-meta">Pressed flower · Resin</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p4"></div>
+            <div class="product-price">₹1,899</div>
+            <div class="product-title">Premium Varmala Frame</div>
+            <div class="product-meta">Gold leaf detailing</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p5"></div>
+            <div class="product-price">₹799</div>
+            <div class="product-title">Couple's Hadiya Box</div>
+            <div class="product-meta">Set of 2 · Personalized</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p6"></div>
+            <div class="product-price">₹649</div>
+            <div class="product-title">Custom Name Plate</div>
+            <div class="product-meta">Resin · Wall mount</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p7"></div>
+            <div class="product-price">₹449</div>
+            <div class="product-title">
+              Decorative Resin Coasters (Set of 4)
+            </div>
+            <div class="product-meta">Marble-effect finish</div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-thumb p8"></div>
+            <div class="product-price">₹2,199</div>
+            <div class="product-title">Large Varmala Display Set</div>
+            <div class="product-meta">Includes display stand</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price-filter" class="price-filter-section">
+      <div class="wrap">
+        <div class="section-title-row reveal">
+          <h2 class="section-title">Shop by Price</h2>
+        </div>
+        <div class="price-filter-grid">
+          <a href="#shop" class="price-tile reveal">
+            <div class="price-tile-label">Under ₹500</div>
+            <div class="price-tile-sub">Keychains & small gifts</div>
+          </a>
+          <a href="#shop" class="price-tile reveal">
+            <div class="price-tile-label">₹500 – ₹1,000</div>
+            <div class="price-tile-sub">Hadiya sets & decor</div>
+          </a>
+          <a href="#shop" class="price-tile reveal">
+            <div class="price-tile-label">₹1,000 – ₹2,000</div>
+            <div class="price-tile-sub">Varmala preservation</div>
+          </a>
+          <a href="#shop" class="price-tile reveal">
+            <div class="price-tile-label">₹2,000+</div>
+            <div class="price-tile-sub">Premium display sets</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="custom" class="custom-section">
+      <div class="wrap">
+        <div class="custom-grid">
+          <div class="custom-text reveal">
+            <span class="eyebrow">Made just for you</span>
+            <h2>Have something specific in mind?</h2>
+            <p>
+              Send us your varmala, photos, or keepsakes and we'll create a
+              one-of-a-kind piece around them — no two custom orders are ever
+              the same.
+            </p>
+            <a href="#contact" class="btn btn-primary">Start a custom order</a>
+          </div>
+          <div class="custom-categories reveal">
+            <a href="#contact" class="custom-cat-row"
+              ><span>Varmala Preservation</span><span>From ₹1,499</span></a
+            >
+            <a href="#contact" class="custom-cat-row"
+              ><span>Hadiya Sets</span><span>From ₹999</span></a
+            >
+            <a href="#contact" class="custom-cat-row"
+              ><span>Keychains</span><span>From ₹349</span></a
+            >
+            <a href="#contact" class="custom-cat-row"
+              ><span>Nameplates</span><span>From ₹649</span></a
+            >
+            <a href="#contact" class="custom-cat-row"
+              ><span>Decor Pieces</span><span>From ₹449</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="standalone">
+      <div class="wrap">
+        <div class="order-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 0">
+              <span class="eyebrow">Place an order</span>
+              <h2>Let's make something to keep.</h2>
+              <p>
+                Tell us what you need, and we'll follow up with pricing and
+                timelines.
+              </p>
+            </div>
+            <div class="order-points reveal">
+              <div class="order-point">
+                <span class="order-point-mark">1</span>
+                <p>
+                  <strong>Tell us what you need</strong>Pick a category or
+                  describe something custom.
+                </p>
+              </div>
+              <div class="order-point">
+                <span class="order-point-mark">2</span>
+                <p>
+                  <strong>Share your items</strong>We'll guide you on safely
+                  sending us flowers or keepsakes.
+                </p>
+              </div>
+              <div class="order-point">
+                <span class="order-point-mark">3</span>
+                <p>
+                  <strong>We craft & ship</strong>Packed carefully and shipped
+                  anywhere in India.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-card reveal">
+            <div id="orderFormState">
+              <form id="orderForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Your name" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone / WhatsApp number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+91 98765 43210"
+                    />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-email">
+                  <label for="email"
+                    >Email
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="field-error">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="form-group" id="group-item">
+                  <label>What would you like to order?</label>
+                  <div class="item-options">
+                    <div class="item-chip" data-value="Varmala Preservation">
+                      Varmala Preservation
+                    </div>
+                    <div class="item-chip" data-value="Hadiya Set">
+                      Hadiya Set
+                    </div>
+                    <div class="item-chip" data-value="Custom Piece">
+                      Custom Piece
+                    </div>
+                    <div class="item-chip" data-value="Not sure yet">
+                      Not sure yet
+                    </div>
+                  </div>
+                  <div class="field-error">Please select an option.</div>
+                </div>
+                <div class="form-group">
+                  <label for="city"
+                    >City
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(for shipping)</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="e.g. Jabalpur, Mumbai, Delhi..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="notes"
+                    >Tell us more
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="notes"
+                    placeholder="Occasion, colours, timeline, or anything else..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="order-submit">
+                  Send order request
+                </button>
+                <p class="order-note">
+                  No payment required yet. We'll confirm details and pricing
+                  first.
+                </p>
+              </form>
+            </div>
+            <div id="orderSuccess" class="order-success">
+              <div class="success-check">✓</div>
+              <h3>Request received!</h3>
+              <p>
+                Thank you — we'll reach out by phone or WhatsApp shortly to talk
+                through your order.
+              </p>
+              <div class="order-summary" id="summaryBox"></div>
+              <div style="margin-top: 20px">
+                <a href="#" class="btn btn-ghost" id="orderAnotherBtn"
+                  >Send another request</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span class="eyebrow">Studio</span>
+            <h3>Jabalpur, Madhya Pradesh</h3>
+            <p>
+              Orders by appointment — Pan India shipping available on every
+              piece.
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span class="eyebrow">Reach us</span>
+            <h3 class="email-heading">hello@resinriwayat.demo</h3>
+            <p>
+              DM on Instagram or WhatsApp — we typically reply within a few
+              hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="logo">Resin Riwayat<span class="dot">.</span></a>
+            <p>
+              Handcrafted resin art with a desi touch. Varmala preservation,
+              hadiya sets, and custom keepsakes — shipped Pan India.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <a href="#shop">New Arrivals</a>
+            <a href="#shop">Varmala Preservation</a>
+            <a href="#custom">Custom Orders</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a
+              href="https://www.instagram.com/resin_riwayat"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.threads.com/@resin_riwayat"
+              target="_blank"
+              rel="noopener"
+              >Threads</a
+            >
+            <a
+              href="https://www.youtube.com/@Resin_Riwayat"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Resin Riwayat. Demo website — for illustration purposes
+            only.</span
+          >
+          <span>Designed as a sample by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2000);
+
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () =>
+          mobileMenu.classList.add("open"),
+        );
+        menuClose.addEventListener("click", () =>
+          mobileMenu.classList.remove("open"),
+        );
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          );
+        });
+      }
+
+      document.querySelectorAll(".filter-row .filter-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-row .filter-chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+        });
+      });
+
+      const form = document.getElementById("orderForm");
+      const itemChips = document.querySelectorAll(".item-chip");
+      let selectedItem = "";
+
+      itemChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          itemChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedItem = chip.dataset.value;
+          document.getElementById("group-item").classList.remove("invalid");
+        });
+      });
+
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+      function isValidEmail(value) {
+        return value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const city = document.getElementById("city").value.trim();
+          const notes = document.getElementById("notes").value.trim();
+
+          let valid = true;
+          setInvalid("group-name", !fullName);
+          if (!fullName) valid = false;
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-email", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-item", !selectedItem);
+          if (!selectedItem) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(".form-group.invalid");
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const summaryBox = document.getElementById("summaryBox");
+          summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Order:</strong> ${selectedItem}</div>
+        <div><strong>Contact:</strong> ${phone}${email ? " · " + email : ""}</div>
+        ${city ? `<div><strong>City:</strong> ${city}</div>` : ""}
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+      `;
+          document.getElementById("orderFormState").style.display = "none";
+          document.getElementById("orderSuccess").classList.add("show");
+        });
+      }
+
+      const orderAnotherBtn = document.getElementById("orderAnotherBtn");
+      if (orderAnotherBtn) {
+        orderAnotherBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          itemChips.forEach((c) => c.classList.remove("active"));
+          selectedItem = "";
+          document
+            .querySelectorAll(".form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("orderSuccess").classList.remove("show");
+          document.getElementById("orderFormState").style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>
