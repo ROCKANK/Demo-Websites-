@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightside Cleaning Co. — Residential & Commercial Cleaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A4A;
+    --navy-deep:#11192E;
+    --mint:#3FA796;
+    --mint-tint:#F0F9F7;
+    --gray:#6B7280;
+    --hairline: rgba(27,42,74,0.12);
+    --white:#FFFFFF;
+    --amber:#E8A23D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white); color:var(--navy); font-family:'Inter', sans-serif; font-weight:400; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 28px;}
+
+  h1,h2,h3{font-family:'Outfit', sans-serif; font-weight:700; letter-spacing:-0.01em; line-height:1.12;}
+
+  .eyebrow{font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--mint); font-weight:700;}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--navy); outline-offset:3px; border-radius:4px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;} }
+
+  /* ===== TOP STRIP ===== */
+  .top-strip{background:var(--navy-deep); color:rgba(255,255,255,0.85); font-size:12.5px; padding:8px 0;}
+  .top-strip-row{display:flex; justify-content:space-between; max-width:1200px; margin:0 auto; padding:0 28px;}
+  @media (max-width:700px){ .top-strip-row span:last-child{display:none;} }
+
+  /* ===== NAV ===== */
+  header{position:sticky; top:0; z-index:50; background:var(--white); border-bottom:1px solid var(--hairline);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1200px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{width:36px; height:36px; border-radius:9px; background:var(--mint); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .logo-mark svg{width:20px; height:20px;}
+  .logo-text{font-family:'Outfit', sans-serif; font-size:18px; font-weight:800; color:var(--navy); line-height:1.1;}
+  .logo-text span{display:block; font-size:10px; font-weight:600; letter-spacing:0.06em; color:var(--gray); text-transform:uppercase;}
+
+  .nav-links{display:flex; gap:30px; font-size:14px; font-weight:600;}
+  .nav-links a{color:var(--gray); transition:color .2s;}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-cta{font-size:13.5px; font-weight:700; background:var(--navy); color:var(--white); padding:12px 24px; border-radius:8px; transition:background .25s, transform .25s;}
+  .nav-cta:hover{background:var(--mint); transform:translateY(-1px);}
+  .menu-toggle{display:none; background:none; border:none; color:var(--navy); font-size:24px; cursor:pointer; padding:4px; line-height:1;}
+  .mobile-menu{display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:60; background:var(--white); flex-direction:column; overflow-y:auto;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu-head{display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--hairline);}
+  .mobile-menu-close{background:none; border:none; font-size:26px; cursor:pointer; color:var(--navy);}
+  .mobile-menu a{padding:18px 24px; font-size:15.5px; font-weight:600; color:var(--navy); border-bottom:1px solid var(--hairline);}
+  .mobile-menu .nav-cta{margin:18px 24px; text-align:center; display:block; color:var(--white) !important;}
+  @media (max-width:900px){ .nav-links{display:none;} .nav-cta{display:none;} .menu-toggle{display:block;} }
+
+  .btn{font-size:13.5px; font-weight:700; padding:14px 26px; border-radius:8px; display:inline-block; transition:all .25s ease; cursor:pointer; border:none;}
+  .btn-primary{background:var(--mint); color:#fff;}
+  .btn-primary:hover{background:var(--navy); transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid var(--navy); color:var(--navy); background:transparent;}
+  .btn-ghost:hover{background:var(--navy); color:var(--white);}
+
+  /* ===== HERO ===== */
+  .hero{padding:64px 0 0; background:linear-gradient(180deg, var(--mint-tint) 0%, var(--white) 78%);}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center;}
+  .hero-text h1{font-size:clamp(34px,4.6vw,54px);}
+  .hero-text h1 .accent{color:var(--mint);}
+  .hero-sub{margin-top:18px; font-size:16.5px; line-height:1.65; color:var(--gray); max-width:460px;}
+  .hero-actions{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;}
+  .hero-trust{display:flex; gap:24px; margin-top:32px; flex-wrap:wrap;}
+  .hero-trust-item{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--navy);}
+  .hero-trust-item .ic{color:var(--mint); font-size:16px;}
+
+  /* ===== CHECKLIST CARD (signature element) ===== */
+  .checklist-card{background:var(--white); border:1px solid var(--hairline); border-radius:16px; padding:28px; box-shadow:0 26px 54px -28px rgba(27,42,74,0.22);}
+  .checklist-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--hairline);}
+  .checklist-title{font-family:'Outfit', sans-serif; font-weight:700; font-size:15px;}
+  .checklist-badge{font-size:11px; font-weight:700; color:var(--mint); background:var(--mint-tint); padding:4px 10px; border-radius:20px;}
+  .check-item{display:flex; align-items:center; gap:12px; padding:11px 0; cursor:pointer; user-select:none;}
+  .check-box{
+    width:22px; height:22px; border-radius:6px; border:2px solid var(--hairline); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; transition:all .25s ease; background:var(--white);
+  }
+  .check-box svg{width:13px; height:13px; opacity:0; transform:scale(0.5); transition:all .25s ease;}
+  .check-item.checked .check-box{background:var(--mint); border-color:var(--mint);}
+  .check-item.checked .check-box svg{opacity:1; transform:scale(1);}
+  .check-label{font-size:14px; color:var(--navy); transition:color .25s;}
+  .check-item.checked .check-label{color:var(--gray); text-decoration:line-through; text-decoration-color:rgba(107,114,128,0.4);}
+  .checklist-progress{margin-top:18px; padding-top:16px; border-top:1px solid var(--hairline);}
+  .progress-track{height:7px; background:var(--mint-tint); border-radius:10px; overflow:hidden;}
+  .progress-fill{height:100%; background:var(--mint); border-radius:10px; width:0%; transition:width .4s ease;}
+  .progress-label{font-size:12px; color:var(--gray); margin-top:8px; font-weight:600;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+    .hero{padding-bottom:48px;}
+  }
+
+  section{padding:84px 0;}
+  @media (max-width:860px){ section{padding:52px 0;} }
+  .section-head{max-width:600px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(26px,3.6vw,40px); margin-top:10px;}
+  .section-head p{color:var(--gray); font-size:15.5px; margin-top:14px; line-height:1.6;}
+  @media (max-width:860px){ .section-head{margin-bottom:30px;} }
+
+  /* ===== SERVICE TOGGLE (residential vs commercial) ===== */
+  .service-toggle{display:inline-flex; background:var(--mint-tint); border-radius:30px; padding:5px; margin-bottom:36px;}
+  .toggle-btn{padding:11px 26px; border-radius:24px; font-size:13.5px; font-weight:700; cursor:pointer; transition:all .25s; color:var(--navy); border:none; background:transparent;}
+  .toggle-btn.active{background:var(--navy); color:#fff;}
+
+  .service-panel{display:none;}
+  .service-panel.active{display:block;}
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:14px; overflow:hidden;}
+  .service-card{background:var(--white); padding:30px 26px; transition:background .25s;}
+  .service-card:hover{background:var(--mint-tint);}
+  .service-icon{width:42px; height:42px; border-radius:10px; background:var(--mint-tint); margin-bottom:18px; display:flex; align-items:center; justify-content:center; color:var(--mint); font-weight:700; font-size:16px;}
+  .service-card h3{font-size:18px; margin-bottom:10px;}
+  .service-card p{color:var(--gray); font-size:13.5px; line-height:1.55;}
+  @media (max-width:760px){ .service-grid{grid-template-columns:1fr;} }
+
+  /* ===== TRUST STRIP ===== */
+  .trust-section{background:var(--navy); color:var(--white); padding:48px 0;}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .trust-item h3{font-size:16.5px; font-weight:700; margin-bottom:7px;}
+  .trust-item p{font-size:13px; color:rgba(255,255,255,0.65); line-height:1.55;}
+  @media (max-width:860px){ .trust-grid{grid-template-columns:1fr 1fr; gap:24px;} }
+
+  /* ===== PROCESS ===== */
+  .process-track{display:flex; gap:0; overflow-x:auto; padding-bottom:8px;}
+  .process-step{flex:1; min-width:200px; padding:0 18px; position:relative;}
+  .process-step:first-child{padding-left:0;}
+  .process-num{width:34px; height:34px; border-radius:10px; background:var(--mint-tint); color:var(--mint); font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .process-step h3{font-size:16.5px; font-weight:700;}
+  .process-step p{font-size:13.5px; color:var(--gray); margin-top:8px; line-height:1.55;}
+  @media (max-width:760px){
+    .process-track{flex-direction:column; gap:26px;}
+    .process-step{min-width:0; padding:0;}
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .testi{background:var(--mint-tint); border:1px solid var(--hairline); padding:26px 24px; border-radius:14px;}
+  .testi-stars{color:var(--amber); font-size:13px; letter-spacing:2px;}
+  .testi-quote{font-size:14.5px; line-height:1.55; margin-top:14px;}
+  .testi-name{margin-top:18px; font-size:12.5px; color:var(--gray);}
+  .testi-name strong{color:var(--navy); font-style:normal;}
+  @media (max-width:860px){ .testi-strip{grid-template-columns:1fr;} }
+
+  /* ===== PRICING ===== */
+  .pricing-band{background:var(--mint-tint); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);}
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .price-card{background:var(--white); border:1px solid var(--hairline); border-radius:14px; padding:30px 26px;}
+  .price-card.featured{border-color:var(--mint); box-shadow:0 16px 36px -24px rgba(63,167,150,0.35);}
+  .price-tier{font-size:12.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--mint); font-weight:700;}
+  .price-amt{font-family:'Outfit', sans-serif; font-size:30px; font-weight:800; margin-top:10px; color:var(--navy);}
+  .price-detail{color:var(--gray); font-size:13px; margin-top:4px;}
+  .price-feats{margin-top:20px; display:flex; flex-direction:column; gap:9px;}
+  .price-feat{font-size:13.5px; color:var(--gray); display:flex; gap:9px;}
+  .price-feat::before{content:'✓'; color:var(--mint); font-weight:700;}
+  .price-card .btn{width:100%; text-align:center; margin-top:24px;}
+  @media (max-width:860px){ .pricing-grid{grid-template-columns:1fr;} }
+
+  /* ===== BOOKING FORM ===== */
+  .booking-section{background:var(--white); border-top:1px solid var(--hairline);}
+  .booking-layout{display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:start;}
+  .booking-points{display:flex; flex-direction:column; gap:18px; margin-top:24px;}
+  .booking-point{display:flex; gap:14px; align-items:flex-start;}
+  .booking-point-mark{width:26px; height:26px; border-radius:8px; background:var(--mint); color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;}
+  .booking-point p{font-size:13.5px; color:var(--gray); line-height:1.5; margin:0;}
+  .booking-point strong{color:var(--navy); display:block; margin-bottom:3px; font-size:15px; font-weight:700;}
+  .booking-card{background:var(--mint-tint); border:1px solid var(--hairline); border-radius:16px; padding:34px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .form-group{margin-bottom:16px;}
+  .form-group label{display:block; font-size:11.5px; letter-spacing:0.03em; text-transform:uppercase; color:var(--gray); margin-bottom:7px; font-weight:700;}
+  .form-group input, .form-group select, .form-group textarea{
+    width:100%; background:#fff; border:1px solid var(--hairline); border-radius:8px; padding:12px 13px;
+    color:var(--navy); font-family:'Inter', sans-serif; font-size:14px; transition:border-color .25s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder{color:rgba(107,114,128,0.45);}
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus{outline:none; border-color:var(--mint);}
+  .form-group select{appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; cursor:pointer;}
+  .form-group textarea{resize:vertical; min-height:78px;}
+  .field-error{font-size:12px; color:#D14343; margin-top:6px; display:none;}
+  .form-group.invalid input, .form-group.invalid select{border-color:#D14343; background:rgba(209,67,67,0.05);}
+  .form-group.invalid .field-error{display:block;}
+  .item-options{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  .item-chip{border:1px solid var(--hairline); border-radius:8px; padding:11px 8px; text-align:center; font-size:12.5px; cursor:pointer; transition:all .2s; color:var(--gray); user-select:none; background:#fff;}
+  .item-chip:hover{border-color:var(--mint);}
+  .item-chip.active{background:var(--mint); border-color:var(--mint); color:#fff; font-weight:600;}
+  .booking-submit{width:100%; border:none; cursor:pointer; margin-top:6px; font-size:13.5px; font-weight:700; padding:16px 26px; border-radius:8px; background:var(--mint); color:#fff; transition:all .25s;}
+  .booking-submit:hover{background:var(--navy);}
+  .booking-note{font-size:12px; color:var(--gray); margin-top:13px; text-align:center;}
+
+  .booking-success{display:none; text-align:center; padding:32px 10px;}
+  .booking-success.show{display:block;}
+  .success-check{width:52px; height:52px; border-radius:50%; background:var(--mint); margin:0 auto 18px; display:flex; align-items:center; justify-content:center; font-size:23px; color:#fff;}
+  .booking-success h3{font-size:21px; margin-bottom:8px;}
+  .booking-success p{color:var(--gray); font-size:14px; line-height:1.55; max-width:320px; margin:0 auto;}
+  .booking-summary{margin-top:20px; padding:16px 18px; background:#fff; border:1px solid var(--hairline); border-radius:10px; text-align:left; font-size:13px; color:var(--gray); display:inline-block;}
+  .booking-summary div{margin-bottom:5px;}
+  .booking-summary strong{color:var(--navy); font-weight:700;}
+
+  @media (max-width:900px){
+    .booking-layout{grid-template-columns:1fr; gap:30px;}
+    .booking-card{padding:24px 20px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+  /* ===== CONTACT PILLARS ===== */
+  .contact-pillars{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:14px; overflow:hidden; margin-top:48px;}
+  .contact-pillar{background:var(--mint-tint); padding:28px 26px;}
+  .contact-pillar h3{font-size:17px; margin-bottom:8px; overflow-wrap:break-word; word-break:break-word; font-weight:700;}
+  .contact-pillar h3.email-heading{font-size:15px;}
+  .contact-pillar p{color:var(--gray); font-size:13.5px; line-height:1.55;}
+  @media (max-width:860px){ .contact-pillars{grid-template-columns:1fr; margin-top:30px;} }
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy-deep); color:rgba(255,255,255,0.7); padding-top:48px;}
+  .footer-top{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.1);}
+  .footer-brand{display:flex; flex-direction:column; gap:14px;}
+  .footer-brand .logo-text{color:#fff;}
+  .footer-brand .logo-text span{color:rgba(255,255,255,0.5);}
+  .footer-brand p{font-size:13px; line-height:1.6; max-width:280px; color:rgba(255,255,255,0.55);}
+  .footer-col h4{font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:13.5px; margin-bottom:10px; color:rgba(255,255,255,0.75);}
+  .footer-col a:hover{color:var(--mint);}
+  .footer-bottom{padding:20px 0; display:flex; justify-content:space-between; font-size:11.5px; color:rgba(255,255,255,0.4); flex-wrap:wrap; gap:10px;}
+  @media (max-width:860px){ .footer-top{grid-template-columns:1fr 1fr;} }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="top-strip">
+  <div class="top-strip-row">
+    <span>🧽 Licensed, Bonded & Insured · Serving the Greater Metro Area</span>
+    <span>📞 (312) 555-0148</span>
+  </div>
+</div>
+
+<header>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 13L10 18L19 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Brightside<span>Cleaning Co.</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Get a Quote</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get a Free Quote</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <div class="logo-text">Brightside<span>Cleaning Co.</span></div>
+    <button class="mobile-menu-close" id="menuClose">×</button>
+  </div>
+  <a href="#services">Services</a>
+  <a href="#process">How It Works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Get a Quote</a>
+  <a href="#contact" class="nav-cta">Get a Free Quote</a>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Residential & Commercial Cleaning</span>
+        <h1 class="reveal">A spotless space, <span class="accent">every time.</span></h1>
+        <p class="hero-sub reveal">Brightside Cleaning Co. handles homes and offices with the same standard — fully insured, background-checked teams, and a satisfaction guarantee on every visit.</p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-primary">Get a free quote</a>
+          <a href="#services" class="btn btn-ghost">See our services</a>
+        </div>
+        <div class="hero-trust reveal">
+          <div class="hero-trust-item"><span class="ic">✓</span> Licensed & Insured</div>
+          <div class="hero-trust-item"><span class="ic">✓</span> Background-Checked Staff</div>
+          <div class="hero-trust-item"><span class="ic">✓</span> 100% Satisfaction Guarantee</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="checklist-card">
+          <div class="checklist-head">
+            <span class="checklist-title">Standard Clean Checklist</span>
+            <span class="checklist-badge">Try it</span>
+          </div>
+          <div id="checklistItems">
+            <div class="check-item" data-item="1">
+              <div class="check-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="check-label">Dust all surfaces & furniture</span>
+            </div>
+            <div class="check-item" data-item="2">
+              <div class="check-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="check-label">Vacuum carpets & mop floors</span>
+            </div>
+            <div class="check-item" data-item="3">
+              <div class="check-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="check-label">Sanitize kitchen & bathrooms</span>
+            </div>
+            <div class="check-item" data-item="4">
+              <div class="check-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="check-label">Empty trash & replace liners</span>
+            </div>
+            <div class="check-item" data-item="5">
+              <div class="check-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L10 18L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="check-label">Wipe down windows & mirrors</span>
+            </div>
+          </div>
+          <div class="checklist-progress">
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="progress-label" id="progressLabel">0 of 5 complete</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we clean</span>
+      <h2>Homes and offices, one standard.</h2>
+      <p>Whether it's your kitchen or your conference room, every job follows the same checklist and the same quality bar.</p>
+    </div>
+
+    <div class="service-toggle reveal">
+      <button class="toggle-btn active" id="btnResidential">🏠 Residential</button>
+      <button class="toggle-btn" id="btnCommercial">🏢 Commercial</button>
+    </div>
+
+    <div class="service-panel active" id="panelResidential">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">1</div>
+          <h3>Standard Home Clean</h3>
+          <p>Dusting, vacuuming, mopping, kitchen and bathroom sanitizing — your regular upkeep clean.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">2</div>
+          <h3>Deep Clean</h3>
+          <p>A thorough top-to-bottom clean covering baseboards, appliance interiors, and detail work.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">3</div>
+          <h3>Move-In / Move-Out</h3>
+          <p>A full reset clean for empty homes — ready for new tenants or final inspection.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-panel" id="panelCommercial">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">1</div>
+          <h3>Office Cleaning</h3>
+          <p>Scheduled cleaning for desks, common areas, restrooms, and breakrooms — daily, weekly, or custom.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">2</div>
+          <h3>Retail & Storefront</h3>
+          <p>Floor care, glass cleaning, and display upkeep that keeps customer-facing spaces presentation-ready.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">3</div>
+          <h3>Post-Construction</h3>
+          <p>Dust and debris removal after renovation work, getting a space ready to use again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <h3>Fully Insured</h3>
+        <p>Licensed and bonded, so you're covered for any accident on the job.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Background-Checked</h3>
+        <p>Every team member is vetted before they ever step into your space.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Satisfaction Guarantee</h3>
+        <p>Not happy with a spot? We'll come back and fix it, free of charge.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Flexible Scheduling</h3>
+        <p>One-time, weekly, biweekly, or monthly — built around your schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Booking a clean, start to finish.</h2>
+    </div>
+    <div class="process-track reveal">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h3>Get a free quote</h3>
+        <p>Tell us about your space and we'll send a clear, upfront price — no surprises.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h3>Pick a time</h3>
+        <p>Choose a one-time visit or set up a recurring schedule that fits your week.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h3>We clean, you relax</h3>
+        <p>Our team arrives on time, follows the checklist, and leaves your space spotless.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h3>Guaranteed results</h3>
+        <p>Not satisfied with something? We'll come back and make it right, free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--mint-tint);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What clients say</span>
+      <h2>Trusted with homes and offices alike.</h2>
+    </div>
+    <div class="testi-strip reveal">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Same two cleaners every time, always on schedule, and my house has never looked better."</p>
+        <p class="testi-name"><strong>Megan H.</strong> — Weekly residential</p>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Our office looks great every Monday morning. Easy to schedule, easy to trust."</p>
+        <p class="testi-name"><strong>David R.</strong> — Office manager</p>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Used them for a move-out clean and got our full deposit back. Worth every penny."</p>
+        <p class="testi-name"><strong>Ashley T.</strong> — Move-out clean</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing-band">
+  <div class="wrap" style="padding:84px 28px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>Straightforward rates, no hidden fees.</h2>
+      <p>Final pricing depends on square footage and condition — these are typical starting rates.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <span class="price-tier">Standard Clean</span>
+        <div class="price-amt">$120</div>
+        <div class="price-detail">starting, per visit</div>
+        <div class="price-feats">
+          <div class="price-feat">Up to 1,500 sq ft</div>
+          <div class="price-feat">Free quote, no obligation</div>
+          <div class="price-feat">Satisfaction guarantee</div>
+        </div>
+        <a href="#contact" class="btn btn-ghost">Get this quote</a>
+      </div>
+      <div class="price-card featured reveal">
+        <span class="price-tier">Recurring Clean</span>
+        <div class="price-amt">$95</div>
+        <div class="price-detail">starting, per visit (weekly/biweekly)</div>
+        <div class="price-feats">
+          <div class="price-feat">Same team every visit</div>
+          <div class="price-feat">Priority scheduling</div>
+          <div class="price-feat">Discounted recurring rate</div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Get this quote</a>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-tier">Commercial</span>
+        <div class="price-amt">Custom</div>
+        <div class="price-detail">based on space & frequency</div>
+        <div class="price-feats">
+          <div class="price-feat">Daily, weekly, or custom schedule</div>
+          <div class="price-feat">After-hours service available</div>
+          <div class="price-feat">Dedicated account contact</div>
+        </div>
+        <a href="#contact" class="btn btn-ghost">Get this quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="booking-section">
+  <div class="wrap">
+    <div class="booking-layout">
+      <div>
+        <div class="section-head reveal" style="margin-bottom:0;">
+          <span class="eyebrow">Get a free quote</span>
+          <h2>Let's get your space spotless.</h2>
+          <p>Fill in your details and we'll follow up with a clear, no-obligation quote — usually same day.</p>
+        </div>
+        <div class="booking-points reveal">
+          <div class="booking-point">
+            <span class="booking-point-mark">1</span>
+            <p><strong>Tell us about your space</strong>Home or office, size, and how often you'd like us to clean.</p>
+          </div>
+          <div class="booking-point">
+            <span class="booking-point-mark">2</span>
+            <p><strong>Get a clear quote</strong>No hidden fees, no pressure to book on the spot.</p>
+          </div>
+          <div class="booking-point">
+            <span class="booking-point-mark">3</span>
+            <p><strong>Pick your first visit</strong>We'll schedule a time that works for you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-card reveal">
+        <div id="bookingFormState">
+          <form id="quoteForm" novalidate>
+            <div class="form-row">
+              <div class="form-group" id="group-name">
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" placeholder="Your name">
+                <div class="field-error">Please enter your name.</div>
+              </div>
+              <div class="form-group" id="group-phone">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" placeholder="(555) 123-4567">
+                <div class="field-error">Please enter a valid phone number.</div>
+              </div>
+            </div>
+            <div class="form-group" id="group-email">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="you@example.com">
+              <div class="field-error">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group" id="group-type">
+              <label>Space type</label>
+              <div class="item-options">
+                <div class="item-chip" data-value="Residential">Residential</div>
+                <div class="item-chip" data-value="Commercial">Commercial</div>
+                <div class="item-chip" data-value="Move-In/Out">Move-In / Move-Out</div>
+                <div class="item-chip" data-value="Not sure yet">Not sure yet</div>
+              </div>
+              <div class="field-error">Please select a space type.</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group" id="group-date">
+                <label for="apptDate">Preferred date</label>
+                <input type="date" id="apptDate">
+                <div class="field-error">Please choose a date (today or later).</div>
+              </div>
+              <div class="form-group" id="group-time">
+                <label for="apptTime">Preferred time</label>
+                <select id="apptTime">
+                  <option value="">Select a time</option>
+                  <option value="8:00 AM">8:00 AM</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                  <option value="4:00 PM">4:00 PM</option>
+                </select>
+                <div class="field-error">Please pick a time slot.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="notes">Anything else? <span style="text-transform:none; opacity:0.6;">(optional)</span></label>
+              <textarea id="notes" placeholder="Square footage, specific areas, or scheduling preferences..."></textarea>
+            </div>
+            <button type="submit" class="booking-submit">Get my free quote</button>
+            <p class="booking-note">No payment required. We'll follow up to confirm details.</p>
+          </form>
+        </div>
+        <div id="bookingSuccess" class="booking-success">
+          <div class="success-check">✓</div>
+          <h3>Quote request received!</h3>
+          <p>Thanks — our team will reach out shortly with your free, no-obligation quote.</p>
+          <div class="booking-summary" id="summaryBox"></div>
+          <div style="margin-top:22px;"><a href="#" class="btn btn-ghost" id="bookAnotherBtn">Request another quote</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-pillars">
+      <div class="contact-pillar">
+        <span class="eyebrow">Service Area</span>
+        <h3>Greater Metro Area</h3>
+        <p>Serving residential and commercial clients across the metro area and surrounding suburbs.</p>
+      </div>
+      <div class="contact-pillar">
+        <span class="eyebrow">Reach us</span>
+        <h3 class="email-heading">hello@brightsidecleaning.demo</h3>
+        <p>(312) 555-0148 — call or text. We typically respond within the hour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-text">Brightside<span>Cleaning Co.</span></div>
+        <p>Residential and commercial cleaning, done right. Licensed, bonded, and insured.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#contact">Get a Quote</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brightside Cleaning Co. Demo website — for illustration purposes only.</span>
+      <span>Designed as a sample by ROCKANK</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => io.observe(el));
+  setTimeout(() => { revealEls.forEach(el => el.classList.add('visible')); }, 2000);
+
+  const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+    menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+  }
+
+  // Interactive checklist
+  const checkItems = document.querySelectorAll('.check-item');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const totalItems = checkItems.length;
+
+  function updateProgress() {
+    const checkedCount = document.querySelectorAll('.check-item.checked').length;
+    const pct = (checkedCount / totalItems) * 100;
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = `${checkedCount} of ${totalItems} complete`;
+  }
+
+  checkItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('checked');
+      updateProgress();
+    });
+  });
+
+  // Residential / Commercial toggle
+  const btnResidential = document.getElementById('btnResidential');
+  const btnCommercial = document.getElementById('btnCommercial');
+  const panelResidential = document.getElementById('panelResidential');
+  const panelCommercial = document.getElementById('panelCommercial');
+
+  btnResidential.addEventListener('click', () => {
+    btnResidential.classList.add('active');
+    btnCommercial.classList.remove('active');
+    panelResidential.classList.add('active');
+    panelCommercial.classList.remove('active');
+  });
+  btnCommercial.addEventListener('click', () => {
+    btnCommercial.classList.add('active');
+    btnResidential.classList.remove('active');
+    panelCommercial.classList.add('active');
+    panelResidential.classList.remove('active');
+  });
+
+  // Booking form
+  const form = document.getElementById('quoteForm');
+  const dateInput = document.getElementById('apptDate');
+  const typeChips = document.querySelectorAll('.item-chip');
+  let selectedType = '';
+
+  if (dateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+  }
+
+  typeChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      typeChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedType = chip.dataset.value;
+      document.getElementById('group-type').classList.remove('invalid');
+    });
+  });
+
+  function setInvalid(groupId, isInvalid) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    group.classList.toggle('invalid', isInvalid);
+  }
+  function isValidEmail(value) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
+  function isValidPhone(value) { const digits = value.replace(/[^0-9]/g, ''); return digits.length >= 7; }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const apptDate = dateInput.value;
+      const apptTime = document.getElementById('apptTime').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      let valid = true;
+      setInvalid('group-name', !fullName); if (!fullName) valid = false;
+      setInvalid('group-phone', !isValidPhone(phone)); if (!isValidPhone(phone)) valid = false;
+      setInvalid('group-email', !isValidEmail(email)); if (!isValidEmail(email)) valid = false;
+      setInvalid('group-type', !selectedType); if (!selectedType) valid = false;
+      setInvalid('group-date', !apptDate); if (!apptDate) valid = false;
+      setInvalid('group-time', !apptTime); if (!apptTime) valid = false;
+
+      if (!valid) {
+        const firstInvalid = document.querySelector('.form-group.invalid');
+        if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const dateObj = new Date(apptDate + 'T00:00:00');
+      const friendlyDate = dateObj.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      const summaryBox = document.getElementById('summaryBox');
+      summaryBox.innerHTML = `
+        <div><strong>Name:</strong> ${fullName}</div>
+        <div><strong>Space type:</strong> ${selectedType}</div>
+        <div><strong>Date:</strong> ${friendlyDate}</div>
+        <div><strong>Time:</strong> ${apptTime}</div>
+        <div><strong>Contact:</strong> ${phone} · ${email}</div>
+        ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ''}
+      `;
+      document.getElementById('bookingFormState').style.display = 'none';
+      document.getElementById('bookingSuccess').classList.add('show');
+    });
+  }
+
+  const bookAnotherBtn = document.getElementById('bookAnotherBtn');
+  if (bookAnotherBtn) {
+    bookAnotherBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      form.reset();
+      typeChips.forEach(c => c.classList.remove('active'));
+      selectedType = '';
+      document.querySelectorAll('.form-group.invalid').forEach(g => g.classList.remove('invalid'));
+      document.getElementById('bookingSuccess').classList.remove('show');
+      document.getElementById('bookingFormState').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
