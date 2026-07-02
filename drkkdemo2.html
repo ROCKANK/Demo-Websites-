@@ -1,0 +1,1430 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+  :root {
+    --ink: #12241f;
+    --paper: #f7f4ec;
+    --paper2: #eee7d6;
+    --iris: #2f6f68;
+    --iris-light: #6fa39a;
+    --gold: #c89b3c;
+    --rust: #b5533c;
+    --line: rgba(18, 36, 31, 0.14);
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--iris);
+  }
+  a {
+    color: inherit;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 244, 236, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .brand-sub {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--iris);
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    align-items: center;
+  }
+  .nav-links a {
+    opacity: 0.75;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover {
+    opacity: 1;
+  }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .nav-cta:hover {
+    background: var(--iris);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 88px 0 60px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--iris);
+    font-weight: 500;
+  }
+  .hero p.lede {
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: 0.78;
+    max-width: 440px;
+    margin-bottom: 30px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--iris);
+    color: var(--paper);
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition:
+      transform 0.15s,
+      background 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--ink);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line) !important;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .btn-secondary:hover {
+    border-color: var(--ink) !important;
+  }
+  .trust-row {
+    display: flex;
+    gap: 26px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .trust-num {
+    font-family: "Fraunces", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--iris);
+  }
+  .trust-label {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+  /* aperture signature visual */
+  .aperture-holder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .aperture-holder svg {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+  }
+  .blade {
+    transform-origin: 200px 200px;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .aperture-holder:hover .blade {
+    transform: rotate(8deg);
+  }
+
+  /* section divider using aperture rings instead of numbers */
+  .ring-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 14px;
+  }
+  .ring-divider svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ring-divider span {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--iris);
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 74px 0;
+  }
+  .section-head {
+    max-width: 560px;
+    margin-bottom: 44px;
+  }
+  .section-head h2 {
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+  }
+
+  /* services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--paper);
+    padding: 30px 26px;
+  }
+  .service-card h3 {
+    font-size: 18px;
+    margin: 14px 0 8px;
+  }
+  .service-card p {
+    font-size: 13.5px;
+    opacity: 0.68;
+    line-height: 1.55;
+  }
+  .service-icon {
+    width: 34px;
+    height: 34px;
+    color: var(--iris);
+  }
+
+  /* about */
+  .about {
+    background: var(--paper2);
+    border-radius: 24px;
+    padding: 52px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 44px;
+    align-items: center;
+  }
+  .about-photo {
+    aspect-ratio: 1;
+    border-radius: 18px;
+    background: linear-gradient(155deg, var(--iris) 0%, var(--ink) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-photo .initials {
+    font-family: "Fraunces", serif;
+    font-size: 64px;
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .about-cred {
+    font-size: 13px;
+    line-height: 2;
+    opacity: 0.8;
+  }
+  .about-cred b {
+    opacity: 1;
+  }
+  .cred-list {
+    list-style: none;
+    margin-top: 16px;
+  }
+  .cred-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 13.5px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cred-list li:last-child {
+    border-bottom: none;
+  }
+  .cred-list li:before {
+    content: "✓";
+    color: var(--iris);
+    font-weight: 700;
+  }
+
+  /* testimonials */
+  .testi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .testi {
+    background: var(--paper2);
+    border-radius: 16px;
+    padding: 24px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .testi .stars {
+    color: var(--gold);
+    font-size: 13px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  .testi .who {
+    margin-top: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    opacity: 0.6;
+  }
+
+  /* CTA band */
+  .cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    color: var(--paper);
+    font-size: 30px;
+    max-width: 420px;
+  }
+  .cta-band p {
+    opacity: 0.6;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    font-size: 13px;
+    opacity: 0.6;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* ===== BOOKING MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 36, 31, 0.5);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .modal-overlay.open {
+    display: flex;
+  }
+  .modal {
+    background: var(--paper);
+    border-radius: 22px;
+    width: 100%;
+    max-width: 460px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 0;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(18, 36, 31, 0.35);
+  }
+  .modal-head {
+    padding: 22px 26px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 2;
+  }
+  .modal-head h3 {
+    font-size: 17px;
+  }
+  .modal-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: var(--paper2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .modal-body {
+    padding: 24px 26px 28px;
+  }
+  .step-track {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 22px;
+  }
+  .step-dot {
+    height: 3px;
+    flex: 1;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .step-dot i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--iris);
+    transition: width 0.4s;
+  }
+
+  .opt-grid {
+    display: grid;
+    gap: 10px;
+  }
+  .opt-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+    background: var(--paper);
+  }
+  .opt-card:hover {
+    border-color: var(--iris-light);
+  }
+  .opt-card.selected {
+    border-color: var(--iris);
+    background: rgba(47, 111, 104, 0.06);
+  }
+  .opt-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .opt-sub {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+  .opt-price {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--iris);
+    font-weight: 500;
+  }
+
+  .slot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .slot {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    background: var(--paper);
+  }
+  .slot.selected {
+    border-color: var(--iris);
+    background: var(--iris);
+    color: var(--paper);
+  }
+  .slot:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .day-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+  .day-tab {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    font-size: 12.5px;
+    background: var(--paper);
+  }
+  .day-tab.selected {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  label.field-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    margin-top: 16px;
+  }
+  .field-label:first-child {
+    margin-top: 0;
+  }
+  input[type="text"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--iris);
+    outline-offset: 1px;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+
+  .pay-summary {
+    background: var(--paper2);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+  .pay-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 5px 0;
+  }
+  .pay-row.total {
+    border-top: 1px solid var(--line);
+    margin-top: 6px;
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .pay-methods {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .pay-method {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 13px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
+    background: var(--paper);
+  }
+  .pay-method.selected {
+    border-color: var(--iris);
+    background: rgba(47, 111, 104, 0.06);
+  }
+  .pay-method .tag {
+    margin-left: auto;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .upi-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .upi-input input {
+    flex: 1;
+  }
+
+  .btn-full {
+    width: 100%;
+    background: var(--iris);
+    color: var(--paper);
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background 0.2s;
+  }
+  .btn-full:hover {
+    background: var(--ink);
+  }
+  .btn-full:disabled {
+    background: var(--line);
+    color: rgba(18, 36, 31, 0.4);
+    cursor: not-allowed;
+  }
+  .btn-back {
+    background: transparent;
+    color: var(--ink);
+    opacity: 0.6;
+    font-size: 13px;
+    margin-top: 14px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .confirm-wrap {
+    text-align: center;
+    padding: 10px 0 4px;
+  }
+  .confirm-check {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    background: var(--iris);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+  .confirm-id {
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--paper2);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+    margin: 18px 0;
+    letter-spacing: 0.04em;
+  }
+  .confirm-detail {
+    text-align: left;
+    background: var(--paper2);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 2;
+  }
+  .confirm-detail b {
+    float: right;
+  }
+  .demo-note {
+    font-size: 10.5px;
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--rust);
+    background: rgba(181, 83, 60, 0.08);
+    border: 1px dashed rgba(181, 83, 60, 0.3);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 760px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 {
+      font-size: 38px;
+    }
+    .aperture-holder {
+      order: -1;
+      max-width: 220px;
+      margin: 0 auto 20px;
+    }
+    .services-grid,
+    .testi-row {
+      grid-template-columns: 1fr;
+    }
+    .about {
+      grid-template-columns: 1fr;
+      padding: 30px;
+    }
+    .nav-links {
+      display: none;
+    }
+    .cta-band {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 36px;
+    }
+  }
+</style>
+
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40">
+        <circle
+          cx="20"
+          cy="20"
+          r="19"
+          fill="none"
+          stroke="#2F6F68"
+          stroke-width="1.4"
+        />
+        <circle
+          cx="20"
+          cy="20"
+          r="12"
+          fill="none"
+          stroke="#2F6F68"
+          stroke-width="1.4"
+        />
+        <circle cx="20" cy="20" r="5" fill="#C89B3C" />
+      </svg>
+      <div>
+        <div class="brand-name">Dr. Kartikay Vision</div>
+        <div class="brand-sub">Eye Care · AIIMS Trained</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <button class="nav-cta" onclick="openBooking()">Book Consultation</button>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow">
+        AIIMS Delhi Trained · Ophthalmology
+      </div>
+      <h1>Precise eye care, <em>brought into focus</em> for you.</h1>
+      <p class="lede">
+        Dr. Kartikay offers in-clinic and video consultations for cataract,
+        glaucoma, retina and routine vision care — with the same clinical
+        rigour, wherever you are.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openBooking()">
+          Book Teleconsultation →
+        </button>
+        <button class="btn-secondary" onclick="openBooking('inclinic')">
+          Book In-Clinic Visit
+        </button>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="trust-num">13.8K+</div>
+          <div class="trust-label">Community following</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">4,200+</div>
+          <div class="trust-label">Surgeries performed*</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">4.9/5</div>
+          <div class="trust-label">Patient rating*</div>
+        </div>
+      </div>
+    </div>
+    <div class="aperture-holder">
+      <svg viewBox="0 0 400 400">
+        <circle
+          cx="200"
+          cy="200"
+          r="180"
+          fill="none"
+          stroke="#12241F"
+          stroke-opacity="0.1"
+          stroke-width="1"
+        />
+        <g>
+          <path
+            class="blade"
+            d="M200 200 L200 40 A160 160 0 0 1 338 120 Z"
+            fill="#2F6F68"
+            fill-opacity="0.85"
+          />
+          <path
+            class="blade"
+            d="M200 200 L338 120 A160 160 0 0 1 338 280 Z"
+            fill="#6FA39A"
+            fill-opacity="0.85"
+          />
+          <path
+            class="blade"
+            d="M200 200 L338 280 A160 160 0 0 1 200 360 Z"
+            fill="#2F6F68"
+            fill-opacity="0.7"
+          />
+          <path
+            class="blade"
+            d="M200 200 L200 360 A160 160 0 0 1 62 280 Z"
+            fill="#C89B3C"
+            fill-opacity="0.85"
+          />
+          <path
+            class="blade"
+            d="M200 200 L62 280 A160 160 0 0 1 62 120 Z"
+            fill="#6FA39A"
+            fill-opacity="0.7"
+          />
+          <path
+            class="blade"
+            d="M200 200 L62 120 A160 160 0 0 1 200 40 Z"
+            fill="#2F6F68"
+            fill-opacity="0.6"
+          />
+        </g>
+        <circle cx="200" cy="200" r="58" fill="#12241F" />
+        <circle
+          cx="200"
+          cy="200"
+          r="58"
+          fill="none"
+          stroke="#F7F4EC"
+          stroke-width="1"
+          stroke-opacity="0.2"
+        />
+        <circle cx="182" cy="182" r="12" fill="#F7F4EC" fill-opacity="0.5" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="ring-divider">
+      <svg viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          fill="none"
+          stroke="#2F6F68"
+          stroke-width="1.5"
+        />
+        <circle cx="12" cy="12" r="4" fill="#2F6F68" />
+      </svg>
+      <span>What we treat</span>
+    </div>
+    <div class="section-head">
+      <h2>Care built around clarity — at every stage of vision.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        <h3>Cataract Surgery</h3>
+        <p>
+          Phaco-emulsification with premium IOL options, evaluated and explained
+          before you decide.
+        </p>
+      </div>
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+          <circle cx="12" cy="12" r="6" />
+        </svg>
+        <h3>Glaucoma Management</h3>
+        <p>
+          Pressure monitoring, field testing and long-term treatment plans to
+          protect your vision.
+        </p>
+      </div>
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M3 3v18h18" />
+          <path d="M7 14l4-5 3 3 5-7" />
+        </svg>
+        <h3>Retina & Diabetic Eye Care</h3>
+        <p>
+          OCT-guided diagnosis for diabetic retinopathy, ARMD and retinal
+          detachment risk.
+        </p>
+      </div>
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <rect x="3" y="6" width="18" height="12" rx="2" />
+          <path d="M7 10h2M7 14h6" />
+        </svg>
+        <h3>Routine Vision Check</h3>
+        <p>
+          Comprehensive eye exam, refraction and prescription updates for
+          glasses or lenses.
+        </p>
+      </div>
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path
+            d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
+          />
+        </svg>
+        <h3>Dry Eye & Allergy</h3>
+        <p>
+          Diagnosis and relief plans for chronic dryness, redness and seasonal
+          irritation.
+        </p>
+      </div>
+      <div class="service-card">
+        <svg
+          class="service-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M4 20l6-6M20 4l-6 6M14 4l6 6-6 6-6-6z" />
+        </svg>
+        <h3>Second Opinions</h3>
+        <p>
+          Independent review of prior diagnoses or planned surgery — in person
+          or by video.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-photo"><span class="initials">KK</span></div>
+      <div>
+        <div class="eyebrow">The Doctor</div>
+        <h2 style="font-size: 28px; margin: 10px 0 14px">Dr. Kartikay</h2>
+        <p class="about-cred">
+          MBBS, MS (Ophthalmology) — <b>AIIMS, New Delhi</b>. Focused on making
+          eye care easy to understand, through public explainers and direct
+          patient consultations.
+        </p>
+        <ul class="cred-list">
+          <li>AIIMS Delhi trained, Ophthalmology</li>
+          <li>Fellowship in Phaco & Glaucoma surgery*</li>
+          <li>Public health educator — 13.8K+ community</li>
+          <li>In-clinic & video consultations available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="ring-divider">
+      <svg viewBox="0 0 24 24">
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          fill="none"
+          stroke="#2F6F68"
+          stroke-width="1.5"
+        />
+        <circle cx="12" cy="12" r="4" fill="#2F6F68" />
+      </svg>
+      <span>Patients say</span>
+    </div>
+    <div class="testi-row">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        "Explained my cataract options clearly before I decided anything. No
+        pressure, just facts."
+        <div class="who">— Placeholder patient, Delhi*</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        "Did the first consult over video, surgery booked within the week. Very
+        smooth."
+        <div class="who">— Placeholder patient, Gurugram*</div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        "Finally someone who explains glaucoma without the jargon."
+        <div class="who">— Placeholder patient, Noida*</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Ready when you are.</h2>
+        <p>
+          Video consultations start at ₹599 · In-clinic visits by appointment.
+        </p>
+      </div>
+      <button
+        class="btn-primary"
+        style="background: var(--gold); color: var(--ink)"
+        onclick="openBooking()"
+      >
+        Book a Consultation
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div
+    class="wrap"
+    style="
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 10px;
+    "
+  >
+    <div>Dr. Kartikay Vision Clinic — Demo site, placeholder content*</div>
+    <div>Built as a design concept for review</div>
+  </div>
+</footer>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div class="modal-overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Book a consultation</h3>
+      <div class="modal-close" onclick="closeBooking()">✕</div>
+    </div>
+    <div class="modal-body">
+      <div class="step-track">
+        <div class="step-dot"><i id="dot1"></i></div>
+        <div class="step-dot"><i id="dot2"></i></div>
+        <div class="step-dot"><i id="dot3"></i></div>
+        <div class="step-dot"><i id="dot4"></i></div>
+      </div>
+
+      <!-- STEP 1: type -->
+      <div id="step1">
+        <div class="opt-grid" id="typeGrid"></div>
+        <button class="btn-full" id="s1next" disabled onclick="goStep(2)">
+          Continue
+        </button>
+      </div>
+
+      <!-- STEP 2: slot -->
+      <div id="step2" style="display: none">
+        <div class="day-tabs" id="dayTabs"></div>
+        <div class="slot-grid" id="slotGrid"></div>
+        <button class="btn-full" id="s2next" disabled onclick="goStep(3)">
+          Continue
+        </button>
+        <button class="btn-back" onclick="goStep(1)">← Back</button>
+      </div>
+
+      <!-- STEP 3: details -->
+      <div id="step3" style="display: none">
+        <label class="field-label">Full name</label>
+        <input type="text" id="pName" placeholder="e.g. Ananya Sharma" />
+        <label class="field-label">Phone number</label>
+        <input type="tel" id="pPhone" placeholder="+91 98765 43210" />
+        <label class="field-label">Briefly describe your concern</label>
+        <textarea
+          id="pConcern"
+          placeholder="e.g. Blurry vision in left eye for 2 weeks"
+        ></textarea>
+        <button class="btn-full" onclick="goStep(4)">
+          Continue to Payment
+        </button>
+        <button class="btn-back" onclick="goStep(2)">← Back</button>
+      </div>
+
+      <!-- STEP 4: payment -->
+      <div id="step4" style="display: none">
+        <div class="pay-summary">
+          <div class="pay-row">
+            <span id="paySummaryType">Video Consultation</span
+            ><span id="paySummarySlot">—</span>
+          </div>
+          <div class="pay-row">
+            <span>Consultation fee</span><span id="payFee">₹599</span>
+          </div>
+          <div class="pay-row"><span>Platform fee</span><span>₹0</span></div>
+          <div class="pay-row total">
+            <span>Total payable</span><span id="payTotal">₹599</span>
+          </div>
+        </div>
+        <div class="eyebrow" style="margin-bottom: 10px">
+          Choose payment method
+        </div>
+        <div class="pay-methods" id="payMethods"></div>
+        <div id="upiBox" style="display: none">
+          <label class="field-label">Enter UPI ID</label>
+          <div class="upi-input">
+            <input type="text" id="upiId" placeholder="yourname@upi" />
+          </div>
+        </div>
+        <button class="btn-full" id="payBtn" onclick="processPayment()">
+          Pay & Confirm Booking
+        </button>
+        <button class="btn-back" onclick="goStep(3)">← Back</button>
+        <div class="demo-note">
+          ⚠ Demo mode — this is a mock Razorpay-style checkout for preview
+          purposes. No real payment will be processed.
+        </div>
+      </div>
+
+      <!-- STEP 5: confirmation -->
+      <div id="step5" style="display: none">
+        <div class="confirm-wrap">
+          <div class="confirm-check">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#F7F4EC"
+              stroke-width="2.5"
+            >
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 style="font-size: 19px">Booking confirmed</h3>
+          <p style="font-size: 13px; opacity: 0.65; margin-top: 6px">
+            A confirmation has been sent to your phone.
+          </p>
+          <div class="confirm-id">
+            Booking ID: <span id="bookingId">DRK-000000</span>
+          </div>
+          <div class="confirm-detail" id="confirmDetail"></div>
+          <button class="btn-full" onclick="closeBooking()">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const state = {
+    type: null,
+    day: null,
+    slot: null,
+    method: null,
+    name: "",
+    phone: "",
+    concern: "",
+  };
+
+  const types = [
+    {
+      id: "video",
+      title: "Video Consultation",
+      sub: "20 min · From your phone or laptop",
+      price: "₹599",
+    },
+    {
+      id: "audio",
+      title: "Audio Consultation",
+      sub: "15 min · Phone call",
+      price: "₹399",
+    },
+    {
+      id: "inclinic",
+      title: "In-Clinic Visit",
+      sub: "Physical exam · South Delhi clinic",
+      price: "₹899",
+    },
+  ];
+
+  function renderTypes() {
+    const grid = document.getElementById("typeGrid");
+    grid.innerHTML = types
+      .map(
+        (t) => `
+    <div class="opt-card" data-id="${t.id}" onclick="selectType('${t.id}')">
+      <div>
+        <div class="opt-title">${t.title}</div>
+        <div class="opt-sub">${t.sub}</div>
+      </div>
+      <div class="opt-price">${t.price}</div>
+    </div>
+  `,
+      )
+      .join("");
+  }
+  function selectType(id) {
+    state.type = id;
+    document
+      .querySelectorAll("#typeGrid .opt-card")
+      .forEach((el) => el.classList.toggle("selected", el.dataset.id === id));
+    document.getElementById("s1next").disabled = false;
+  }
+
+  const days = ["Today", "Tomorrow", "Fri 4", "Sat 5", "Mon 7"];
+  const slotsByDay = {
+    0: ["10:00 AM", "11:30 AM", "—", "3:00 PM", "4:30 PM", "6:00 PM"],
+    1: ["9:30 AM", "10:00 AM", "12:00 PM", "2:00 PM", "—", "5:30 PM"],
+    2: ["—", "11:00 AM", "1:00 PM", "—", "4:00 PM", "5:00 PM"],
+    3: ["9:00 AM", "9:30 AM", "—", "—", "3:30 PM", "4:00 PM"],
+    4: ["10:30 AM", "—", "12:30 PM", "2:30 PM", "3:00 PM", "—"],
+  };
+  function renderDays() {
+    const el = document.getElementById("dayTabs");
+    el.innerHTML = days
+      .map(
+        (d, i) =>
+          `<div class="day-tab ${i === 0 ? "selected" : ""}" data-i="${i}" onclick="selectDay(${i})">${d}</div>`,
+      )
+      .join("");
+    selectDay(0);
+  }
+  function selectDay(i) {
+    state.day = days[i];
+    state.slot = null;
+    document
+      .querySelectorAll(".day-tab")
+      .forEach((el) => el.classList.toggle("selected", +el.dataset.i === i));
+    const el = document.getElementById("slotGrid");
+    el.innerHTML = slotsByDay[i]
+      .map((s) =>
+        s === "—"
+          ? `<button class="slot" disabled>—</button>`
+          : `<button class="slot" data-s="${s}" onclick="selectSlot('${s}')">${s}</button>`,
+      )
+      .join("");
+    document.getElementById("s2next").disabled = true;
+  }
+  function selectSlot(s) {
+    state.slot = s;
+    document
+      .querySelectorAll(".slot")
+      .forEach((el) => el.classList.toggle("selected", el.dataset.s === s));
+    document.getElementById("s2next").disabled = false;
+  }
+
+  const methods = [
+    {
+      id: "upi",
+      title: "UPI",
+      sub: "Google Pay, PhonePe, Paytm & more",
+      tag: "INSTANT",
+    },
+    {
+      id: "card",
+      title: "Credit / Debit Card",
+      sub: "Visa, Mastercard, RuPay",
+      tag: "",
+    },
+    {
+      id: "netbanking",
+      title: "Net Banking",
+      sub: "All major Indian banks",
+      tag: "",
+    },
+  ];
+  function renderMethods() {
+    const el = document.getElementById("payMethods");
+    el.innerHTML = methods
+      .map(
+        (m) => `
+    <div class="pay-method" data-id="${m.id}" onclick="selectMethod('${m.id}')">
+      <div>
+        <div>${m.title}</div>
+        <div class="opt-sub">${m.sub}</div>
+      </div>
+      ${m.tag ? `<span class="tag">${m.tag}</span>` : ""}
+    </div>
+  `,
+      )
+      .join("");
+  }
+  function selectMethod(id) {
+    state.method = id;
+    document
+      .querySelectorAll(".pay-method")
+      .forEach((el) => el.classList.toggle("selected", el.dataset.id === id));
+    document.getElementById("upiBox").style.display =
+      id === "upi" ? "block" : "none";
+  }
+
+  function updateDots(step) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById("dot" + i).style.width =
+        i <= step ? "100%" : "0%";
+    }
+  }
+  function goStep(n) {
+    if (n === 3) {
+      const t = types.find((x) => x.id === state.type);
+      document.getElementById("paySummaryType").textContent = t.title;
+      document.getElementById("paySummarySlot").textContent =
+        state.day + ", " + (state.slot || "");
+      document.getElementById("payFee").textContent = t.price;
+      document.getElementById("payTotal").textContent = t.price;
+    }
+    ["step1", "step2", "step3", "step4", "step5"].forEach((id, idx) => {
+      document.getElementById(id).style.display =
+        idx + 1 === n ? "block" : "none";
+    });
+    updateDots(n);
+  }
+
+  function processPayment() {
+    if (!state.method) {
+      alert("Please select a payment method to continue.");
+      return;
+    }
+    state.name = document.getElementById("pName").value || "Guest Patient";
+    const t = types.find((x) => x.id === state.type);
+    const id = "DRK-" + Math.floor(100000 + Math.random() * 899999);
+    document.getElementById("bookingId").textContent = id;
+    document.getElementById("confirmDetail").innerHTML = `
+    Patient <b>${state.name}</b><br>
+    Type <b>${t.title}</b><br>
+    When <b>${state.day}, ${state.slot}</b><br>
+    Paid <b>${t.price}</b>
+  `;
+    goStep(5);
+  }
+
+  function openBooking(preset) {
+    document.getElementById("overlay").classList.add("open");
+    renderTypes();
+    renderDays();
+    renderMethods();
+    goStep(1);
+    if (preset) {
+      selectType(preset);
+    }
+  }
+  function closeBooking() {
+    document.getElementById("overlay").classList.remove("open");
+    state.type = null;
+    state.day = null;
+    state.slot = null;
+    state.method = null;
+  }
+</script>
