@@ -503,15 +503,15 @@
       }
       .about-portrait .initials {
         font-family: "Source Serif 4", serif;
-        font-size: 96px;
-        font-weight: 700;
+        font-size: 88px;
+        font-weight: 600;
         color: var(--sapphire);
-        opacity: 0.85;
+        opacity: 0.75;
       }
       .about-portrait .ring {
         position: absolute;
         inset: 20px;
-        border: 1.5px dashed rgba(43, 76, 140, 0.3);
+        border: 1px solid rgba(43, 76, 140, 0.22);
         border-radius: 14px;
       }
       .about-creds {
@@ -1273,8 +1273,9 @@
       .course-badge {
         font-size: 11px;
         font-weight: 700;
-        color: var(--ink-deep);
-        background: var(--gold);
+        color: var(--sapphire);
+        background: var(--white);
+        border: 1px solid var(--sapphire);
         padding: 4px 10px;
         border-radius: 20px;
       }
@@ -1434,10 +1435,8 @@
   <body>
     <div class="top-strip">
       <div class="top-strip-row">
-        <span
-          >👁️ AIIMS Delhi Trained · Teleconsultation Available Nationwide</span
-        >
-        <span>📞 +91 98765 43210</span>
+        <span>AIIMS Delhi Trained · Teleconsultation Available Nationwide</span>
+        <span>+91 98765 43210</span>
       </div>
     </div>
 
@@ -1556,7 +1555,7 @@
                 Blurry vision like this is often correctable in a single visit —
                 with glasses, LASIK, or cataract surgery.
               </p>
-              <a href="#contact" class="btn btn-gold">Book your eye test</a>
+              <a href="#contact" class="btn btn-primary">Book your eye test</a>
             </div>
           </div>
         </div>
@@ -1619,9 +1618,9 @@
 
         <div class="service-toggle reveal">
           <button class="toggle-btn active" id="btnClinic">
-            🏥 In-Clinic Care
+            In-Clinic Care
           </button>
-          <button class="toggle-btn" id="btnTele">💻 Teleconsultation</button>
+          <button class="toggle-btn" id="btnTele">Teleconsultation</button>
         </div>
 
         <div class="service-panel active" id="panelClinic">
@@ -1843,11 +1842,13 @@
             <div class="course-card">
               <div class="course-card-top">
                 <span class="course-card-name">Resident Pearls Course</span>
-                <span class="course-badge">Launch offer</span>
+                <span class="course-badge">Enrollment open</span>
               </div>
               <div class="course-price-row">
                 <span class="course-price">₹2,999</span>
-                <span class="course-price-old">₹4,999</span>
+                <span class="course-price-old" style="text-decoration: none"
+                  >one-time</span
+                >
               </div>
               <div class="course-includes">
                 <div class="price-feat">35+ HD video lessons</div>
@@ -2023,7 +2024,7 @@
 
               <div id="courseSuccess" class="booking-success">
                 <div class="success-check">✓</div>
-                <h3>You're enrolled!</h3>
+                <h3>You're enrolled</h3>
                 <p>
                   Course access details and login instructions will be emailed
                   to you shortly.
@@ -2360,7 +2361,7 @@
 
             <div id="bookingSuccess" class="booking-success">
               <div class="success-check">✓</div>
-              <h3>Booking confirmed!</h3>
+              <h3>Booking confirmed</h3>
               <p id="successText">
                 Thanks — you'll receive a confirmation shortly.
               </p>
