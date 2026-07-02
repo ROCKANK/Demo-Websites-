@@ -1,0 +1,2970 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Kartikay — VisionMD | Ophthalmology & Teleconsultation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12203a;
+        --ink-deep: #0b1526;
+        --cloud: #f5f7f5;
+        --sapphire: #2b4c8c;
+        --sapphire-tint: #eaf0fb;
+        --gold: #d9a441;
+        --gold-tint: #fbf3e2;
+        --slate: #5b6b7c;
+        --hairline: rgba(18, 32, 58, 0.12);
+        --white: #ffffff;
+        --red: #d14343;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--cloud);
+        color: var(--ink);
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Source Serif 4", serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.14;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--sapphire);
+        font-weight: 700;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--sapphire);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== TOP STRIP ===== */
+      .top-strip {
+        background: var(--ink-deep);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 12.5px;
+        padding: 8px 0;
+      }
+      .top-strip-row {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      @media (max-width: 700px) {
+        .top-strip-row span:last-child {
+          display: none;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--white);
+        border-bottom: 1px solid var(--hairline);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--sapphire);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .logo-mark svg {
+        width: 21px;
+        height: 21px;
+      }
+      .logo-text {
+        font-family: "Source Serif 4", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.1;
+      }
+      .logo-text span {
+        display: block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--slate);
+        text-transform: uppercase;
+        font-family: "Manrope", sans-serif;
+        margin-top: 3px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .nav-links a {
+        color: var(--slate);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-cta {
+        font-size: 13.5px;
+        font-weight: 700;
+        background: var(--sapphire);
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .nav-cta:hover {
+        background: var(--ink);
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--ink);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        background: var(--white);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--ink);
+      }
+      .mobile-menu a {
+        padding: 18px 24px;
+        font-size: 15.5px;
+        font-weight: 600;
+        color: var(--ink);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+        color: var(--white) !important;
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      .btn {
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 14px 26px;
+        border-radius: 8px;
+        display: inline-block;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: none;
+        font-family: "Manrope", sans-serif;
+      }
+      .btn-primary {
+        background: var(--sapphire);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--ink);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--ink);
+        color: var(--ink);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: var(--ink);
+        color: var(--white);
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--ink-deep);
+      }
+      .btn-gold:hover {
+        background: #c4922f;
+        transform: translateY(-2px);
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        padding: 60px 0 0;
+        background: linear-gradient(
+          180deg,
+          var(--sapphire-tint) 0%,
+          var(--cloud) 78%
+        );
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(34px, 4.6vw, 54px);
+      }
+      .hero-text h1 .accent {
+        color: var(--sapphire);
+        font-style: italic;
+      }
+      .hero-sub {
+        margin-top: 18px;
+        font-size: 16.5px;
+        line-height: 1.65;
+        color: var(--slate);
+        max-width: 460px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .hero-trust {
+        display: flex;
+        gap: 22px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      .hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .hero-trust-item .ic {
+        color: var(--sapphire);
+        font-size: 15px;
+      }
+
+      /* ===== FOCUS TEST CARD (signature element) ===== */
+      .focus-card {
+        background: var(--ink-deep);
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 30px 60px -28px rgba(11, 21, 38, 0.45);
+        color: #fff;
+      }
+      .focus-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .focus-title {
+        font-family: "Source Serif 4", serif;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .focus-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(217, 164, 65, 0.14);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+      .focus-sub {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 20px;
+      }
+      .eye-chart {
+        background: #fff;
+        border-radius: 12px;
+        padding: 26px 18px;
+        text-align: center;
+        transition: filter 0.12s linear;
+      }
+      .eye-chart .row {
+        font-family: "Source Serif 4", serif;
+        font-weight: 700;
+        color: var(--ink-deep);
+        letter-spacing: 0.28em;
+        line-height: 1.9;
+      }
+      .eye-chart .row:nth-child(1) {
+        font-size: 44px;
+      }
+      .eye-chart .row:nth-child(2) {
+        font-size: 33px;
+      }
+      .eye-chart .row:nth-child(3) {
+        font-size: 24px;
+      }
+      .eye-chart .row:nth-child(4) {
+        font-size: 17px;
+      }
+      .eye-chart .row:nth-child(5) {
+        font-size: 12px;
+      }
+      .focus-readout {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-top: 20px;
+      }
+      .focus-readout-label {
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 700;
+      }
+      .focus-readout-val {
+        font-family: "Source Serif 4", serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .focus-slider {
+        width: 100%;
+        margin-top: 12px;
+        accent-color: var(--gold);
+        height: 22px;
+        cursor: pointer;
+      }
+      .focus-note {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 16px;
+        line-height: 1.55;
+      }
+      .focus-note strong {
+        color: #fff;
+      }
+      .focus-card .btn {
+        margin-top: 18px;
+        width: 100%;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero {
+          padding-bottom: 48px;
+        }
+      }
+
+      section {
+        padding: 84px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 52px 0;
+        }
+      }
+      .section-head {
+        max-width: 600px;
+        margin-bottom: 44px;
+      }
+      .section-head h2 {
+        font-size: clamp(26px, 3.6vw, 40px);
+        margin-top: 10px;
+      }
+      .section-head p {
+        color: var(--slate);
+        font-size: 15.5px;
+        margin-top: 14px;
+        line-height: 1.6;
+      }
+      @media (max-width: 860px) {
+        .section-head {
+          margin-bottom: 30px;
+        }
+      }
+
+      /* ===== ABOUT ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 52px;
+        align-items: center;
+      }
+      .about-portrait {
+        background: var(--sapphire-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        aspect-ratio: 4/5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-portrait .initials {
+        font-family: "Source Serif 4", serif;
+        font-size: 96px;
+        font-weight: 700;
+        color: var(--sapphire);
+        opacity: 0.85;
+      }
+      .about-portrait .ring {
+        position: absolute;
+        inset: 20px;
+        border: 1.5px dashed rgba(43, 76, 140, 0.3);
+        border-radius: 14px;
+      }
+      .about-creds {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .cred-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        font-size: 14px;
+        color: var(--slate);
+        line-height: 1.5;
+      }
+      .cred-row .ic {
+        color: var(--sapphire);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .about-copy p {
+        color: var(--slate);
+        font-size: 15.5px;
+        line-height: 1.7;
+        margin-top: 14px;
+      }
+      .about-copy p:first-child {
+        margin-top: 0;
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-portrait {
+          aspect-ratio: 16/9;
+        }
+      }
+
+      /* ===== SERVICE TOGGLE ===== */
+      .service-toggle {
+        display: inline-flex;
+        background: var(--sapphire-tint);
+        border-radius: 30px;
+        padding: 5px;
+        margin-bottom: 36px;
+      }
+      .toggle-btn {
+        padding: 11px 24px;
+        border-radius: 24px;
+        font-size: 13.5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.25s;
+        color: var(--ink);
+        border: none;
+        background: transparent;
+        font-family: "Manrope", sans-serif;
+      }
+      .toggle-btn.active {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .service-panel {
+        display: none;
+      }
+      .service-panel.active {
+        display: block;
+      }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .service-card {
+        background: var(--white);
+        padding: 30px 26px;
+        transition: background 0.25s;
+      }
+      .service-card:hover {
+        background: var(--sapphire-tint);
+      }
+      .service-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: var(--sapphire-tint);
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--sapphire);
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .service-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .service-card p {
+        color: var(--slate);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      @media (max-width: 760px) {
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-section {
+        background: var(--ink);
+        color: var(--white);
+        padding: 48px 0;
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+      }
+      .trust-item h3 {
+        font-family: "Source Serif 4", serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 7px;
+        color: var(--gold);
+      }
+      .trust-item p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+      }
+
+      /* ===== PROCESS ===== */
+      .process-track {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .process-step {
+        flex: 1;
+        min-width: 210px;
+        padding: 0 18px;
+        position: relative;
+      }
+      .process-step:first-child {
+        padding-left: 0;
+      }
+      .process-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: var(--sapphire-tint);
+        color: var(--sapphire);
+        font-size: 14px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        font-family: "Source Serif 4", serif;
+      }
+      .process-step h3 {
+        font-size: 16.5px;
+        font-weight: 700;
+        font-family: "Source Serif 4", serif;
+      }
+      .process-step p {
+        font-size: 13.5px;
+        color: var(--slate);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+      @media (max-width: 760px) {
+        .process-track {
+          flex-direction: column;
+          gap: 26px;
+        }
+        .process-step {
+          min-width: 0;
+          padding: 0;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .testi {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        padding: 26px 24px;
+        border-radius: 14px;
+      }
+      .testi-stars {
+        color: var(--gold);
+        font-size: 13px;
+        letter-spacing: 2px;
+      }
+      .testi-quote {
+        font-size: 14.5px;
+        line-height: 1.55;
+        margin-top: 14px;
+      }
+      .testi-name {
+        margin-top: 18px;
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+      .testi-name strong {
+        color: var(--ink);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== PRICING ===== */
+      .pricing-band {
+        background: var(--sapphire-tint);
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .price-card {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        padding: 30px 26px;
+      }
+      .price-card.featured {
+        border-color: var(--sapphire);
+        box-shadow: 0 16px 36px -24px rgba(43, 76, 140, 0.35);
+      }
+      .price-tier {
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--sapphire);
+        font-weight: 700;
+      }
+      .price-amt {
+        font-family: "Source Serif 4", serif;
+        font-size: 30px;
+        font-weight: 800;
+        margin-top: 10px;
+        color: var(--ink);
+      }
+      .price-detail {
+        color: var(--slate);
+        font-size: 13px;
+        margin-top: 4px;
+      }
+      .price-feats {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .price-feat {
+        font-size: 13.5px;
+        color: var(--slate);
+        display: flex;
+        gap: 9px;
+      }
+      .price-feat::before {
+        content: "✓";
+        color: var(--sapphire);
+        font-weight: 700;
+      }
+      .price-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 24px;
+      }
+      @media (max-width: 860px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== BOOKING FORM ===== */
+      .booking-section {
+        background: var(--white);
+        border-top: 1px solid var(--hairline);
+      }
+      .booking-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .booking-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 24px;
+      }
+      .booking-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .booking-point-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: var(--sapphire);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .booking-point p {
+        font-size: 13.5px;
+        color: var(--slate);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .booking-point strong {
+        color: var(--ink);
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .booking-card {
+        background: var(--sapphire-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 34px;
+      }
+      .booking-steps {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+      .booking-steps span {
+        height: 4px;
+        flex: 1;
+        background: rgba(43, 76, 140, 0.15);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+      .booking-steps span::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--sapphire);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .booking-steps span.done::after,
+      .booking-steps span.active::after {
+        transform: scaleX(1);
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11.5px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 7px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 12px 13px;
+        color: var(--ink);
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(91, 107, 124, 0.5);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--sapphire);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2312203A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 70px;
+      }
+      .field-error {
+        font-size: 12px;
+        color: var(--red);
+        margin-top: 6px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--red);
+        background: rgba(209, 67, 67, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .item-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .item-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 13px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--slate);
+        user-select: none;
+        background: #fff;
+      }
+      .item-chip:hover {
+        border-color: var(--sapphire);
+      }
+      .item-chip.active {
+        background: var(--sapphire);
+        border-color: var(--sapphire);
+        color: #fff;
+        font-weight: 600;
+      }
+      .fee-note {
+        font-size: 12.5px;
+        color: var(--slate);
+        margin-top: -6px;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 11px 13px;
+      }
+      .fee-note strong {
+        color: var(--ink);
+      }
+      .booking-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 16px 26px;
+        border-radius: 8px;
+        background: var(--sapphire);
+        color: #fff;
+        transition: all 0.25s;
+        font-family: "Manrope", sans-serif;
+      }
+      .booking-submit:hover {
+        background: var(--ink);
+      }
+      .booking-note {
+        font-size: 12px;
+        color: var(--slate);
+        margin-top: 13px;
+        text-align: center;
+      }
+      .booking-back {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--sapphire);
+        cursor: pointer;
+        margin-bottom: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        font-family: "Manrope", sans-serif;
+      }
+
+      /* Payment step */
+      .pay-methods {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .pay-method {
+        flex: 1;
+        border: 1px solid var(--hairline);
+        background: #fff;
+        border-radius: 8px;
+        padding: 11px 6px;
+        text-align: center;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--slate);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .pay-method.active {
+        border-color: var(--sapphire);
+        color: var(--sapphire);
+        background: var(--white);
+        box-shadow: 0 0 0 1px var(--sapphire) inset;
+      }
+      .pay-panel {
+        display: none;
+      }
+      .pay-panel.active {
+        display: block;
+      }
+      .pay-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 18px;
+      }
+      .pay-total-label {
+        font-size: 12.5px;
+        color: var(--slate);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .pay-total-val {
+        font-family: "Source Serif 4", serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .demo-flag {
+        font-size: 11px;
+        color: var(--slate);
+        background: var(--gold-tint);
+        border: 1px solid rgba(217, 164, 65, 0.4);
+        border-radius: 7px;
+        padding: 9px 12px;
+        margin-bottom: 18px;
+        line-height: 1.5;
+      }
+      .demo-flag strong {
+        color: var(--ink);
+      }
+
+      .booking-success {
+        display: none;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .booking-success.show {
+        display: block;
+      }
+      .success-check {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--sapphire);
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #fff;
+      }
+      .booking-success h3 {
+        font-size: 21px;
+        margin-bottom: 8px;
+        font-family: "Source Serif 4", serif;
+      }
+      .booking-success p {
+        color: var(--slate);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .booking-summary {
+        margin-top: 20px;
+        padding: 16px 18px;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--slate);
+        display: inline-block;
+      }
+      .booking-summary div {
+        margin-bottom: 5px;
+      }
+      .booking-summary strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .booking-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .booking-card {
+          padding: 24px 20px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .course-card {
+          padding: 24px 20px;
+        }
+      }
+
+      /* ===== COURSE ===== */
+      .course-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.92fr;
+        gap: 48px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .course-grid {
+          grid-template-columns: 1fr;
+        }
+        .course-card {
+          position: static;
+        }
+      }
+      .course-stats {
+        display: flex;
+        gap: 30px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .course-stat span {
+        display: block;
+        font-family: "Source Serif 4", serif;
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--sapphire);
+      }
+      .course-stat p {
+        font-size: 12.5px;
+        color: var(--slate);
+        font-weight: 700;
+        margin-top: 2px;
+      }
+      .curriculum-list {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+      }
+      .curriculum-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .curriculum-item:first-child {
+        padding-top: 0;
+      }
+      .curriculum-item:last-child {
+        border-bottom: none;
+      }
+      .curriculum-num {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--sapphire-tint);
+        color: var(--sapphire);
+        font-family: "Source Serif 4", serif;
+        font-weight: 700;
+        font-size: 13.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .curriculum-item h4 {
+        font-size: 14.5px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        font-family: "Source Serif 4", serif;
+      }
+      .curriculum-item p {
+        font-size: 13px;
+        color: var(--slate);
+        line-height: 1.5;
+      }
+
+      .course-card {
+        background: var(--sapphire-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 32px;
+        position: sticky;
+        top: 96px;
+      }
+      .course-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 6px;
+      }
+      .course-card-name {
+        font-family: "Source Serif 4", serif;
+        font-size: 15.5px;
+        font-weight: 700;
+      }
+      .course-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink-deep);
+        background: var(--gold);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+      .course-price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .course-price {
+        font-family: "Source Serif 4", serif;
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+      .course-price-old {
+        font-size: 15px;
+        color: var(--slate);
+        text-decoration: line-through;
+      }
+      .course-includes {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin: 18px 0 22px;
+      }
+      .course-includes .price-feat {
+        font-size: 13.5px;
+        color: var(--slate);
+        display: flex;
+        gap: 9px;
+      }
+      .course-includes .price-feat::before {
+        content: "✓";
+        color: var(--sapphire);
+        font-weight: 700;
+      }
+      .course-divider {
+        height: 1px;
+        background: var(--hairline);
+        margin: 22px 0;
+      }
+
+      /* ===== CONTACT PILLARS ===== */
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-top: 48px;
+      }
+      .contact-pillar {
+        background: var(--sapphire-tint);
+        padding: 28px 26px;
+      }
+      .contact-pillar h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        font-weight: 700;
+        font-family: "Source Serif 4", serif;
+      }
+      .contact-pillar h3.email-heading {
+        font-size: 15px;
+        font-family: "Manrope", sans-serif;
+      }
+      .contact-pillar p {
+        color: var(--slate);
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 30px;
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--ink-deep);
+        color: rgba(255, 255, 255, 0.7);
+        padding-top: 48px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 36px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .footer-brand .logo-text {
+        color: #fff;
+      }
+      .footer-brand .logo-text span {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-brand p {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 280px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .footer-col h4 {
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.4);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="top-strip-row">
+        <span
+          >👁️ AIIMS Delhi Trained · Teleconsultation Available Nationwide</span
+        >
+        <span>📞 +91 98765 43210</span>
+      </div>
+    </div>
+
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 12C2 12 6 5 12 5C18 5 22 12 22 12C22 12 18 19 12 19C6 19 2 12 2 12Z"
+                stroke="white"
+                stroke-width="1.8"
+              />
+              <circle cx="12" cy="12" r="3" fill="white" />
+            </svg>
+          </div>
+          <div class="logo-text">
+            Dr. Kartikay<span>VisionMD · Ophthalmology</span>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#tele">Teleconsultation</a>
+          <a href="#course">Course</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Book a Consult</a>
+        </div>
+        <a href="#contact" class="nav-cta">Book a Consultation</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <div class="logo-text">
+          Dr. Kartikay<span>VisionMD · Ophthalmology</span>
+        </div>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#tele">Teleconsultation</a>
+      <a href="#course">Course</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Book a Consult</a>
+      <a href="#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="eyebrow">Ophthalmology · AIIMS Delhi Trained</span>
+            <h1 class="reveal">
+              See the world in <span class="accent">focus.</span>
+            </h1>
+            <p class="hero-sub reveal">
+              Dr. Kartikay treats cataracts, refractive errors and complex eye
+              conditions with AIIMS-trained precision — in the clinic or over a
+              video consultation, wherever you are.
+            </p>
+            <div class="hero-actions reveal">
+              <a href="#contact" class="btn btn-primary">Book a consultation</a>
+              <a href="#tele" class="btn btn-ghost">Start a teleconsultation</a>
+            </div>
+            <div class="hero-trust reveal">
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> AIIMS Delhi Trained
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 500+ Surgeries Performed
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 13.8K Patients Educated Online
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="focus-card">
+              <div class="focus-head">
+                <span class="focus-title">The Focus Test</span>
+                <span class="focus-badge">Try it</span>
+              </div>
+              <p class="focus-sub">
+                Drag the slider until the chart is sharp — this is what
+                untreated blur can feel like.
+              </p>
+              <div class="eye-chart" id="eyeChart">
+                <div class="row">E</div>
+                <div class="row">F P</div>
+                <div class="row">T O Z</div>
+                <div class="row">L P E D</div>
+                <div class="row">P E C F D</div>
+              </div>
+              <div class="focus-readout">
+                <span class="focus-readout-label">Refractive error</span>
+                <span class="focus-readout-val" id="diopterVal">−6.00 D</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="8"
+                class="focus-slider"
+                id="focusSlider"
+                aria-label="Focus slider"
+              />
+              <p class="focus-note" id="focusNote">
+                Blurry vision like this is often correctable in a single visit —
+                with glasses, LASIK, or cataract surgery.
+              </p>
+              <a href="#contact" class="btn btn-gold">Book your eye test</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="about-portrait">
+              <div class="ring"></div>
+              <span class="initials">DK</span>
+            </div>
+            <div class="about-creds">
+              <div class="cred-row">
+                <span class="ic">✓</span> MBBS, MS Ophthalmology — AIIMS, New
+                Delhi
+              </div>
+              <div class="cred-row">
+                <span class="ic">✓</span> Fellowship in Cataract & Refractive
+                Surgery
+              </div>
+              <div class="cred-row">
+                <span class="ic">✓</span> 13.8K followers educated on eye health
+                via @drkk_visionmd
+              </div>
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <span class="eyebrow">About Dr. Kartikay</span>
+            <h2>Making everyone see better.</h2>
+            <p>
+              Trained at AIIMS Delhi, Dr. Kartikay has spent his career on two
+              things at once: performing precise, modern eye surgery, and
+              teaching people how their eyes actually work — through public
+              explainers, resident pearls, and everyday consultations.
+            </p>
+            <p>
+              Whether it's a routine number check, a second opinion on a
+              diagnosis, or planning a cataract or LASIK procedure, every
+              patient gets the same AIIMS-trained attention to detail — in
+              person or over video.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="background: var(--white)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we treat</span>
+          <h2>Clinic-grade care, two ways to get it.</h2>
+          <p>
+            Complex procedures happen in the clinic. Everything else — checkups,
+            second opinions, follow-ups — can happen over video.
+          </p>
+        </div>
+
+        <div class="service-toggle reveal">
+          <button class="toggle-btn active" id="btnClinic">
+            🏥 In-Clinic Care
+          </button>
+          <button class="toggle-btn" id="btnTele">💻 Teleconsultation</button>
+        </div>
+
+        <div class="service-panel active" id="panelClinic">
+          <div class="service-grid">
+            <div class="service-card">
+              <div class="service-icon">1</div>
+              <h3>Cataract Surgery</h3>
+              <p>
+                Phaco and femto-assisted cataract removal with lens options
+                tailored to your lifestyle and vision goals.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">2</div>
+              <h3>LASIK & Refractive Surgery</h3>
+              <p>
+                Correcting myopia, hyperopia and astigmatism, with a full pre-op
+                work-up before any procedure is scheduled.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">3</div>
+              <h3>Comprehensive Eye Exam</h3>
+              <p>
+                Full vision, pressure and retina check — the baseline for every
+                diagnosis and treatment plan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-panel" id="panelTele">
+          <div class="service-grid">
+            <div class="service-card">
+              <div class="service-icon">1</div>
+              <h3>Video Consultation</h3>
+              <p>
+                Describe your symptoms, share photos or reports, and get a
+                same-day assessment from your phone.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">2</div>
+              <h3>Second Opinion Review</h3>
+              <p>
+                Send over an existing diagnosis or prescription for an
+                independent AIIMS-trained review.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">3</div>
+              <h3>Post-Op Follow-up</h3>
+              <p>
+                Recovery check-ins after surgery, without needing to travel back
+                to the clinic each time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <h3>AIIMS</h3>
+            <p>
+              Trained at AIIMS, New Delhi — India's leading medical institution.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>500+</h3>
+            <p>Cataract and refractive surgeries performed to date.</p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>13.8K</h3>
+            <p>
+              Followers learning about eye health through public explainers.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>&lt; 24 hrs</h3>
+            <p>Typical response time for teleconsultation booking requests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tele">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How teleconsultation works</span>
+          <h2>An eye doctor, wherever you are.</h2>
+        </div>
+        <div class="process-track reveal">
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <h3>Book & pay securely</h3>
+            <p>
+              Choose a slot and pay the consultation fee online — no waiting
+              room needed.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <h3>Get your video link</h3>
+            <p>
+              A confirmation with your video call link and time lands in your
+              email and SMS instantly.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <h3>Consult with Dr. Kartikay</h3>
+            <p>
+              Discuss symptoms, share reports or photos, and get answers in real
+              time.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">4</div>
+            <h3>Prescription & follow-up</h3>
+            <p>
+              Receive your prescription and next-step plan directly after the
+              call.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="course" style="background: var(--white)">
+      <div class="wrap">
+        <div class="course-grid">
+          <div class="reveal">
+            <span class="eyebrow">Learn · For Residents & Students</span>
+            <h2>The Resident Pearls Course</h2>
+            <p
+              style="
+                color: var(--slate);
+                font-size: 15.5px;
+                margin-top: 14px;
+                line-height: 1.65;
+                max-width: 520px;
+              "
+            >
+              The same clinical pearls Dr. Kartikay shares on Instagram —
+              organized into a self-paced video course for residents, MBBS
+              students, and early-career ophthalmologists getting ready for the
+              OT and their exams.
+            </p>
+            <div class="course-stats">
+              <div class="course-stat">
+                <span>5</span>
+                <p>Modules</p>
+              </div>
+              <div class="course-stat">
+                <span>35+</span>
+                <p>Video Lessons</p>
+              </div>
+              <div class="course-stat">
+                <span>∞</span>
+                <p>Lifetime Access</p>
+              </div>
+            </div>
+            <div class="curriculum-list">
+              <div class="curriculum-item">
+                <span class="curriculum-num">1</span>
+                <div>
+                  <h4>Anatomy & Optics Refresher</h4>
+                  <p>
+                    A visual walkthrough of ocular anatomy and refractive
+                    principles before jumping into cases.
+                  </p>
+                </div>
+              </div>
+              <div class="curriculum-item">
+                <span class="curriculum-num">2</span>
+                <div>
+                  <h4>Cataract: Diagnosis to Surgery</h4>
+                  <p>
+                    How to work up a cataract patient, and what actually happens
+                    on the table.
+                  </p>
+                </div>
+              </div>
+              <div class="curriculum-item">
+                <span class="curriculum-num">3</span>
+                <div>
+                  <h4>Refractive Errors & Correction</h4>
+                  <p>
+                    Myopia, hyperopia and astigmatism — and when to recommend
+                    glasses versus LASIK.
+                  </p>
+                </div>
+              </div>
+              <div class="curriculum-item">
+                <span class="curriculum-num">4</span>
+                <div>
+                  <h4>OPD Red Flags</h4>
+                  <p>
+                    The presentations that shouldn't be missed, and how to
+                    triage them fast.
+                  </p>
+                </div>
+              </div>
+              <div class="curriculum-item">
+                <span class="curriculum-num">5</span>
+                <div>
+                  <h4>Surgical Case Breakdowns</h4>
+                  <p>Real surgical footage with step-by-step narration.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="course-card">
+              <div class="course-card-top">
+                <span class="course-card-name">Resident Pearls Course</span>
+                <span class="course-badge">Launch offer</span>
+              </div>
+              <div class="course-price-row">
+                <span class="course-price">₹2,999</span>
+                <span class="course-price-old">₹4,999</span>
+              </div>
+              <div class="course-includes">
+                <div class="price-feat">35+ HD video lessons</div>
+                <div class="price-feat">Downloadable pearls & notes (PDF)</div>
+                <div class="price-feat">Certificate of completion</div>
+                <div class="price-feat">Lifetime access & future updates</div>
+              </div>
+              <div class="course-divider"></div>
+
+              <div class="booking-steps" id="courseSteps">
+                <span class="active" id="courseDot1"></span>
+                <span id="courseDot2"></span>
+              </div>
+
+              <div id="courseFormState">
+                <!-- STEP 1: Student details -->
+                <div id="courseStepDetails">
+                  <form id="courseForm" novalidate>
+                    <div class="form-group" id="cgroup-name">
+                      <label for="courseName">Full name</label>
+                      <input
+                        type="text"
+                        id="courseName"
+                        placeholder="Your name"
+                      />
+                      <div class="field-error">Please enter your name.</div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group" id="cgroup-phone">
+                        <label for="coursePhone">Phone number</label>
+                        <input
+                          type="tel"
+                          id="coursePhone"
+                          placeholder="98765 43210"
+                        />
+                        <div class="field-error">
+                          Please enter a valid phone number.
+                        </div>
+                      </div>
+                      <div class="form-group" id="cgroup-email">
+                        <label for="courseEmail">Email</label>
+                        <input
+                          type="email"
+                          id="courseEmail"
+                          placeholder="you@example.com"
+                        />
+                        <div class="field-error">
+                          Please enter a valid email.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" id="cgroup-level">
+                      <label for="courseLevel">You are a</label>
+                      <select id="courseLevel">
+                        <option value="">Select one</option>
+                        <option value="MBBS Student">MBBS Student</option>
+                        <option value="Ophthalmology Resident">
+                          Ophthalmology Resident
+                        </option>
+                        <option value="Practicing Doctor">
+                          Practicing Doctor
+                        </option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <div class="field-error">Please tell us who you are.</div>
+                    </div>
+                    <button type="submit" class="booking-submit">
+                      Continue to payment
+                    </button>
+                    <p class="booking-note">
+                      One-time payment of ₹2,999 · lifetime access.
+                    </p>
+                  </form>
+                </div>
+
+                <!-- STEP 2: Payment -->
+                <div id="coursePayment" style="display: none">
+                  <button class="booking-back" id="courseBackToDetails">
+                    ← Back to details
+                  </button>
+                  <div class="pay-total">
+                    <span class="pay-total-label">Amount due</span>
+                    <span class="pay-total-val">₹2,999</span>
+                  </div>
+                  <div class="demo-flag">
+                    <strong>Demo payment gateway.</strong> This is a mock
+                    checkout for preview purposes — no card is charged and no
+                    real transaction occurs.
+                  </div>
+                  <div class="pay-methods" id="coursePayMethods">
+                    <div class="pay-method cpm active" data-method="card">
+                      Card
+                    </div>
+                    <div class="pay-method cpm" data-method="upi">UPI</div>
+                    <div class="pay-method cpm" data-method="netbanking">
+                      Net Banking
+                    </div>
+                  </div>
+                  <div class="pay-panel active" id="coursePanelCard">
+                    <div class="form-group" id="cgroup-cardNumber">
+                      <label for="courseCardNumber">Card number</label>
+                      <input
+                        type="text"
+                        id="courseCardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        maxlength="19"
+                      />
+                      <div class="field-error">
+                        Enter a valid 16-digit card number.
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group" id="cgroup-cardExpiry">
+                        <label for="courseCardExpiry">Expiry</label>
+                        <input
+                          type="text"
+                          id="courseCardExpiry"
+                          placeholder="MM/YY"
+                          maxlength="5"
+                        />
+                        <div class="field-error">
+                          Enter a valid expiry date.
+                        </div>
+                      </div>
+                      <div class="form-group" id="cgroup-cardCvv">
+                        <label for="courseCardCvv">CVV</label>
+                        <input
+                          type="text"
+                          id="courseCardCvv"
+                          placeholder="123"
+                          maxlength="3"
+                        />
+                        <div class="field-error">Enter a valid CVV.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pay-panel" id="coursePanelUpi">
+                    <div class="form-group" id="cgroup-upiId">
+                      <label for="courseUpiId">UPI ID</label>
+                      <input
+                        type="text"
+                        id="courseUpiId"
+                        placeholder="yourname@upi"
+                      />
+                      <div class="field-error">Enter a valid UPI ID.</div>
+                    </div>
+                  </div>
+                  <div class="pay-panel" id="coursePanelNetbanking">
+                    <div class="form-group" id="cgroup-bank">
+                      <label for="courseBankSelect">Choose your bank</label>
+                      <select id="courseBankSelect">
+                        <option value="">Select a bank</option>
+                        <option value="SBI">State Bank of India</option>
+                        <option value="HDFC">HDFC Bank</option>
+                        <option value="ICICI">ICICI Bank</option>
+                        <option value="Axis">Axis Bank</option>
+                      </select>
+                      <div class="field-error">Please select a bank.</div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="booking-submit"
+                    id="coursePayButton"
+                  >
+                    Pay ₹2,999 & enroll
+                  </button>
+                  <p class="booking-note">
+                    Secure demo checkout · no real payment is processed.
+                  </p>
+                </div>
+              </div>
+
+              <div id="courseSuccess" class="booking-success">
+                <div class="success-check">✓</div>
+                <h3>You're enrolled!</h3>
+                <p>
+                  Course access details and login instructions will be emailed
+                  to you shortly.
+                </p>
+                <div class="booking-summary" id="courseSummaryBox"></div>
+                <div style="margin-top: 22px">
+                  <a href="#" class="btn btn-ghost" id="courseAnotherBtn"
+                    >Enroll another student</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" style="background: var(--sapphire-tint)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What patients say</span>
+          <h2>Trusted in the clinic and on screen.</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "My cataract surgery was quick, clearly explained beforehand, and
+              my vision has never been sharper."
+            </p>
+            <p class="testi-name">
+              <strong>Rohit S.</strong> — Cataract surgery
+            </p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Did a video consult from another city for a second opinion —
+              thorough, honest, and saved me a trip."
+            </p>
+            <p class="testi-name">
+              <strong>Priya M.</strong> — Teleconsultation
+            </p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Explains every step before doing it. My LASIK recovery follow-ups
+              were all handled over video."
+            </p>
+            <p class="testi-name">
+              <strong>Arjun K.</strong> — LASIK & follow-up
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-band">
+      <div class="wrap" style="padding: 84px 28px">
+        <div class="section-head reveal">
+          <span class="eyebrow">Consultation fees</span>
+          <h2>Clear pricing, no hidden charges.</h2>
+          <p>
+            Surgical costs are quoted after an in-person assessment and depend
+            on the procedure and lens choice.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <span class="price-tier">In-Clinic Visit</span>
+            <div class="price-amt">₹800</div>
+            <div class="price-detail">payable at the clinic</div>
+            <div class="price-feats">
+              <div class="price-feat">Full eye exam included</div>
+              <div class="price-feat">Same-day reports</div>
+              <div class="price-feat">Book online, pay on arrival</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Book this visit</a>
+          </div>
+          <div class="price-card featured reveal">
+            <span class="price-tier">Teleconsultation</span>
+            <div class="price-amt">₹500</div>
+            <div class="price-detail">per video consultation</div>
+            <div class="price-feats">
+              <div class="price-feat">Pay securely online</div>
+              <div class="price-feat">Instant video link</div>
+              <div class="price-feat">Prescription after the call</div>
+            </div>
+            <a href="#contact" class="btn btn-primary">Book this consult</a>
+          </div>
+          <div class="price-card reveal">
+            <span class="price-tier">Surgical Consultation</span>
+            <div class="price-amt">Custom</div>
+            <div class="price-detail">based on procedure</div>
+            <div class="price-feats">
+              <div class="price-feat">Pre-op work-up included</div>
+              <div class="price-feat">Lens & procedure options explained</div>
+              <div class="price-feat">Dedicated care coordinator</div>
+            </div>
+            <a href="#contact" class="btn btn-ghost">Discuss surgery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="booking-section">
+      <div class="wrap">
+        <div class="booking-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 0">
+              <span class="eyebrow">Book a consultation</span>
+              <h2>Let's take a look at your eyes.</h2>
+              <p>
+                Choose in-clinic or video, pick a slot, and confirm —
+                teleconsultations are paid securely online.
+              </p>
+            </div>
+            <div class="booking-points reveal">
+              <div class="booking-point">
+                <span class="booking-point-mark">1</span>
+                <p>
+                  <strong>Tell us what's going on</strong>In-clinic or video,
+                  and a bit about the issue.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-mark">2</span>
+                <p>
+                  <strong>Pay securely, if online</strong>Teleconsultation fees
+                  are paid at booking — in-clinic fees are paid on arrival.
+                </p>
+              </div>
+              <div class="booking-point">
+                <span class="booking-point-mark">3</span>
+                <p>
+                  <strong>Get confirmed</strong>Video link or clinic address,
+                  sent straight to your inbox.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-card reveal">
+            <div class="booking-steps" id="bookingSteps">
+              <span class="active" id="stepDot1"></span>
+              <span id="stepDot2"></span>
+            </div>
+
+            <div id="bookingFormState">
+              <!-- STEP 1: Details -->
+              <div id="stepDetails">
+                <form id="quoteForm" novalidate>
+                  <div class="form-row">
+                    <div class="form-group" id="group-name">
+                      <label for="fullName">Full name</label>
+                      <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Your name"
+                      />
+                      <div class="field-error">Please enter your name.</div>
+                    </div>
+                    <div class="form-group" id="group-phone">
+                      <label for="phone">Phone number</label>
+                      <input type="tel" id="phone" placeholder="98765 43210" />
+                      <div class="field-error">
+                        Please enter a valid phone number.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-email">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="you@example.com"
+                    />
+                    <div class="field-error">
+                      Please enter a valid email address.
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-type">
+                    <label>Consultation type</label>
+                    <div class="item-options">
+                      <div
+                        class="item-chip"
+                        data-value="In-Clinic Visit"
+                        data-fee="800"
+                        data-online="false"
+                      >
+                        In-Clinic Visit — ₹800
+                      </div>
+                      <div
+                        class="item-chip"
+                        data-value="Teleconsultation"
+                        data-fee="500"
+                        data-online="true"
+                      >
+                        Video Teleconsultation — ₹500
+                      </div>
+                    </div>
+                    <div class="field-error">
+                      Please select a consultation type.
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group" id="group-date">
+                      <label for="apptDate">Preferred date</label>
+                      <input type="date" id="apptDate" />
+                      <div class="field-error">
+                        Please choose a date (today or later).
+                      </div>
+                    </div>
+                    <div class="form-group" id="group-time">
+                      <label for="apptTime">Preferred time</label>
+                      <select id="apptTime">
+                        <option value="">Select a time</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="6:30 PM">6:30 PM</option>
+                      </select>
+                      <div class="field-error">Please pick a time slot.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="notes"
+                      >Symptoms / reason for visit
+                      <span style="text-transform: none; opacity: 0.6"
+                        >(optional)</span
+                      ></label
+                    >
+                    <textarea
+                      id="notes"
+                      placeholder="Blurry vision, eye pain, follow-up after surgery..."
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="booking-submit" id="step1Submit">
+                    Continue
+                  </button>
+                  <p class="booking-note" id="step1Note">
+                    Video consultations are paid securely on the next step.
+                  </p>
+                </form>
+              </div>
+
+              <!-- STEP 2: Payment (teleconsultation only) -->
+              <div id="stepPayment" style="display: none">
+                <button class="booking-back" id="backToDetails">
+                  ← Back to details
+                </button>
+                <div class="pay-total">
+                  <span class="pay-total-label">Amount due</span>
+                  <span class="pay-total-val" id="payAmount">₹500</span>
+                </div>
+                <div class="demo-flag">
+                  <strong>Demo payment gateway.</strong> This is a mock checkout
+                  for preview purposes — no card is charged and no real
+                  transaction occurs.
+                </div>
+                <div class="pay-methods">
+                  <div class="pay-method active" data-method="card">Card</div>
+                  <div class="pay-method" data-method="upi">UPI</div>
+                  <div class="pay-method" data-method="netbanking">
+                    Net Banking
+                  </div>
+                </div>
+                <div class="pay-panel active" id="panelCard">
+                  <div class="form-group" id="group-cardNumber">
+                    <label for="cardNumber">Card number</label>
+                    <input
+                      type="text"
+                      id="cardNumber"
+                      placeholder="1234 5678 9012 3456"
+                      maxlength="19"
+                    />
+                    <div class="field-error">
+                      Enter a valid 16-digit card number.
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group" id="group-cardExpiry">
+                      <label for="cardExpiry">Expiry</label>
+                      <input
+                        type="text"
+                        id="cardExpiry"
+                        placeholder="MM/YY"
+                        maxlength="5"
+                      />
+                      <div class="field-error">Enter a valid expiry date.</div>
+                    </div>
+                    <div class="form-group" id="group-cardCvv">
+                      <label for="cardCvv">CVV</label>
+                      <input
+                        type="text"
+                        id="cardCvv"
+                        placeholder="123"
+                        maxlength="3"
+                      />
+                      <div class="field-error">Enter a valid CVV.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pay-panel" id="panelUpi">
+                  <div class="form-group" id="group-upiId">
+                    <label for="upiId">UPI ID</label>
+                    <input type="text" id="upiId" placeholder="yourname@upi" />
+                    <div class="field-error">Enter a valid UPI ID.</div>
+                  </div>
+                </div>
+                <div class="pay-panel" id="panelNetbanking">
+                  <div class="form-group" id="group-bank">
+                    <label for="bankSelect">Choose your bank</label>
+                    <select id="bankSelect">
+                      <option value="">Select a bank</option>
+                      <option value="SBI">State Bank of India</option>
+                      <option value="HDFC">HDFC Bank</option>
+                      <option value="ICICI">ICICI Bank</option>
+                      <option value="Axis">Axis Bank</option>
+                    </select>
+                    <div class="field-error">Please select a bank.</div>
+                  </div>
+                </div>
+                <button type="button" class="booking-submit" id="payButton">
+                  Pay & confirm booking
+                </button>
+                <p class="booking-note">
+                  Secure demo checkout · no real payment is processed.
+                </p>
+              </div>
+            </div>
+
+            <div id="bookingSuccess" class="booking-success">
+              <div class="success-check">✓</div>
+              <h3>Booking confirmed!</h3>
+              <p id="successText">
+                Thanks — you'll receive a confirmation shortly.
+              </p>
+              <div class="booking-summary" id="summaryBox"></div>
+              <div style="margin-top: 22px">
+                <a href="#" class="btn btn-ghost" id="bookAnotherBtn"
+                  >Book another consultation</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span class="eyebrow">Clinic</span>
+            <h3>VisionMD Eye Clinic</h3>
+            <p>
+              2nd Floor, Ashoka Complex, Greater Kailash, New Delhi. Video
+              consultations available nationwide.
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span class="eyebrow">Reach us</span>
+            <h3 class="email-heading">hello@drkk-visionmd.demo</h3>
+            <p>
+              +91 98765 43210 — or DM
+              <a
+                href="https://www.instagram.com/drkk_visionmd/"
+                target="_blank"
+                rel="noopener"
+                style="color: var(--sapphire); font-weight: 700"
+                >@drkk_visionmd</a
+              >
+              on Instagram.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo-text">
+              Dr. Kartikay<span>VisionMD · Ophthalmology</span>
+            </div>
+            <p>
+              AIIMS Delhi trained ophthalmologist. In-clinic surgery and
+              nationwide teleconsultation.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#tele">Teleconsultation</a>
+            <a href="#course">Course</a>
+            <a href="#reviews">Reviews</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#contact">Book a Consult</a>
+            <a
+              href="https://www.instagram.com/drkk_visionmd/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Dr. Kartikay VisionMD. Demo website — for illustration
+            purposes only. Not a real medical service.</span
+          >
+          <span>Designed as a demo by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2000);
+
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () =>
+          mobileMenu.classList.add("open"),
+        );
+        menuClose.addEventListener("click", () =>
+          mobileMenu.classList.remove("open"),
+        );
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          );
+        });
+      }
+
+      // ===== Focus Test slider (signature interaction) =====
+      const focusSlider = document.getElementById("focusSlider");
+      const eyeChart = document.getElementById("eyeChart");
+      const diopterVal = document.getElementById("diopterVal");
+      const focusNote = document.getElementById("focusNote");
+
+      function updateFocus() {
+        const v = Number(focusSlider.value); // 0 = blurriest, 100 = sharpest
+        const blur = ((100 - v) / 100) * 9; // px
+        eyeChart.style.filter = `blur(${blur.toFixed(1)}px)`;
+        const diopter = -(((100 - v) / 100) * 6);
+        if (v >= 96) {
+          diopterVal.textContent = "20/20 ✓";
+          focusNote.textContent =
+            "That's clear focus. A single visit is often all it takes to get here.";
+        } else {
+          diopterVal.textContent = `${diopter.toFixed(2)} D`;
+          focusNote.textContent =
+            "Blurry vision like this is often correctable in a single visit — with glasses, LASIK, or cataract surgery.";
+        }
+      }
+      focusSlider.addEventListener("input", updateFocus);
+      updateFocus();
+
+      // ===== Clinic / Teleconsultation service toggle =====
+      const btnClinic = document.getElementById("btnClinic");
+      const btnTele = document.getElementById("btnTele");
+      const panelClinic = document.getElementById("panelClinic");
+      const panelTele = document.getElementById("panelTele");
+
+      btnClinic.addEventListener("click", () => {
+        btnClinic.classList.add("active");
+        btnTele.classList.remove("active");
+        panelClinic.classList.add("active");
+        panelTele.classList.remove("active");
+      });
+      btnTele.addEventListener("click", () => {
+        btnTele.classList.add("active");
+        btnClinic.classList.remove("active");
+        panelTele.classList.add("active");
+        panelClinic.classList.remove("active");
+      });
+
+      // ===== Booking flow =====
+      const form = document.getElementById("quoteForm");
+      const dateInput = document.getElementById("apptDate");
+      const typeChips = document.querySelectorAll("#group-type .item-chip");
+      let selectedType = "";
+      let selectedFee = 0;
+      let isOnlinePay = false;
+
+      const stepDetails = document.getElementById("stepDetails");
+      const stepPayment = document.getElementById("stepPayment");
+      const stepDot1 = document.getElementById("stepDot1");
+      const stepDot2 = document.getElementById("stepDot2");
+      const bookingSteps = document.getElementById("bookingSteps");
+
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      typeChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          typeChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedType = chip.dataset.value;
+          selectedFee = Number(chip.dataset.fee);
+          isOnlinePay = chip.dataset.online === "true";
+          document.getElementById("group-type").classList.remove("invalid");
+          document.getElementById("step1Note").textContent = isOnlinePay
+            ? "Next step: pay the ₹" +
+              selectedFee +
+              " teleconsultation fee securely online."
+            : "In-clinic visits are paid on arrival — no online payment needed.";
+        });
+      });
+
+      function setInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+
+      let bookingData = {};
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const fullName = document.getElementById("fullName").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const apptDate = dateInput.value;
+          const apptTime = document.getElementById("apptTime").value;
+          const notes = document.getElementById("notes").value.trim();
+
+          let valid = true;
+          setInvalid("group-name", !fullName);
+          if (!fullName) valid = false;
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-email", !isValidEmail(email));
+          if (!isValidEmail(email)) valid = false;
+          setInvalid("group-type", !selectedType);
+          if (!selectedType) valid = false;
+          setInvalid("group-date", !apptDate);
+          if (!apptDate) valid = false;
+          setInvalid("group-time", !apptTime);
+          if (!apptTime) valid = false;
+
+          if (!valid) {
+            const firstInvalid = document.querySelector(".form-group.invalid");
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const dateObj = new Date(apptDate + "T00:00:00");
+          const friendlyDate = dateObj.toLocaleDateString(undefined, {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          bookingData = {
+            fullName,
+            phone,
+            email,
+            apptTime,
+            notes,
+            friendlyDate,
+            selectedType,
+            selectedFee,
+            isOnlinePay,
+          };
+
+          if (isOnlinePay) {
+            document.getElementById("payAmount").textContent =
+              "₹" + selectedFee;
+            stepDetails.style.display = "none";
+            stepPayment.style.display = "block";
+            stepDot1.classList.add("done");
+            stepDot1.classList.remove("active");
+            stepDot2.classList.add("active");
+          } else {
+            showSuccess();
+          }
+        });
+      }
+
+      document.getElementById("backToDetails").addEventListener("click", () => {
+        stepPayment.style.display = "none";
+        stepDetails.style.display = "block";
+        stepDot2.classList.remove("active");
+        stepDot1.classList.remove("done");
+        stepDot1.classList.add("active");
+      });
+
+      // Payment method tabs
+      const payMethods = document.querySelectorAll("#stepPayment .pay-method");
+      payMethods.forEach((m) => {
+        m.addEventListener("click", () => {
+          payMethods.forEach((x) => x.classList.remove("active"));
+          m.classList.add("active");
+          document
+            .querySelectorAll(".pay-panel")
+            .forEach((p) => p.classList.remove("active"));
+          const map = {
+            card: "panelCard",
+            upi: "panelUpi",
+            netbanking: "panelNetbanking",
+          };
+          document
+            .getElementById(map[m.dataset.method])
+            .classList.add("active");
+        });
+      });
+
+      // Card number formatting
+      const cardNumberInput = document.getElementById("cardNumber");
+      cardNumberInput.addEventListener("input", () => {
+        let digits = cardNumberInput.value.replace(/\D/g, "").slice(0, 16);
+        cardNumberInput.value = digits.replace(/(.{4})/g, "$1 ").trim();
+      });
+      const cardExpiryInput = document.getElementById("cardExpiry");
+      cardExpiryInput.addEventListener("input", () => {
+        let digits = cardExpiryInput.value.replace(/\D/g, "").slice(0, 4);
+        if (digits.length > 2)
+          digits = digits.slice(0, 2) + "/" + digits.slice(2);
+        cardExpiryInput.value = digits;
+      });
+      const cardCvvInput = document.getElementById("cardCvv");
+      cardCvvInput.addEventListener("input", () => {
+        cardCvvInput.value = cardCvvInput.value.replace(/\D/g, "").slice(0, 3);
+      });
+
+      document.getElementById("payButton").addEventListener("click", () => {
+        const activeMethod =
+          document.querySelector(".pay-method.active").dataset.method;
+        let valid = true;
+        let paymentSummary = "";
+
+        if (activeMethod === "card") {
+          const num = cardNumberInput.value.replace(/\s/g, "");
+          const exp = cardExpiryInput.value;
+          const cvv = cardCvvInput.value;
+          setInvalid("group-cardNumber", num.length !== 16);
+          if (num.length !== 16) valid = false;
+          setInvalid("group-cardExpiry", !/^\d{2}\/\d{2}$/.test(exp));
+          if (!/^\d{2}\/\d{2}$/.test(exp)) valid = false;
+          setInvalid("group-cardCvv", cvv.length !== 3);
+          if (cvv.length !== 3) valid = false;
+          paymentSummary = "Card ending in " + num.slice(-4);
+        } else if (activeMethod === "upi") {
+          const upi = document.getElementById("upiId").value.trim();
+          const okUpi = /^[\w.\-]+@[\w.\-]+$/.test(upi);
+          setInvalid("group-upiId", !okUpi);
+          if (!okUpi) valid = false;
+          paymentSummary = "UPI — " + upi;
+        } else {
+          const bank = document.getElementById("bankSelect").value;
+          setInvalid("group-bank", !bank);
+          if (!bank) valid = false;
+          paymentSummary = "Net Banking — " + bank;
+        }
+
+        if (!valid) {
+          const firstInvalid = stepPayment.querySelector(".form-group.invalid");
+          if (firstInvalid)
+            firstInvalid.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          return;
+        }
+
+        bookingData.paymentSummary = paymentSummary;
+        showSuccess();
+      });
+
+      function showSuccess() {
+        const d = bookingData;
+        const summaryBox = document.getElementById("summaryBox");
+        const successText = document.getElementById("successText");
+        let rows = `
+      <div><strong>Name:</strong> ${d.fullName}</div>
+      <div><strong>Type:</strong> ${d.selectedType}</div>
+      <div><strong>Date:</strong> ${d.friendlyDate}</div>
+      <div><strong>Time:</strong> ${d.apptTime}</div>
+      <div><strong>Contact:</strong> ${d.phone} · ${d.email}</div>
+    `;
+        if (d.notes) rows += `<div><strong>Notes:</strong> ${d.notes}</div>`;
+        if (d.isOnlinePay) {
+          rows += `<div><strong>Paid:</strong> ₹${d.selectedFee} via ${d.paymentSummary}</div>`;
+          successText.textContent =
+            "Your video consultation is confirmed. The meeting link will be sent to your email and phone shortly.";
+        } else {
+          rows += `<div><strong>Fee:</strong> ₹${d.selectedFee}, payable at the clinic</div>`;
+          successText.textContent =
+            "Your in-clinic visit is confirmed. We'll see you at the clinic — fee is payable on arrival.";
+        }
+        summaryBox.innerHTML = rows;
+        document.getElementById("bookingFormState").style.display = "none";
+        document.getElementById("bookingSuccess").classList.add("show");
+      }
+
+      document
+        .getElementById("bookAnotherBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          form.reset();
+          typeChips.forEach((c) => c.classList.remove("active"));
+          selectedType = "";
+          selectedFee = 0;
+          isOnlinePay = false;
+          document
+            .querySelectorAll(".form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("bookingSuccess").classList.remove("show");
+          document.getElementById("bookingFormState").style.display = "block";
+          stepPayment.style.display = "none";
+          stepDetails.style.display = "block";
+          stepDot2.classList.remove("active");
+          stepDot1.classList.remove("done");
+          stepDot1.classList.add("active");
+          document.getElementById("step1Note").textContent =
+            "Video consultations are paid securely on the next step.";
+        });
+
+      // ===== Course enrollment flow =====
+      const courseForm = document.getElementById("courseForm");
+      const courseStepDetails = document.getElementById("courseStepDetails");
+      const coursePayment = document.getElementById("coursePayment");
+      const courseDot1 = document.getElementById("courseDot1");
+      const courseDot2 = document.getElementById("courseDot2");
+      let courseData = {};
+
+      function cSetInvalid(groupId, isInvalid) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        group.classList.toggle("invalid", isInvalid);
+      }
+
+      courseForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fullName = document.getElementById("courseName").value.trim();
+        const phone = document.getElementById("coursePhone").value.trim();
+        const email = document.getElementById("courseEmail").value.trim();
+        const level = document.getElementById("courseLevel").value;
+
+        let valid = true;
+        cSetInvalid("cgroup-name", !fullName);
+        if (!fullName) valid = false;
+        cSetInvalid("cgroup-phone", !isValidPhone(phone));
+        if (!isValidPhone(phone)) valid = false;
+        cSetInvalid("cgroup-email", !isValidEmail(email));
+        if (!isValidEmail(email)) valid = false;
+        cSetInvalid("cgroup-level", !level);
+        if (!level) valid = false;
+
+        if (!valid) {
+          const firstInvalid = courseStepDetails.querySelector(
+            ".form-group.invalid",
+          );
+          if (firstInvalid)
+            firstInvalid.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          return;
+        }
+
+        courseData = { fullName, phone, email, level };
+        courseStepDetails.style.display = "none";
+        coursePayment.style.display = "block";
+        courseDot1.classList.add("done");
+        courseDot1.classList.remove("active");
+        courseDot2.classList.add("active");
+      });
+
+      document
+        .getElementById("courseBackToDetails")
+        .addEventListener("click", () => {
+          coursePayment.style.display = "none";
+          courseStepDetails.style.display = "block";
+          courseDot2.classList.remove("active");
+          courseDot1.classList.remove("done");
+          courseDot1.classList.add("active");
+        });
+
+      const coursePayMethods = document.querySelectorAll(
+        "#coursePayMethods .pay-method",
+      );
+      coursePayMethods.forEach((m) => {
+        m.addEventListener("click", () => {
+          coursePayMethods.forEach((x) => x.classList.remove("active"));
+          m.classList.add("active");
+          coursePayment
+            .querySelectorAll(".pay-panel")
+            .forEach((p) => p.classList.remove("active"));
+          const map = {
+            card: "coursePanelCard",
+            upi: "coursePanelUpi",
+            netbanking: "coursePanelNetbanking",
+          };
+          document
+            .getElementById(map[m.dataset.method])
+            .classList.add("active");
+        });
+      });
+
+      const courseCardNumberInput = document.getElementById("courseCardNumber");
+      courseCardNumberInput.addEventListener("input", () => {
+        let digits = courseCardNumberInput.value
+          .replace(/\D/g, "")
+          .slice(0, 16);
+        courseCardNumberInput.value = digits.replace(/(.{4})/g, "$1 ").trim();
+      });
+      const courseCardExpiryInput = document.getElementById("courseCardExpiry");
+      courseCardExpiryInput.addEventListener("input", () => {
+        let digits = courseCardExpiryInput.value.replace(/\D/g, "").slice(0, 4);
+        if (digits.length > 2)
+          digits = digits.slice(0, 2) + "/" + digits.slice(2);
+        courseCardExpiryInput.value = digits;
+      });
+      const courseCardCvvInput = document.getElementById("courseCardCvv");
+      courseCardCvvInput.addEventListener("input", () => {
+        courseCardCvvInput.value = courseCardCvvInput.value
+          .replace(/\D/g, "")
+          .slice(0, 3);
+      });
+
+      document
+        .getElementById("coursePayButton")
+        .addEventListener("click", () => {
+          const activeMethod = document.querySelector(
+            "#coursePayMethods .pay-method.active",
+          ).dataset.method;
+          let valid = true;
+          let paymentSummary = "";
+
+          if (activeMethod === "card") {
+            const num = courseCardNumberInput.value.replace(/\s/g, "");
+            const exp = courseCardExpiryInput.value;
+            const cvv = courseCardCvvInput.value;
+            cSetInvalid("cgroup-cardNumber", num.length !== 16);
+            if (num.length !== 16) valid = false;
+            cSetInvalid("cgroup-cardExpiry", !/^\d{2}\/\d{2}$/.test(exp));
+            if (!/^\d{2}\/\d{2}$/.test(exp)) valid = false;
+            cSetInvalid("cgroup-cardCvv", cvv.length !== 3);
+            if (cvv.length !== 3) valid = false;
+            paymentSummary = "Card ending in " + num.slice(-4);
+          } else if (activeMethod === "upi") {
+            const upi = document.getElementById("courseUpiId").value.trim();
+            const okUpi = /^[\w.\-]+@[\w.\-]+$/.test(upi);
+            cSetInvalid("cgroup-upiId", !okUpi);
+            if (!okUpi) valid = false;
+            paymentSummary = "UPI — " + upi;
+          } else {
+            const bank = document.getElementById("courseBankSelect").value;
+            cSetInvalid("cgroup-bank", !bank);
+            if (!bank) valid = false;
+            paymentSummary = "Net Banking — " + bank;
+          }
+
+          if (!valid) {
+            const firstInvalid = coursePayment.querySelector(
+              ".form-group.invalid",
+            );
+            if (firstInvalid)
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          courseData.paymentSummary = paymentSummary;
+          showCourseSuccess();
+        });
+
+      function showCourseSuccess() {
+        const d = courseData;
+        const summaryBox = document.getElementById("courseSummaryBox");
+        summaryBox.innerHTML = `
+      <div><strong>Name:</strong> ${d.fullName}</div>
+      <div><strong>Course:</strong> Resident Pearls Course</div>
+      <div><strong>You are a:</strong> ${d.level}</div>
+      <div><strong>Contact:</strong> ${d.phone} · ${d.email}</div>
+      <div><strong>Paid:</strong> ₹2,999 via ${d.paymentSummary}</div>
+    `;
+        document.getElementById("courseFormState").style.display = "none";
+        document.getElementById("courseSuccess").classList.add("show");
+      }
+
+      document
+        .getElementById("courseAnotherBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          courseForm.reset();
+          document
+            .querySelectorAll(
+              "#courseStepDetails .form-group.invalid, #coursePayment .form-group.invalid",
+            )
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("courseSuccess").classList.remove("show");
+          document.getElementById("courseFormState").style.display = "block";
+          coursePayment.style.display = "none";
+          courseStepDetails.style.display = "block";
+          courseDot2.classList.remove("active");
+          courseDot1.classList.remove("done");
+          courseDot1.classList.add("active");
+        });
+    </script>
+  </body>
+</html>
