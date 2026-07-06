@@ -1,0 +1,2468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Navkar Properties & Builders — Since 1999</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --clay: #b5502e;
+        --clay-deep: #8f3d22;
+        --clay-tint: #fbeee7;
+        --charcoal: #221c18;
+        --charcoal-deep: #16120f;
+        --gold: #c9973f;
+        --gold-tint: #faf3e4;
+        --stone: #f7f4f0;
+        --slate: #6b6259;
+        --hairline: rgba(34, 28, 24, 0.12);
+        --white: #ffffff;
+        --green: #3a6b4d;
+        --red: #b0413e;
+        --shadow-lg: 0 30px 60px -28px rgba(22, 18, 15, 0.45);
+        --shadow-md: 0 16px 36px -22px rgba(34, 28, 24, 0.3);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      body {
+        background: var(--stone);
+        color: var(--charcoal);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--clay);
+        font-weight: 700;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--clay);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== TOP STRIP ===== */
+      .top-strip {
+        background: var(--charcoal-deep);
+        color: rgba(250, 243, 228, 0.8);
+        font-size: 12.5px;
+        padding: 9px 0;
+      }
+      .top-strip-row {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 0 28px;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .top-strip-row a {
+        font-weight: 600;
+      }
+      .top-strip-row a:hover {
+        color: var(--gold);
+      }
+      @media (max-width: 700px) {
+        .top-strip-row span:first-child {
+          display: none;
+        }
+        .top-strip-row {
+          justify-content: center;
+        }
+      }
+      @media (max-width: 560px) {
+        .top-strip {
+          display: none;
+        }
+      }
+
+      /* ===== NAV ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(247, 244, 240, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--hairline);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 28px;
+        max-width: 1220px;
+        margin: 0 auto;
+        gap: 12px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 9px;
+        background: linear-gradient(150deg, var(--clay), var(--clay-deep));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-mark svg {
+        width: 22px;
+        height: 22px;
+      }
+      .logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--charcoal);
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .logo-text span {
+        display: block;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--slate);
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+        margin-top: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .menu-toggle {
+        flex-shrink: 0;
+      }
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        font-size: 13.5px;
+        font-weight: 600;
+      }
+      .nav-links a {
+        color: var(--slate);
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .nav-links a:hover {
+        color: var(--charcoal);
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 700;
+        background: var(--clay);
+        color: var(--white);
+        padding: 11px 22px;
+        border-radius: 8px;
+        transition: all 0.25s;
+        white-space: nowrap;
+      }
+      .nav-cta:hover {
+        background: var(--charcoal);
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--charcoal);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 70;
+        background: var(--stone);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--charcoal);
+      }
+      .mobile-menu a {
+        padding: 18px 24px;
+        font-size: 15.5px;
+        font-weight: 600;
+        color: var(--charcoal);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+        color: var(--white) !important;
+      }
+      @media (max-width: 940px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      .btn {
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 14px 26px;
+        border-radius: 8px;
+        display: inline-block;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: none;
+        font-family: "Inter", sans-serif;
+      }
+      .btn-primary {
+        background: var(--clay);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--charcoal);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--charcoal);
+        color: var(--charcoal);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: var(--charcoal);
+        color: var(--white);
+      }
+      .btn-whatsapp {
+        background: var(--green);
+        color: #fff;
+      }
+      .btn-whatsapp:hover {
+        background: #2c5239;
+        transform: translateY(-2px);
+      }
+      .btn-block {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        padding: 56px 0 0;
+        background:
+          radial-gradient(
+            1100px 480px at 85% -10%,
+            rgba(201, 151, 63, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(rgba(34, 28, 24, 0.06) 1px, transparent 1px),
+          linear-gradient(180deg, var(--clay-tint) 0%, var(--stone) 78%);
+        background-size:
+          auto,
+          22px 22px,
+          auto;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(32px, 4.6vw, 54px);
+      }
+      .hero-text h1 .accent {
+        color: var(--clay);
+        font-style: italic;
+      }
+      .hero-sub {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--slate);
+        max-width: 480px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 26px;
+        flex-wrap: wrap;
+      }
+      .hero-trust {
+        display: flex;
+        gap: 22px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--charcoal);
+      }
+      .hero-trust-item .ic {
+        color: var(--clay);
+        font-size: 14px;
+      }
+
+      /* Signature interactive element: Build Cost Estimator */
+      .estimate-card {
+        background: linear-gradient(160deg, var(--charcoal-deep), #201a15);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: var(--shadow-lg);
+        color: #fff;
+      }
+      .estimate-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .estimate-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .estimate-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(201, 151, 63, 0.16);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+      .estimate-sub {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 20px;
+      }
+      .estimate-visual {
+        background: #fff;
+        border-radius: 12px;
+        padding: 22px 18px;
+        text-align: center;
+      }
+      .estimate-sqft {
+        font-family: "Playfair Display", serif;
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--charcoal);
+      }
+      .estimate-sqft-label {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--slate);
+        font-weight: 700;
+        margin-top: 4px;
+      }
+      .estimate-bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+        height: 60px;
+        margin-top: 18px;
+        justify-content: center;
+        width: 100%;
+      }
+      .estimate-bars span {
+        flex: 1 1 0;
+        max-width: 14px;
+        min-width: 4px;
+        background: linear-gradient(180deg, var(--gold), var(--clay));
+        border-radius: 3px 3px 0 0;
+        transition: height 0.15s ease;
+      }
+      .estimate-readout {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+      .estimate-readout-label {
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 700;
+      }
+      .estimate-readout-val {
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .estimate-slider {
+        width: 100%;
+        margin-top: 12px;
+        accent-color: var(--gold);
+        height: 22px;
+        cursor: pointer;
+      }
+      .estimate-note {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 14px;
+        line-height: 1.55;
+      }
+      .estimate-card .btn {
+        margin-top: 16px;
+        width: 100%;
+        text-align: center;
+      }
+      @media (max-width: 940px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+        .hero {
+          padding-bottom: 44px;
+        }
+      }
+
+      section {
+        padding: 82px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 50px 0;
+        }
+      }
+      .section-head {
+        max-width: 620px;
+        margin-bottom: 40px;
+      }
+      .section-head h2 {
+        font-size: clamp(25px, 3.5vw, 38px);
+        margin-top: 9px;
+      }
+      .section-head p {
+        color: var(--slate);
+        font-size: 15px;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+      .section-head.between {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-section {
+        background: var(--charcoal);
+        color: var(--white);
+        padding: 46px 0;
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+      }
+      .trust-item h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 6px;
+        color: var(--gold);
+      }
+      .trust-item p {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 22px;
+        }
+      }
+
+      /* ===== ABOUT / OWNERS ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 52px;
+        align-items: center;
+      }
+      .owner-cards {
+        display: flex;
+        gap: 16px;
+      }
+      .owner-card {
+        flex: 1;
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        padding: 22px 18px;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .owner-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .owner-avatar {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: var(--clay-tint);
+        margin: 0 auto 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--clay);
+      }
+      .owner-name {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .owner-role {
+        font-size: 11.5px;
+        color: var(--slate);
+        margin-top: 3px;
+      }
+      .owner-phone {
+        font-size: 12px;
+        color: var(--clay);
+        font-weight: 700;
+        margin-top: 10px;
+      }
+      .about-copy p {
+        color: var(--slate);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-top: 13px;
+      }
+      .about-copy p:first-child {
+        margin-top: 0;
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== SERVICES ===== */
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .service-card {
+        background: var(--white);
+        padding: 28px 22px;
+        transition: background 0.25s;
+      }
+      .service-card:hover {
+        background: var(--clay-tint);
+      }
+      .service-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: var(--clay-tint);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--clay);
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .service-card h3 {
+        font-size: 16.5px;
+        margin-bottom: 9px;
+      }
+      .service-card p {
+        color: var(--slate);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      @media (max-width: 940px) {
+        .service-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== PROPERTIES ===== */
+      .filter-row {
+        display: flex;
+        gap: 9px;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+      }
+      .filter-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 20px;
+        padding: 9px 18px;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--slate);
+        background: #fff;
+        user-select: none;
+      }
+      .filter-chip:hover {
+        border-color: var(--clay);
+      }
+      .filter-chip.active {
+        background: var(--charcoal);
+        border-color: var(--charcoal);
+        color: var(--white);
+      }
+      .property-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .property-card {
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--white);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .property-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .property-thumb {
+        aspect-ratio: 4/3;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 14px;
+        color: #fff;
+      }
+      .property-thumb.p1 {
+        background: linear-gradient(155deg, #b5502e, #7a3419);
+      }
+      .property-thumb.p2 {
+        background: linear-gradient(155deg, #6b6259, #3a352f);
+      }
+      .property-thumb.p3 {
+        background: linear-gradient(155deg, #c9973f, #93701f);
+      }
+      .property-thumb.p4 {
+        background: linear-gradient(155deg, #3a6b4d, #234130);
+      }
+      .property-thumb.p5 {
+        background: linear-gradient(155deg, #8f3d22, #5c2515);
+      }
+      .property-thumb.p6 {
+        background: linear-gradient(155deg, #4a5568, #2b323d);
+      }
+      .property-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        padding: 4px 9px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--charcoal);
+      }
+      .property-tag {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.28);
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+      .property-body {
+        padding: 18px 18px 20px;
+      }
+      .property-price {
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        font-weight: 800;
+        color: var(--charcoal);
+      }
+      .property-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+      .property-loc {
+        font-size: 12.5px;
+        color: var(--slate);
+        margin-top: 4px;
+      }
+      .property-specs {
+        display: flex;
+        gap: 14px;
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--slate);
+        border-top: 1px solid var(--hairline);
+        padding-top: 12px;
+      }
+      .property-foot {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .property-foot .btn {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 12px;
+        text-align: center;
+      }
+      @media (max-width: 940px) {
+        .property-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 620px) {
+        .property-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== PROCESS ===== */
+      .process-track {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .process-step {
+        flex: 1;
+        min-width: 210px;
+        padding: 0 18px;
+        position: relative;
+      }
+      .process-step:first-child {
+        padding-left: 0;
+      }
+      .process-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: var(--clay-tint);
+        color: var(--clay);
+        font-size: 14px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        font-family: "Playfair Display", serif;
+      }
+      .process-step h3 {
+        font-size: 16.5px;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+      }
+      .process-step p {
+        font-size: 13.5px;
+        color: var(--slate);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+      @media (max-width: 760px) {
+        .process-track {
+          flex-direction: column;
+          gap: 26px;
+        }
+        .process-step {
+          min-width: 0;
+          padding: 0;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .testi {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        padding: 26px 24px;
+        border-radius: 16px;
+      }
+      .testi-stars {
+        color: var(--gold);
+        font-size: 13px;
+        letter-spacing: 2px;
+      }
+      .testi-quote {
+        font-size: 14.5px;
+        line-height: 1.55;
+        margin-top: 14px;
+      }
+      .testi-name {
+        margin-top: 18px;
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+      .testi-name strong {
+        color: var(--charcoal);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== YOUTUBE / SOCIAL STRIP ===== */
+      .social-band {
+        background: var(--charcoal);
+        color: #fff;
+      }
+      .social-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .social-grid h2 {
+        color: #fff;
+      }
+      .social-grid p {
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 14px;
+        font-size: 15px;
+        line-height: 1.65;
+        max-width: 440px;
+      }
+      .social-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .social-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 16px 18px;
+        transition: background 0.2s;
+      }
+      .social-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .social-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .social-icon.ig {
+        background: linear-gradient(
+          145deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+      }
+      .social-icon.yt {
+        background: #d5342c;
+      }
+      .social-card-name {
+        font-weight: 700;
+        font-size: 14.5px;
+      }
+      .social-card-sub {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 2px;
+      }
+      @media (max-width: 860px) {
+        .social-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+      }
+
+      /* ===== CONTACT / INQUIRY ===== */
+      .contact-section {
+        background: var(--white);
+        border-top: 1px solid var(--hairline);
+      }
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .contact-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 24px;
+      }
+      .contact-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .contact-point-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: var(--clay);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .contact-point p {
+        font-size: 13.5px;
+        color: var(--slate);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .contact-point strong {
+        color: var(--charcoal);
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .contact-card {
+        background: var(--clay-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        padding: 34px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 7px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 12px 13px;
+        color: var(--charcoal);
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(107, 98, 89, 0.5);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--clay);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23221C18' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 74px;
+      }
+      .field-error {
+        font-size: 11.5px;
+        color: var(--red);
+        margin-top: 6px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--red);
+        background: rgba(176, 65, 62, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .item-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .item-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--slate);
+        user-select: none;
+        background: #fff;
+      }
+      .item-chip:hover {
+        border-color: var(--clay);
+      }
+      .item-chip.active {
+        background: var(--clay);
+        border-color: var(--clay);
+        color: #fff;
+        font-weight: 600;
+      }
+      .submit-btn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 15px 26px;
+        border-radius: 8px;
+        background: var(--clay);
+        color: #fff;
+        transition: all 0.25s;
+        font-family: "Inter", sans-serif;
+      }
+      .submit-btn:hover {
+        background: var(--charcoal);
+      }
+      .form-note {
+        font-size: 11.5px;
+        color: var(--slate);
+        margin-top: 12px;
+        text-align: center;
+      }
+      @media (max-width: 940px) {
+        .contact-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .contact-card {
+          padding: 24px 20px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .item-options {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .success-state {
+        display: none;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .success-state.show {
+        display: block;
+      }
+      .success-check {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--green);
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #fff;
+      }
+      .success-state h3 {
+        font-size: 21px;
+        margin-bottom: 8px;
+        font-family: "Playfair Display", serif;
+      }
+      .success-state p {
+        color: var(--slate);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .success-summary {
+        margin-top: 20px;
+        padding: 16px 18px;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--slate);
+        display: inline-block;
+      }
+      .success-summary div {
+        margin-bottom: 5px;
+      }
+      .success-summary strong {
+        color: var(--charcoal);
+        font-weight: 700;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--charcoal-deep);
+        color: rgba(250, 243, 228, 0.7);
+        padding-top: 48px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .footer-brand .logo-text {
+        color: #fff;
+      }
+      .footer-brand .logo-text span {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-brand p {
+        font-size: 12.5px;
+        line-height: 1.6;
+        max-width: 270px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.4);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== WHATSAPP FLOAT (desktop only) ===== */
+      .wa-float {
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        z-index: 60;
+        background: var(--green);
+        color: #fff;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-md);
+        font-size: 26px;
+        transition: transform 0.2s;
+      }
+      .wa-float:hover {
+        transform: scale(1.08);
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-section {
+        background: var(--white);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .gallery-item {
+        aspect-ratio: 1/1;
+        border-radius: 14px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        padding: 14px;
+        color: #fff;
+        transition: transform 0.3s ease;
+      }
+      .gallery-item:hover {
+        transform: scale(1.02);
+      }
+      .gallery-item.g1 {
+        background: linear-gradient(155deg, #b5502e, #6b2c15);
+      }
+      .gallery-item.g2 {
+        background: linear-gradient(155deg, #6b6259, #2f2b26);
+      }
+      .gallery-item.g3 {
+        background: linear-gradient(155deg, #c9973f, #7d5f1a);
+      }
+      .gallery-item.g4 {
+        background: linear-gradient(155deg, #3a6b4d, #1c3526);
+      }
+      .gallery-item.g5 {
+        background: linear-gradient(155deg, #8f3d22, #4a1f11);
+      }
+      .gallery-item.g6 {
+        background: linear-gradient(155deg, #4a5568, #22262e);
+      }
+      .gallery-item.g7 {
+        background: linear-gradient(155deg, #a3763f, #5e4522);
+      }
+      .gallery-item.g8 {
+        background: linear-gradient(155deg, #5c8074, #2c3f38);
+      }
+      .gallery-item span {
+        font-size: 12px;
+        font-weight: 700;
+        background: rgba(0, 0, 0, 0.32);
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+      @media (max-width: 860px) {
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .gallery-item.wide {
+          grid-column: span 1;
+        }
+      }
+      @media (max-width: 560px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+      }
+
+      /* ===== MOBILE STICKY ACTION BAR ===== */
+      .mobile-action-bar {
+        display: none;
+      }
+      @media (max-width: 940px) {
+        .mobile-action-bar {
+          display: flex;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 65;
+          background: var(--white);
+          border-top: 1px solid var(--hairline);
+          box-shadow: 0 -8px 24px -12px rgba(34, 28, 24, 0.18);
+          padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+          gap: 8px;
+        }
+        .mobile-action-bar a {
+          flex: 1;
+          min-width: 0;
+          text-align: center;
+          padding: 12px 6px;
+          border-radius: 10px;
+          font-size: 12px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .mobile-action-bar .maq-call {
+          background: var(--charcoal);
+          color: #fff;
+        }
+        .mobile-action-bar .maq-wa {
+          background: var(--green);
+          color: #fff;
+        }
+        .mobile-action-bar .maq-enquire {
+          background: var(--clay);
+          color: #fff;
+        }
+        body {
+          padding-bottom: 68px;
+        }
+        .wa-float {
+          display: none;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== MOBILE POLISH ===== */
+      @media (max-width: 560px) {
+        .wrap {
+          padding: 0 18px;
+        }
+        .top-strip-row {
+          padding: 0 18px;
+          font-size: 11px;
+        }
+        nav {
+          padding: 12px 18px;
+        }
+        .logo-mark {
+          width: 34px;
+          height: 34px;
+        }
+        .logo-mark svg {
+          width: 18px;
+          height: 18px;
+        }
+        .logo-text {
+          font-size: 15.5px;
+        }
+        .logo-text span {
+          font-size: 8.5px;
+        }
+
+        .hero {
+          padding-top: 32px;
+        }
+        .hero-text h1 {
+          font-size: 28px;
+        }
+        .hero-sub {
+          font-size: 14px;
+          max-width: none;
+        }
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+        .hero-actions .btn {
+          text-align: center;
+        }
+        .hero-trust {
+          gap: 12px 16px;
+          margin-top: 22px;
+        }
+        .hero-trust-item {
+          font-size: 11.5px;
+        }
+
+        .estimate-card {
+          padding: 20px;
+          border-radius: 16px;
+        }
+        section {
+          padding: 40px 0;
+        }
+        .section-head {
+          margin-bottom: 26px;
+        }
+        .section-head h2 {
+          font-size: 23px;
+        }
+        .section-head p {
+          font-size: 13.5px;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .trust-item h3 {
+          font-size: 20px;
+        }
+
+        .owner-cards {
+          flex-direction: column;
+        }
+        .about-portrait {
+          display: none;
+        }
+
+        .filter-row {
+          gap: 7px;
+        }
+        .filter-chip {
+          padding: 7px 13px;
+          font-size: 11.5px;
+        }
+
+        .property-body {
+          padding: 14px;
+        }
+        .property-foot {
+          flex-direction: column;
+        }
+
+        .social-grid {
+          text-align: left;
+        }
+
+        .contact-card {
+          padding: 20px 16px;
+        }
+        .form-row {
+          gap: 10px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .gallery-item span {
+          font-size: 10.5px;
+          padding: 4px 8px;
+        }
+      }
+      @media (max-width: 380px) {
+        .hero-text h1 {
+          font-size: 25px;
+        }
+        .trust-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="top-strip-row">
+        <span>Self Construction Specialists · Building Trust Since 1999</span>
+        <span
+          ><a href="tel:+919811105848">Devender Jain: +91 98111 05848</a>
+          &nbsp;·&nbsp;
+          <a href="tel:+918287779877">Samkit Jain: +91 82877 79877</a></span
+        >
+      </div>
+    </div>
+
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 21V10L12 3L21 10V21H14V14H10V21H3Z"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="logo-text">
+            New Navkar<span>Properties &amp; Builders</span>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#properties">Properties</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <a href="#contact" class="nav-cta">Get a Free Quote</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <div class="logo-text">
+          New Navkar<span>Properties &amp; Builders</span>
+        </div>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#properties">Properties</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get a Free Quote</a>
+    </div>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="eyebrow"
+              >Property Dealers &amp; Self-Construction Builders</span
+            >
+            <h1 class="reveal">
+              Creating deals into <span class="accent">reality.</span>
+            </h1>
+            <p class="hero-sub reveal">
+              For over 25 years, New Navkar Properties &amp; Builders has helped
+              families buy, sell, and self-construct homes they're proud of —
+              with honest guidance from consultation to handover.
+            </p>
+            <div class="hero-actions reveal">
+              <a href="#properties" class="btn btn-primary">View Properties</a>
+              <a
+                href="https://wa.me/919811105848"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-whatsapp"
+                >WhatsApp Us</a
+              >
+            </div>
+            <div class="hero-trust reveal">
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> Since 1999 · 25+ Years
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 11.6K Instagram Community
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 500+ Deals Closed
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="estimate-card">
+              <div class="estimate-head">
+                <span class="estimate-title">Construction Cost Estimator</span>
+                <span class="estimate-badge">Try it</span>
+              </div>
+              <p class="estimate-sub">
+                Drag the slider to your plot size and get an instant
+                self-construction estimate.
+              </p>
+              <div class="estimate-visual">
+                <div class="estimate-sqft" id="sqftVal">1200</div>
+                <div class="estimate-sqft-label">Sq. Ft. Plot Area</div>
+                <div class="estimate-bars" id="estimateBars"></div>
+              </div>
+              <div class="estimate-readout">
+                <span class="estimate-readout-label">Estimated cost</span>
+                <span class="estimate-readout-val" id="costVal"
+                  >₹21.6 L – ₹27 L</span
+                >
+              </div>
+              <input
+                type="range"
+                min="500"
+                max="4000"
+                step="100"
+                value="1200"
+                class="estimate-slider"
+                id="sqftSlider"
+                aria-label="Plot area slider"
+              />
+              <p class="estimate-note">
+                Rough estimate at ₹1,800–2,250/sq.ft for standard
+                self-construction. Final cost depends on floors, finish level,
+                and location.
+              </p>
+              <a href="#contact" class="btn btn-primary">Get an exact quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <h3>1999</h3>
+            <p>
+              Year founded — a quarter-century of construction and property
+              deals.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>500+</h3>
+            <p>Families helped buy, sell, or build their homes.</p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>11.6K</h3>
+            <p>Followers trusting our work and updates on Instagram.</p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>162+</h3>
+            <p>Projects and properties documented and shared publicly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="owner-cards">
+              <div class="owner-card">
+                <div class="owner-avatar">DJ</div>
+                <div class="owner-name">Devender Jain</div>
+                <div class="owner-role">Founder &amp; Partner</div>
+                <div class="owner-phone">+91 98111 05848</div>
+              </div>
+              <div class="owner-card">
+                <div class="owner-avatar">SJ</div>
+                <div class="owner-name">Samkit Jain</div>
+                <div class="owner-role">Partner</div>
+                <div class="owner-phone">+91 82877 79877</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <span class="eyebrow">About Us</span>
+            <h2>Building since 1999 — one honest deal at a time.</h2>
+            <p>
+              New Navkar Properties &amp; Builders has spent over 25 years
+              turning plots into homes and listings into closed deals. What
+              started as a small self-construction practice has grown into a
+              trusted name for both property dealing and full-scale
+              self-construction.
+            </p>
+            <p>
+              Led by Devender Jain and Samkit Jain, our approach stays the same
+              as it did on day one: no middlemen games, no hidden costs, and
+              construction quality we'd put our own name on — because we do, on
+              every project we hand over.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="background: var(--white)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2>From plot to possession, handled end to end.</h2>
+          <p>
+            Whether you're buying, selling, or building from the ground up, our
+            team manages it directly — no unnecessary layers.
+          </p>
+        </div>
+        <div class="service-grid reveal">
+          <div class="service-card">
+            <div class="service-icon">1</div>
+            <h3>Self Construction</h3>
+            <p>
+              Complete ground-up construction — design, materials, labor, and
+              supervision — managed by our own in-house team.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">2</div>
+            <h3>Property Buying &amp; Selling</h3>
+            <p>
+              Verified listings, fair pricing, and honest negotiation — for both
+              residential plots and built properties.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">3</div>
+            <h3>Legal &amp; Documentation</h3>
+            <p>
+              Title verification, registry support, and paperwork handled so you
+              never worry about disputes later.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">4</div>
+            <h3>Renovation &amp; Finishing</h3>
+            <p>
+              Interior finishing, floor additions, and renovations for existing
+              properties, to the same standard as new builds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="properties">
+      <div class="wrap">
+        <div class="section-head between reveal">
+          <div>
+            <span class="eyebrow">Featured Listings</span>
+            <h2>Properties &amp; completed projects.</h2>
+            <p>
+              A sample of what we've built and sold — real listings and
+              portfolio photos go here once we're live.
+            </p>
+          </div>
+        </div>
+        <div class="filter-row reveal">
+          <div class="filter-chip active" data-filter="all">All</div>
+          <div class="filter-chip" data-filter="Plot">Plots</div>
+          <div class="filter-chip" data-filter="Built">Built Homes</div>
+          <div class="filter-chip" data-filter="Commercial">Commercial</div>
+        </div>
+        <div class="property-grid" id="propertyGrid"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Work</span>
+          <h2>A look at completed projects.</h2>
+          <p>
+            Site progress, finished builds, and handovers — a glimpse of what we
+            deliver.
+          </p>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item g1 wide">
+            <span>Site Under Construction</span>
+          </div>
+          <div class="gallery-item g2"><span>Foundation Work</span></div>
+          <div class="gallery-item g3"><span>Finished Facade</span></div>
+          <div class="gallery-item g4"><span>Interior Finishing</span></div>
+          <div class="gallery-item g5"><span>Plot Handover</span></div>
+          <div class="gallery-item g6 wide"><span>Completed Duplex</span></div>
+          <div class="gallery-item g7"><span>Commercial Space</span></div>
+          <div class="gallery-item g8"><span>Client Walkthrough</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" style="background: var(--white)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2>A simple, transparent process.</h2>
+        </div>
+        <div class="process-track reveal">
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <h3>Free consultation</h3>
+            <p>
+              Share your plot, budget, and vision — we assess feasibility and
+              give an honest first estimate.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <h3>Design &amp; quote</h3>
+            <p>
+              A clear construction or deal plan with fixed costs, so there are
+              no surprises later.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <h3>Construction / deal execution</h3>
+            <p>
+              Our team manages the build or transaction directly, with regular
+              updates at every stage.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">4</div>
+            <h3>Handover</h3>
+            <p>
+              Final walkthrough, documentation, and keys — or registry — handed
+              over, ready to move in.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" style="background: var(--clay-tint)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What Clients Say</span>
+          <h2>25 years of relationships, not just transactions.</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "They built our house exactly to budget and on time. No hidden
+              costs, no surprises — just honest work."
+            </p>
+            <p class="testi-name">
+              <strong>Rakesh M.</strong> — Self Construction, Delhi
+            </p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Sold our ancestral plot through them — fair price, clean
+              paperwork, closed in under a month."
+            </p>
+            <p class="testi-name"><strong>Sunita A.</strong> — Property Sale</p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Second time working with New Navkar — this time for a commercial
+              space. Same trust as the first."
+            </p>
+            <p class="testi-name">
+              <strong>Vinod T.</strong> — Commercial Purchase
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-band">
+      <div class="wrap" style="padding: 82px 28px">
+        <div class="social-grid">
+          <div class="reveal">
+            <span class="eyebrow" style="color: var(--gold)"
+              >Follow Our Work</span
+            >
+            <h2>See every project, before you visit one.</h2>
+            <p>
+              We document our builds and deals publicly — walk through real
+              projects on Instagram and YouTube before you ever step on site.
+            </p>
+          </div>
+          <div class="social-cards reveal">
+            <a
+              href="https://www.instagram.com/new_navkar_properties/"
+              target="_blank"
+              rel="noopener"
+              class="social-card"
+            >
+              <div class="social-icon ig">📷</div>
+              <div>
+                <div class="social-card-name">@new_navkar_properties</div>
+                <div class="social-card-sub">11.6K followers · 162 posts</div>
+              </div>
+            </a>
+            <a
+              href="https://youtube.com/@newnavkarproperties"
+              target="_blank"
+              rel="noopener"
+              class="social-card"
+            >
+              <div class="social-icon yt">▶</div>
+              <div>
+                <div class="social-card-name">New Navkar Properties</div>
+                <div class="social-card-sub">
+                  Site visits, walkthroughs &amp; project updates
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 0">
+              <span class="eyebrow">Get In Touch</span>
+              <h2>Let's talk about your plot or property.</h2>
+              <p>
+                Tell us what you're looking for — buying, selling, or building —
+                and we'll get back to you within a day.
+              </p>
+            </div>
+            <div class="contact-points reveal">
+              <div class="contact-point">
+                <span class="contact-point-mark">1</span>
+                <p>
+                  <strong>Share your requirement</strong>Buying, selling,
+                  self-construction, or renovation.
+                </p>
+              </div>
+              <div class="contact-point">
+                <span class="contact-point-mark">2</span>
+                <p>
+                  <strong>We call you back</strong>Usually within a few hours
+                  during business hours.
+                </p>
+              </div>
+              <div class="contact-point">
+                <span class="contact-point-mark">3</span>
+                <p>
+                  <strong>Free site visit or consultation</strong>No obligation,
+                  no pressure — just an honest assessment.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div id="inquiryFormState">
+              <form id="inquiryForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Your name" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" placeholder="98765 43210" />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-interest">
+                  <label>I'm interested in</label>
+                  <div class="item-options">
+                    <div class="item-chip" data-value="Self Construction">
+                      Self Construction
+                    </div>
+                    <div class="item-chip" data-value="Buying a Property">
+                      Buying a Property
+                    </div>
+                    <div class="item-chip" data-value="Selling a Property">
+                      Selling a Property
+                    </div>
+                    <div class="item-chip" data-value="Renovation">
+                      Renovation
+                    </div>
+                  </div>
+                  <div class="field-error">Please select an option.</div>
+                </div>
+                <div class="form-group">
+                  <label for="budget"
+                    >Budget range
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <select id="budget">
+                    <option value="">Select a range</option>
+                    <option value="Under ₹20 Lakh">Under ₹20 Lakh</option>
+                    <option value="₹20L – ₹50L">₹20L – ₹50L</option>
+                    <option value="₹50L – ₹1 Cr">₹50L – ₹1 Cr</option>
+                    <option value="₹1 Cr+">₹1 Cr+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message"
+                    >Tell us more
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="message"
+                    placeholder="Plot size, location, or what you're looking for..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+                <p class="form-note">
+                  We typically respond within a few hours during business hours.
+                </p>
+              </form>
+            </div>
+            <div id="inquirySuccess" class="success-state">
+              <div class="success-check">✓</div>
+              <h3>Inquiry received!</h3>
+              <p>
+                Thanks for reaching out — Devender or Samkit will call you back
+                shortly.
+              </p>
+              <div class="success-summary" id="inquirySummaryBox"></div>
+              <div style="margin-top: 22px">
+                <a
+                  href="#"
+                  class="btn btn-ghost"
+                  id="inquiryAnotherBtn"
+                  style="color: var(--charcoal)"
+                  >Send another inquiry</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo-text">
+              New Navkar<span>Properties &amp; Builders</span>
+            </div>
+            <p>
+              Self construction specialists and property dealers, serving
+              families since 1999.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#properties">Properties</a>
+            <a href="#process">Process</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#contact">Contact Us</a>
+            <a
+              href="https://www.instagram.com/new_navkar_properties/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://youtube.com/@newnavkarproperties"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:+919811105848">Devender: +91 98111 05848</a>
+            <a href="tel:+918287779877">Samkit: +91 82877 79877</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 New Navkar Properties &amp; Builders. Demo website — for
+            illustration purposes only.</span
+          >
+          <span>Designed by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919811105848"
+      target="_blank"
+      rel="noopener"
+      class="wa-float"
+      aria-label="Chat on WhatsApp"
+      >💬</a
+    >
+
+    <div class="mobile-action-bar">
+      <a href="tel:+919811105848" class="maq-call">📞 Call</a>
+      <a
+        href="https://wa.me/919811105848"
+        target="_blank"
+        rel="noopener"
+        class="maq-wa"
+        >💬 WhatsApp</a
+      >
+      <a href="#contact" class="maq-enquire">Enquire Now</a>
+    </div>
+
+    <script>
+      // ===== Reveal on scroll =====
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2000);
+
+      // ===== Mobile menu =====
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuToggle.addEventListener("click", () =>
+        mobileMenu.classList.add("open"),
+      );
+      menuClose.addEventListener("click", () =>
+        mobileMenu.classList.remove("open"),
+      );
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          ),
+        );
+
+      // ===== Construction Cost Estimator (signature interaction) =====
+      const sqftSlider = document.getElementById("sqftSlider");
+      const sqftVal = document.getElementById("sqftVal");
+      const costVal = document.getElementById("costVal");
+      const estimateBars = document.getElementById("estimateBars");
+
+      // build the bar chart once
+      const NUM_BARS = 14;
+      for (let i = 0; i < NUM_BARS; i++) {
+        const bar = document.createElement("span");
+        estimateBars.appendChild(bar);
+      }
+      const bars = estimateBars.querySelectorAll("span");
+
+      function formatLakh(rupees) {
+        return "₹" + (rupees / 100000).toFixed(1) + " L";
+      }
+
+      function updateEstimate() {
+        const sqft = Number(sqftSlider.value);
+        sqftVal.textContent = sqft.toLocaleString("en-IN");
+        const low = sqft * 1800;
+        const high = sqft * 2250;
+        costVal.textContent = formatLakh(low) + " – " + formatLakh(high);
+
+        const pct = (sqft - 500) / (4000 - 500);
+        bars.forEach((bar, i) => {
+          const wave = Math.sin((i / NUM_BARS) * Math.PI) * 0.6 + 0.4;
+          const h = 12 + wave * pct * 48 + pct * 10;
+          bar.style.height = Math.min(60, h).toFixed(0) + "px";
+        });
+      }
+      sqftSlider.addEventListener("input", updateEstimate);
+      updateEstimate();
+
+      // ===== Property listings =====
+      const properties = [
+        {
+          title: "Green Meadows Plot",
+          cat: "Plot",
+          tag: "Freehold",
+          price: "₹42 Lakh",
+          loc: "Sector 12, Sonipat",
+          specs: "200 sq.yd · East Facing",
+          color: "p1",
+          badge: "New",
+        },
+        {
+          title: "Navkar Residency",
+          cat: "Built",
+          tag: "Ready to Move",
+          price: "₹85 Lakh",
+          loc: "Model Town, Delhi",
+          specs: "3 BHK · 1800 sq.ft",
+          color: "p2",
+          badge: "Popular",
+        },
+        {
+          title: "Shivam Commercial Plaza",
+          cat: "Commercial",
+          tag: "Shop Space",
+          price: "₹1.2 Cr",
+          loc: "Main Market, Rohtak",
+          specs: "1200 sq.ft · Ground Floor",
+          color: "p3",
+          badge: null,
+        },
+        {
+          title: "Krishna Farmhouse Plot",
+          cat: "Plot",
+          tag: "Agricultural",
+          price: "₹28 Lakh",
+          loc: "Outer Ring Road",
+          specs: "500 sq.yd · Road Facing",
+          color: "p4",
+          badge: null,
+        },
+        {
+          title: "Om Enclave Duplex",
+          cat: "Built",
+          tag: "Self Constructed",
+          price: "₹1.05 Cr",
+          loc: "Civil Lines, Delhi",
+          specs: "4 BHK · 2400 sq.ft",
+          color: "p5",
+          badge: "Featured",
+        },
+        {
+          title: "Navkar Business Hub",
+          cat: "Commercial",
+          tag: "Office Space",
+          price: "₹65 Lakh",
+          loc: "Sector 18, Gurugram",
+          specs: "900 sq.ft · 3rd Floor",
+          color: "p6",
+          badge: null,
+        },
+      ];
+
+      const propertyGrid = document.getElementById("propertyGrid");
+      function renderProperties(filter) {
+        propertyGrid.innerHTML = "";
+        properties
+          .filter((p) => filter === "all" || p.cat === filter)
+          .forEach((p) => {
+            const card = document.createElement("div");
+            card.className = "property-card";
+            card.innerHTML = `
+            <div class="property-thumb ${p.color}">
+              ${p.badge ? `<span class="property-badge">${p.badge}</span>` : ""}
+              <span class="property-tag">${p.tag}</span>
+            </div>
+            <div class="property-body">
+              <div class="property-price">${p.price}</div>
+              <div class="property-title">${p.title}</div>
+              <div class="property-loc">${p.loc}</div>
+              <div class="property-specs">${p.specs}</div>
+              <div class="property-foot">
+                <a href="https://wa.me/919811105848?text=${encodeURIComponent("Hi, I'm interested in " + p.title + " (" + p.loc + ")")}" target="_blank" rel="noopener" class="btn btn-whatsapp">Enquire</a>
+                <a href="#contact" class="btn btn-ghost">Details</a>
+              </div>
+            </div>`;
+            propertyGrid.appendChild(card);
+          });
+      }
+      renderProperties("all");
+      document.querySelectorAll(".filter-row .filter-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-row .filter-chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          renderProperties(chip.dataset.filter);
+        });
+      });
+
+      // ===== Inquiry form =====
+      const inquiryForm = document.getElementById("inquiryForm");
+      const interestChips = document.querySelectorAll(
+        "#group-interest .item-chip",
+      );
+      let selectedInterest = "";
+
+      interestChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          interestChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedInterest = chip.dataset.value;
+          document.getElementById("group-interest").classList.remove("invalid");
+        });
+      });
+
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+      function setInvalid(groupId, isInvalid) {
+        const g = document.getElementById(groupId);
+        if (g) g.classList.toggle("invalid", isInvalid);
+      }
+
+      inquiryForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fullName = document.getElementById("fullName").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const budget = document.getElementById("budget").value;
+        const message = document.getElementById("message").value.trim();
+
+        let valid = true;
+        setInvalid("group-name", !fullName);
+        if (!fullName) valid = false;
+        setInvalid("group-phone", !isValidPhone(phone));
+        if (!isValidPhone(phone)) valid = false;
+        setInvalid("group-interest", !selectedInterest);
+        if (!selectedInterest) valid = false;
+
+        if (!valid) {
+          const firstInvalid = document.querySelector(
+            "#inquiryForm .form-group.invalid",
+          );
+          if (firstInvalid)
+            firstInvalid.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          return;
+        }
+
+        const summaryBox = document.getElementById("inquirySummaryBox");
+        summaryBox.innerHTML = `
+          <div><strong>Name:</strong> ${fullName}</div>
+          <div><strong>Interested in:</strong> ${selectedInterest}</div>
+          <div><strong>Phone:</strong> ${phone}</div>
+          ${budget ? `<div><strong>Budget:</strong> ${budget}</div>` : ""}
+          ${message ? `<div><strong>Message:</strong> ${message}</div>` : ""}
+        `;
+        document.getElementById("inquiryFormState").style.display = "none";
+        document.getElementById("inquirySuccess").classList.add("show");
+      });
+
+      document
+        .getElementById("inquiryAnotherBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          inquiryForm.reset();
+          interestChips.forEach((c) => c.classList.remove("active"));
+          selectedInterest = "";
+          document
+            .querySelectorAll("#inquiryForm .form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document.getElementById("inquirySuccess").classList.remove("show");
+          document.getElementById("inquiryFormState").style.display = "block";
+        });
+    </script>
+  </body>
+</html>
