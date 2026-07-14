@@ -1,0 +1,2221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Almas Saba — Compassionate Women's Health Care, Mumbai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Karla:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --mauve: #9c5b6b;
+        --mauve-deep: #7a4351;
+        --mauve-tint: #f7ecee;
+        --gold: #c69a4e;
+        --gold-deep: #a67c34;
+        --gold-tint: #faf3e3;
+        --cream: #fbf6f2;
+        --charcoal: #2c2426;
+        --charcoal-deep: #1c1717;
+        --slate: #6e6265;
+        --hairline: rgba(44, 36, 38, 0.12);
+        --white: #ffffff;
+        --red: #b0413e;
+        --shadow-lg: 0 30px 60px -28px rgba(28, 23, 23, 0.45);
+        --shadow-md: 0 16px 36px -22px rgba(44, 36, 38, 0.28);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      body {
+        background: var(--cream);
+        color: var(--charcoal);
+        font-family: "Karla", sans-serif;
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Lora", serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.18;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--mauve);
+        font-weight: 700;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--mauve);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* ===== FLOATING NAV ===== */
+      header {
+        position: fixed;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 28px);
+        max-width: 1120px;
+        z-index: 80;
+        background: rgba(251, 246, 242, 0.86);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid var(--hairline);
+        border-radius: 20px;
+        box-shadow: var(--shadow-md);
+        transition:
+          box-shadow 0.3s ease,
+          background 0.3s ease;
+        animation: navDropIn 0.5s ease;
+      }
+      header.scrolled {
+        box-shadow: var(--shadow-lg);
+        background: rgba(251, 246, 242, 0.97);
+      }
+      @keyframes navDropIn {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(-14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        gap: 12px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(150deg, var(--mauve), var(--mauve-deep));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-mark svg {
+        width: 22px;
+        height: 22px;
+      }
+      .logo-text {
+        font-family: "Lora", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--charcoal);
+        line-height: 1.05;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .logo-text span {
+        display: block;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--slate);
+        text-transform: uppercase;
+        font-family: "Karla", sans-serif;
+        margin-top: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .nav-links a {
+        color: var(--slate);
+        transition: color 0.2s;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        height: 1.5px;
+        background: var(--mauve);
+        transition: right 0.25s ease;
+      }
+      .nav-links a:hover::after {
+        right: 0;
+      }
+      .nav-links a:hover {
+        color: var(--charcoal);
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 700;
+        background: var(--mauve);
+        color: var(--white);
+        padding: 11px 22px;
+        border-radius: 24px;
+        transition: all 0.25s;
+        white-space: nowrap;
+        animation: ctaPulse 3.5s ease-in-out infinite;
+      }
+      .nav-cta:hover {
+        background: var(--charcoal);
+        animation: none;
+      }
+      @keyframes ctaPulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(156, 91, 107, 0.32);
+        }
+        50% {
+          box-shadow: 0 0 0 7px rgba(156, 91, 107, 0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .nav-cta {
+          animation: none;
+        }
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--charcoal);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: var(--cream);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--charcoal);
+      }
+      .mobile-menu a {
+        padding: 18px 24px;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: var(--charcoal);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+        color: var(--white) !important;
+      }
+      @media (max-width: 940px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      .btn {
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 14px 26px;
+        border-radius: 24px;
+        display: inline-block;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        border: none;
+        font-family: "Karla", sans-serif;
+      }
+      .btn-primary {
+        background: var(--mauve);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--charcoal);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        border: 1.5px solid var(--charcoal);
+        color: var(--charcoal);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: var(--charcoal);
+        color: var(--white);
+      }
+      .btn-whatsapp {
+        background: #3a6b4d;
+        color: #fff;
+      }
+      .btn-whatsapp:hover {
+        background: #2c5239;
+        transform: translateY(-2px);
+      }
+      .btn-block {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        padding: 120px 0 64px;
+        background:
+          radial-gradient(
+            1100px 480px at 85% -10%,
+            rgba(198, 154, 78, 0.14),
+            transparent 60%
+          ),
+          linear-gradient(180deg, var(--mauve-tint) 0%, var(--cream) 78%);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .hero-text h1 {
+        font-size: clamp(30px, 4.4vw, 50px);
+      }
+      .hero-text h1 .accent {
+        color: var(--mauve);
+        font-style: italic;
+      }
+      .hero-sub {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--slate);
+        max-width: 480px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 26px;
+        flex-wrap: wrap;
+      }
+      .hero-trust {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--charcoal);
+      }
+      .hero-trust-item .ic {
+        color: var(--mauve);
+        font-size: 14px;
+      }
+
+      /* Signature interactive: Concern Matcher */
+      .match-card {
+        background: linear-gradient(160deg, var(--charcoal-deep), #241d1e);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: var(--shadow-lg);
+        color: #fff;
+      }
+      .match-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .match-title {
+        font-family: "Lora", serif;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .match-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(198, 154, 78, 0.16);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+      .match-sub {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 18px;
+      }
+      .match-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .match-chip {
+        border: 1.5px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.04);
+        user-select: none;
+        overflow-wrap: break-word;
+      }
+      .match-chip:hover {
+        border-color: var(--gold);
+      }
+      .match-chip.active {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--charcoal-deep);
+        font-weight: 700;
+      }
+      .match-visual {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 16px;
+      }
+      .match-visual-title {
+        font-family: "Lora", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .match-visual-text {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+      .match-card .btn {
+        width: 100%;
+        text-align: center;
+      }
+      @media (max-width: 940px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+      }
+
+      section {
+        padding: 82px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 50px 0;
+        }
+      }
+      .section-head {
+        max-width: 620px;
+        margin-bottom: 40px;
+      }
+      .section-head h2 {
+        font-size: clamp(25px, 3.5vw, 38px);
+        margin-top: 9px;
+      }
+      .section-head p {
+        color: var(--slate);
+        font-size: 15px;
+        margin-top: 12px;
+        line-height: 1.6;
+      }
+      .section-head.between {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      section[id] {
+        scroll-margin-top: 96px;
+      }
+      @media (max-width: 560px) {
+        section[id] {
+          scroll-margin-top: 78px;
+        }
+      }
+
+      /* ===== TRUST STRIP ===== */
+      .trust-section {
+        background: var(--charcoal);
+        color: var(--white);
+        padding: 46px 0;
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+      }
+      .trust-item h3 {
+        font-family: "Lora", serif;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: var(--gold);
+      }
+      .trust-item p {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 22px;
+        }
+      }
+
+      /* ===== ABOUT ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 52px;
+        align-items: center;
+      }
+      .about-portrait {
+        background: var(--mauve-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 22px;
+        aspect-ratio: 4/5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-portrait .initials {
+        font-family: "Lora", serif;
+        font-size: 82px;
+        font-weight: 700;
+        color: var(--mauve);
+        opacity: 0.75;
+      }
+      .about-portrait .ring {
+        position: absolute;
+        inset: 20px;
+        border: 1px solid rgba(156, 91, 107, 0.22);
+        border-radius: 18px;
+      }
+      .about-creds {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+      .cred-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        font-size: 13.5px;
+        color: var(--slate);
+        line-height: 1.5;
+      }
+      .cred-row .ic {
+        color: var(--mauve);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .about-copy p {
+        color: var(--slate);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-top: 13px;
+      }
+      .about-copy p:first-child {
+        margin-top: 0;
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-portrait {
+          aspect-ratio: 16/9;
+        }
+      }
+
+      /* ===== SPECIALTIES ===== */
+      .specialty-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .specialty-card {
+        background: var(--white);
+        padding: 28px 24px;
+        transition: background 0.25s;
+      }
+      .specialty-card:hover {
+        background: var(--mauve-tint);
+      }
+      .specialty-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--mauve-tint);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mauve);
+        font-weight: 700;
+        font-size: 16px;
+        font-family: "Lora", serif;
+      }
+      .specialty-card h3 {
+        font-size: 17px;
+        margin-bottom: 9px;
+      }
+      .specialty-card p {
+        color: var(--slate);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .specialty-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .specialty-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== PRIVACY NOTE BAND ===== */
+      .privacy-band {
+        background: var(--mauve-tint);
+        border-top: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .privacy-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .privacy-grid p {
+        color: var(--slate);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-top: 14px;
+      }
+      .privacy-points {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .privacy-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        padding: 18px 20px;
+      }
+      .privacy-point-mark {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--mauve);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .privacy-point strong {
+        display: block;
+        font-size: 14.5px;
+        margin-bottom: 3px;
+      }
+      .privacy-point p {
+        font-size: 13px;
+        color: var(--slate);
+        margin: 0;
+        line-height: 1.5;
+      }
+      @media (max-width: 860px) {
+        .privacy-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+      }
+
+      /* ===== VIDEO CONSULT PROCESS ===== */
+      .process-track {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .process-step {
+        flex: 1;
+        min-width: 210px;
+        padding: 0 18px;
+        position: relative;
+      }
+      .process-step:first-child {
+        padding-left: 0;
+      }
+      .process-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--mauve-tint);
+        color: var(--mauve);
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        font-family: "Lora", serif;
+      }
+      .process-step h3 {
+        font-size: 16.5px;
+        font-weight: 700;
+        font-family: "Lora", serif;
+      }
+      .process-step p {
+        font-size: 13.5px;
+        color: var(--slate);
+        margin-top: 8px;
+        line-height: 1.55;
+      }
+      @media (max-width: 760px) {
+        .process-track {
+          flex-direction: column;
+          gap: 26px;
+        }
+        .process-step {
+          min-width: 0;
+          padding: 0;
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .testi {
+        background: var(--white);
+        border: 1px solid var(--hairline);
+        padding: 26px 24px;
+        border-radius: 18px;
+      }
+      .testi-stars {
+        color: var(--gold);
+        font-size: 13px;
+        letter-spacing: 2px;
+      }
+      .testi-quote {
+        font-size: 14.5px;
+        line-height: 1.55;
+        margin-top: 14px;
+      }
+      .testi-name {
+        margin-top: 18px;
+        font-size: 12.5px;
+        color: var(--slate);
+      }
+      .testi-name strong {
+        color: var(--charcoal);
+        font-style: normal;
+      }
+      @media (max-width: 860px) {
+        .testi-strip {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== SOCIAL ===== */
+      .social-band {
+        background: var(--charcoal);
+        color: #fff;
+      }
+      .social-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .social-grid h2 {
+        color: #fff;
+      }
+      .social-grid p {
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 14px;
+        font-size: 15px;
+        line-height: 1.65;
+        max-width: 440px;
+      }
+      .social-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .social-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 16px 18px;
+        transition: background 0.2s;
+      }
+      .social-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .social-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .social-icon.ig {
+        background: linear-gradient(
+          145deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+      }
+      .social-icon.yt {
+        background: #d5342c;
+      }
+      .social-card-name {
+        font-weight: 700;
+        font-size: 14.5px;
+      }
+      .social-card-sub {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 2px;
+      }
+      @media (max-width: 860px) {
+        .social-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+      }
+
+      /* ===== CONTACT / APPOINTMENT ===== */
+      .contact-section {
+        background: var(--white);
+        border-top: 1px solid var(--hairline);
+      }
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .contact-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-top: 24px;
+      }
+      .contact-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .contact-point-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--mauve);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .contact-point p {
+        font-size: 13.5px;
+        color: var(--slate);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .contact-point strong {
+        color: var(--charcoal);
+        display: block;
+        margin-bottom: 3px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .contact-card {
+        background: var(--mauve-tint);
+        border: 1px solid var(--hairline);
+        border-radius: 20px;
+        padding: 34px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 7px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 12px 13px;
+        color: var(--charcoal);
+        font-family: "Karla", sans-serif;
+        font-size: 14px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(110, 98, 101, 0.5);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--mauve);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232C2426' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 74px;
+      }
+      .field-error {
+        font-size: 11.5px;
+        color: var(--red);
+        margin-top: 6px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: var(--red);
+        background: rgba(176, 65, 62, 0.05);
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .item-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .item-chip {
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--slate);
+        user-select: none;
+        background: #fff;
+        overflow-wrap: break-word;
+      }
+      .item-chip:hover {
+        border-color: var(--mauve);
+      }
+      .item-chip.active {
+        background: var(--mauve);
+        border-color: var(--mauve);
+        color: #fff;
+        font-weight: 600;
+      }
+      .submit-btn {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 15px 26px;
+        border-radius: 24px;
+        background: var(--mauve);
+        color: #fff;
+        transition: all 0.25s;
+        font-family: "Karla", sans-serif;
+      }
+      .submit-btn:hover {
+        background: var(--charcoal);
+      }
+      .form-note {
+        font-size: 11.5px;
+        color: var(--slate);
+        margin-top: 12px;
+        text-align: center;
+      }
+      @media (max-width: 940px) {
+        .contact-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .contact-card {
+          padding: 24px 20px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .item-options {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .success-state {
+        display: none;
+        text-align: center;
+        padding: 32px 10px;
+      }
+      .success-state.show {
+        display: block;
+      }
+      .success-check {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--mauve);
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        color: #fff;
+      }
+      .success-state h3 {
+        font-size: 21px;
+        margin-bottom: 8px;
+        font-family: "Lora", serif;
+      }
+      .success-state p {
+        color: var(--slate);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .success-summary {
+        margin-top: 20px;
+        padding: 16px 18px;
+        background: #fff;
+        border: 1px solid var(--hairline);
+        border-radius: 12px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--slate);
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+      .success-summary div {
+        margin-bottom: 5px;
+      }
+      .success-summary strong {
+        color: var(--charcoal);
+        font-weight: 700;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--charcoal-deep);
+        color: rgba(251, 246, 242, 0.7);
+        padding-top: 48px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .footer-brand .logo-text {
+        color: #fff;
+      }
+      .footer-brand .logo-text span {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-brand p {
+        font-size: 12.5px;
+        line-height: 1.6;
+        max-width: 270px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.4);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      @media (max-width: 860px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== MOBILE STICKY ACTION BAR ===== */
+      .mobile-action-bar {
+        display: none;
+      }
+      @media (max-width: 940px) {
+        .mobile-action-bar {
+          display: flex;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 65;
+          background: var(--white);
+          border-top: 1px solid var(--hairline);
+          box-shadow: 0 -8px 24px -12px rgba(44, 36, 38, 0.18);
+          padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+          gap: 8px;
+        }
+        .mobile-action-bar a {
+          flex: 1;
+          min-width: 0;
+          text-align: center;
+          padding: 12px 6px;
+          border-radius: 24px;
+          font-size: 12px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .mobile-action-bar .maq-call {
+          background: var(--charcoal);
+          color: #fff;
+        }
+        .mobile-action-bar .maq-wa {
+          background: #3a6b4d;
+          color: #fff;
+        }
+        .mobile-action-bar .maq-book {
+          background: var(--mauve);
+          color: #fff;
+        }
+        body {
+          padding-bottom: 68px;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== MOBILE POLISH ===== */
+      @media (max-width: 560px) {
+        header {
+          top: 10px;
+          width: calc(100% - 20px);
+          border-radius: 16px;
+        }
+        .wrap {
+          padding: 0 18px;
+        }
+        nav {
+          padding: 10px 14px;
+        }
+        .logo-mark {
+          width: 36px;
+          height: 36px;
+        }
+        .logo-mark svg {
+          width: 20px;
+          height: 20px;
+        }
+        .logo-text {
+          font-size: 15.5px;
+        }
+        .logo-text span {
+          font-size: 8.5px;
+        }
+
+        .hero {
+          padding-top: 96px;
+        }
+        .hero-text h1 {
+          font-size: 27px;
+        }
+        .hero-sub {
+          font-size: 14px;
+          max-width: none;
+        }
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+        .hero-actions .btn {
+          text-align: center;
+        }
+        .hero-trust {
+          gap: 12px 16px;
+          margin-top: 22px;
+        }
+        .hero-trust-item {
+          font-size: 11.5px;
+        }
+
+        .match-card {
+          padding: 20px;
+          border-radius: 18px;
+        }
+        .match-options {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 40px 0;
+        }
+        .section-head {
+          margin-bottom: 26px;
+        }
+        .section-head h2 {
+          font-size: 23px;
+        }
+        .section-head p {
+          font-size: 13.5px;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .trust-item h3 {
+          font-size: 19px;
+        }
+
+        .privacy-point {
+          padding: 14px 16px;
+        }
+        .contact-card {
+          padding: 20px 16px;
+        }
+        .form-row {
+          gap: 10px;
+        }
+
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .footer-col span {
+          font-size: 12.5px !important;
+        }
+      }
+      @media (max-width: 380px) {
+        .hero-text h1 {
+          font-size: 24px;
+        }
+        .trust-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 21C12 21 4.5 16 4.5 10C4.5 6.5 7 4 10 4C11.4 4 12 4.7 12 4.7C12 4.7 12.6 4 14 4C17 4 19.5 6.5 19.5 10C19.5 16 12 21 12 21Z"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="logo-text">Dr. Almas Saba<span>Women's Health</span></div>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#specialties">Specialties</a>
+          <a href="#video-consult">Video Consult</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <a href="#contact" class="nav-cta">Book Appointment</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <div class="logo-text">Dr. Almas Saba<span>Women's Health</span></div>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#about">About</a>
+      <a href="#specialties">Specialties</a>
+      <a href="#video-consult">Video Consult</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Book Appointment</a>
+    </div>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="eyebrow">MBBS · Ladies Doctor · Mumbai</span>
+            <h1 class="reveal">
+              Care that listens, <span class="accent">first.</span>
+            </h1>
+            <p class="hero-sub reveal">
+              Dr. Almas Saba brings together skin &amp; hair care, anorectal
+              care, nutrition, and weight management under one roof — with the
+              privacy and warmth every concern deserves.
+            </p>
+            <div class="hero-actions reveal">
+              <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+              <a href="#video-consult" class="btn btn-ghost"
+                >Consult by Video</a
+              >
+            </div>
+            <div class="hero-trust reveal">
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 1.5K+ Instagram Community
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> 5 Areas of Care
+              </div>
+              <div class="hero-trust-item">
+                <span class="ic">✓</span> Private Video Consultations
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="match-card">
+              <div class="match-head">
+                <span class="match-title">What brings you in today?</span>
+                <span class="match-badge">Interactive</span>
+              </div>
+              <p class="match-sub">
+                Select a concern — see how we approach it.
+              </p>
+              <div class="match-options" id="concernChips">
+                <div
+                  class="match-chip active"
+                  data-info="From acne and pigmentation to hair fall and thinning, treatment plans are built around your skin and hair type, not a one-size-fits-all routine."
+                >
+                  Skin &amp; Hair Care
+                </div>
+                <div
+                  class="match-chip"
+                  data-info="Piles, fissures, and fistula concerns are discussed and treated with complete privacy and dignity — many patients start with a discreet video consultation."
+                >
+                  Anorectal Care
+                </div>
+                <div
+                  class="match-chip"
+                  data-info="Sustainable weight management built around your routine and metabolism — not crash diets or one-size plans."
+                >
+                  Weight Management
+                </div>
+                <div
+                  class="match-chip"
+                  data-info="Personalized nutrition and fitness guidance to support your overall health, energy, and long-term wellbeing."
+                >
+                  Nutrition &amp; Fitness
+                </div>
+              </div>
+              <div class="match-visual" id="matchVisual">
+                <div class="match-visual-title">Skin &amp; Hair Care</div>
+                <div class="match-visual-text" id="matchText">
+                  From acne and pigmentation to hair fall and thinning,
+                  treatment plans are built around your skin and hair type, not
+                  a one-size-fits-all routine.
+                </div>
+              </div>
+              <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <h3>1.5K+</h3>
+            <p>
+              Followers trusting compassionate women's health content on
+              Instagram.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>200+</h3>
+            <p>Patient education posts shared publicly.</p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>5</h3>
+            <p>
+              Areas of care under one practice — skin, anorectal, nutrition,
+              weight, fitness.
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <h3>100%</h3>
+            <p>Private, discreet consultations — in person or by video.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="about-portrait">
+              <div class="ring"></div>
+              <span class="initials">AS</span>
+            </div>
+            <div class="about-creds">
+              <div class="cred-row">
+                <span class="ic">✓</span> MBBS · Ladies Doctor, based in Mumbai
+              </div>
+              <div class="cred-row">
+                <span class="ic">✓</span> Multi-specialty care: skin, hair,
+                anorectal, nutrition, weight &amp; fitness
+              </div>
+              <div class="cred-row">
+                <span class="ic">✓</span> Regd. No. [State Medical Council
+                Registration — to be added]
+              </div>
+              <div class="cred-row">
+                <span class="ic">✓</span> 1.5K+ followers educated on women's
+                health via @dr.almasofficial
+              </div>
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <span class="eyebrow">About Dr. Almas Saba</span>
+            <h2>Whole-person care, without the awkwardness.</h2>
+            <p>
+              Dr. Almas Saba built her practice around a simple idea: women
+              deserve a doctor they can talk to about anything — from a stubborn
+              skin concern to something they've been too embarrassed to bring up
+              elsewhere.
+            </p>
+            <p>
+              That's why her practice covers skin &amp; hair, anorectal care,
+              nutrition, and weight management together — so you're not sent
+              from specialist to specialist for concerns that are often
+              connected.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specialties" style="background: var(--white)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Areas of Care</span>
+          <h2>Comprehensive care, under one doctor.</h2>
+          <p>
+            Every concern is treated with the same attention, privacy, and
+            follow-through.
+          </p>
+        </div>
+        <div class="specialty-grid reveal">
+          <div class="specialty-card">
+            <div class="specialty-icon">1</div>
+            <h3>Skin &amp; Hair Care</h3>
+            <p>
+              Acne, pigmentation, hair fall, and scalp concerns treated with
+              personalized plans.
+            </p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-icon">2</div>
+            <h3>Anorectal Care</h3>
+            <p>
+              Piles, fissures, and fistula concerns treated with complete
+              privacy and sensitivity.
+            </p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-icon">3</div>
+            <h3>Nutrition Counseling</h3>
+            <p>
+              Personalized dietary guidance built around your lifestyle, not
+              generic meal plans.
+            </p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-icon">4</div>
+            <h3>Obesity &amp; Weight Management</h3>
+            <p>
+              Sustainable, medically guided weight management — no crash diets.
+            </p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-icon">5</div>
+            <h3>Health &amp; Fitness</h3>
+            <p>
+              Overall wellness guidance to help you feel your best, day to day.
+            </p>
+          </div>
+          <div class="specialty-card">
+            <div class="specialty-icon">6</div>
+            <h3>General Consultation</h3>
+            <p>
+              A trusted first point of contact for any health concern, big or
+              small.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-band">
+      <div class="wrap" style="padding: 82px 28px">
+        <div class="privacy-grid">
+          <div class="reveal">
+            <span class="eyebrow">Your Comfort, First</span>
+            <h2>Some concerns are hard to talk about. We make it easier.</h2>
+            <p>
+              Anorectal and weight-related concerns often go untreated simply
+              because they feel embarrassing to bring up. Dr. Almas Saba's
+              practice is built to remove that barrier entirely.
+            </p>
+          </div>
+          <div class="privacy-points reveal">
+            <div class="privacy-point">
+              <span class="privacy-point-mark">✓</span>
+              <div>
+                <strong>Private consultation rooms</strong>
+                <p>No waiting room conversations about sensitive topics.</p>
+              </div>
+            </div>
+            <div class="privacy-point">
+              <span class="privacy-point-mark">✓</span>
+              <div>
+                <strong>Video consultation option</strong>
+                <p>Discuss sensitive concerns from the privacy of home.</p>
+              </div>
+            </div>
+            <div class="privacy-point">
+              <span class="privacy-point-mark">✓</span>
+              <div>
+                <strong>No judgment, ever</strong>
+                <p>
+                  Every concern is treated as valid and worth addressing
+                  properly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video-consult" style="background: var(--white)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Video Consultation</span>
+          <h2>The same care, from wherever you are.</h2>
+          <p>
+            Ideal for follow-ups, sensitive first conversations, or when
+            visiting in person isn't easy.
+          </p>
+        </div>
+        <div class="process-track reveal">
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <h3>Book a slot</h3>
+            <p>Share what you'd like to discuss and a preferred time.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <h3>Get your link</h3>
+            <p>
+              A private video consultation link is sent to your email and phone.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <h3>Speak with Dr. Almas</h3>
+            <p>
+              Discuss your concern openly, at your own pace, from anywhere
+              private.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">4</div>
+            <h3>Plan &amp; follow-up</h3>
+            <p>Leave with a clear next step, and easy follow-up scheduling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" style="background: var(--gold-tint)">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Patient Stories</span>
+          <h2>Real relief, real comfort.</h2>
+        </div>
+        <div class="testi-strip reveal">
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "I'd put off seeing anyone about my concern for years out of
+              embarrassment. Dr. Almas made it feel completely normal to talk
+              about."
+            </p>
+            <p class="testi-name"><strong>R.K.</strong> — Anorectal Care</p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "My skin has never looked better, and the plan actually fit my
+              routine instead of overwhelming it."
+            </p>
+            <p class="testi-name">
+              <strong>Fatima S.</strong> — Skin &amp; Hair Care
+            </p>
+          </div>
+          <div class="testi">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Lost 9kg over 5 months with a plan that never felt like
+              punishment. Genuinely sustainable."
+            </p>
+            <p class="testi-name">
+              <strong>Priya M.</strong> — Weight Management
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-band">
+      <div class="wrap" style="padding: 82px 28px">
+        <div class="social-grid">
+          <div class="reveal">
+            <span class="eyebrow" style="color: var(--gold)">Follow Along</span>
+            <h2>Health education, without the awkwardness.</h2>
+            <p>
+              Dr. Almas shares approachable, judgment-free women's health
+              content — follow along on Instagram and YouTube.
+            </p>
+          </div>
+          <div class="social-cards reveal">
+            <a
+              href="https://www.instagram.com/dr.almasofficial/"
+              target="_blank"
+              rel="noopener"
+              class="social-card"
+            >
+              <div class="social-icon ig">📷</div>
+              <div>
+                <div class="social-card-name">@dr.almasofficial</div>
+                <div class="social-card-sub">1,497 followers · 200 posts</div>
+              </div>
+            </a>
+            <a
+              href="https://youtu.be/XP5AjDiviBg"
+              target="_blank"
+              rel="noopener"
+              class="social-card"
+            >
+              <div class="social-icon yt">▶</div>
+              <div>
+                <div class="social-card-name">Dr. Almas Saba</div>
+                <div class="social-card-sub">
+                  Patient education &amp; health explainers
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div>
+            <div class="section-head reveal" style="margin-bottom: 0">
+              <span class="eyebrow">Book an Appointment</span>
+              <h2>Let's talk about what's on your mind.</h2>
+              <p>
+                Tell us your concern and preferred mode — we'll confirm your
+                slot shortly.
+              </p>
+            </div>
+            <div class="contact-points reveal">
+              <div class="contact-point">
+                <span class="contact-point-mark">1</span>
+                <p>
+                  <strong>Share your concern</strong>Whatever it is — nothing is
+                  too small or too sensitive.
+                </p>
+              </div>
+              <div class="contact-point">
+                <span class="contact-point-mark">2</span>
+                <p>
+                  <strong>Choose in-clinic or video</strong>Whichever feels more
+                  comfortable for you.
+                </p>
+              </div>
+              <div class="contact-point">
+                <span class="contact-point-mark">3</span>
+                <p>
+                  <strong>We confirm your slot</strong>Usually within a few
+                  hours during clinic timings.
+                </p>
+              </div>
+              <div class="contact-point">
+                <span class="contact-point-mark">✓</span>
+                <p>
+                  <strong>Clinic hours</strong>Mon–Sat, 10:00 AM – 7:00 PM ·
+                  [Clinic address, Mumbai]
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div id="appointmentFormState">
+              <form id="appointmentForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label for="fullName">Full name</label>
+                    <input type="text" id="fullName" placeholder="Your name" />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" placeholder="98765 43210" />
+                    <div class="field-error">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-concern">
+                  <label>What would you like to discuss?</label>
+                  <div class="item-options">
+                    <div class="item-chip" data-value="Skin & Hair Care">
+                      Skin &amp; Hair Care
+                    </div>
+                    <div class="item-chip" data-value="Anorectal Care">
+                      Anorectal Care
+                    </div>
+                    <div class="item-chip" data-value="Weight Management">
+                      Weight Management
+                    </div>
+                    <div class="item-chip" data-value="Nutrition & Fitness">
+                      Nutrition &amp; Fitness
+                    </div>
+                  </div>
+                  <div class="field-error">Please select a concern.</div>
+                </div>
+                <div class="form-group" id="group-mode">
+                  <label>Preferred mode</label>
+                  <div class="item-options">
+                    <div class="item-chip" data-value="In-Clinic Visit">
+                      In-Clinic Visit
+                    </div>
+                    <div class="item-chip" data-value="Video Consultation">
+                      Video Consultation
+                    </div>
+                  </div>
+                  <div class="field-error">Please select a mode.</div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group" id="group-date">
+                    <label for="apptDate">Preferred date</label>
+                    <input type="date" id="apptDate" />
+                    <div class="field-error">
+                      Please choose a date (today or later).
+                    </div>
+                  </div>
+                  <div class="form-group" id="group-time">
+                    <label for="apptTime">Preferred time</label>
+                    <select id="apptTime">
+                      <option value="">Select a time</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="3:00 PM">3:00 PM</option>
+                      <option value="5:30 PM">5:30 PM</option>
+                      <option value="7:00 PM">7:00 PM</option>
+                    </select>
+                    <div class="field-error">Please pick a time slot.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="notes"
+                    >Anything you'd like to share beforehand?
+                    <span style="text-transform: none; opacity: 0.6"
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="notes"
+                    placeholder="Feel free to share as much or as little as you'd like."
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                  Book Appointment
+                </button>
+                <p class="form-note">
+                  We typically confirm within a few hours during clinic timings.
+                </p>
+              </form>
+            </div>
+            <div id="appointmentSuccess" class="success-state">
+              <div class="success-check">✓</div>
+              <h3>Appointment requested!</h3>
+              <p>
+                Thank you for reaching out — our team will confirm your slot
+                shortly via call or WhatsApp.
+              </p>
+              <div class="success-summary" id="appointmentSummaryBox"></div>
+              <div style="margin-top: 22px">
+                <a href="#" class="btn btn-ghost" id="appointmentAnotherBtn"
+                  >Book another appointment</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo-text">
+              Dr. Almas Saba<span>Women's Health</span>
+            </div>
+            <p>
+              Compassionate, private care across skin &amp; hair, anorectal
+              health, nutrition, and weight management — Mumbai.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#about">About</a>
+            <a href="#specialties">Specialties</a>
+            <a href="#video-consult">Video Consult</a>
+            <a href="#reviews">Reviews</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="#contact">Book Appointment</a>
+            <a
+              href="https://www.instagram.com/dr.almasofficial/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://youtu.be/XP5AjDiviBg"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </div>
+          <div class="footer-col">
+            <h4>Clinic Info</h4>
+            <a href="tel:+910000000000">Call: +91 00000 00000</a>
+            <span
+              style="
+                display: block;
+                font-size: 13.5px;
+                margin-bottom: 10px;
+                color: rgba(255, 255, 255, 0.75);
+              "
+              >Mon–Sat · 10:00 AM – 7:00 PM</span
+            >
+            <span
+              style="
+                display: block;
+                font-size: 13.5px;
+                color: rgba(255, 255, 255, 0.75);
+              "
+              >[Clinic address, Mumbai]</span
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Dr. Almas Saba. Demo website — for illustration purposes
+            only. Not a real medical service.</span
+          >
+          <span>Designed by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-action-bar">
+      <a href="tel:+910000000000" class="maq-call">📞 Call</a>
+      <a
+        href="https://wa.me/910000000000"
+        target="_blank"
+        rel="noopener"
+        class="maq-wa"
+        >💬 WhatsApp</a
+      >
+      <a href="#contact" class="maq-book">Book Now</a>
+    </div>
+
+    <script>
+      // ===== Floating nav scroll state =====
+      const siteHeader = document.querySelector("header");
+      const onScroll = () =>
+        siteHeader.classList.toggle("scrolled", window.scrollY > 20);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      // ===== Reveal on scroll =====
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }, 2000);
+
+      // ===== Mobile menu =====
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuToggle.addEventListener("click", () =>
+        mobileMenu.classList.add("open"),
+      );
+      menuClose.addEventListener("click", () =>
+        mobileMenu.classList.remove("open"),
+      );
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          ),
+        );
+
+      // ===== Concern Matcher (signature interaction) =====
+      const concernChips = document.querySelectorAll(
+        "#concernChips .match-chip",
+      );
+      const matchVisualTitle = document.querySelector(
+        "#matchVisual .match-visual-title",
+      );
+      const matchText = document.getElementById("matchText");
+      concernChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          concernChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          matchVisualTitle.textContent = chip.textContent.trim();
+          matchText.textContent = chip.dataset.info;
+        });
+      });
+
+      // ===== Appointment form =====
+      const appointmentForm = document.getElementById("appointmentForm");
+      const dateInput = document.getElementById("apptDate");
+      const concernOptionChips = document.querySelectorAll(
+        "#group-concern .item-chip",
+      );
+      const modeChips = document.querySelectorAll("#group-mode .item-chip");
+      let selectedConcern = "";
+      let selectedMode = "";
+
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      concernOptionChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          concernOptionChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedConcern = chip.dataset.value;
+          document.getElementById("group-concern").classList.remove("invalid");
+        });
+      });
+
+      modeChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          modeChips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedMode = chip.dataset.value;
+          document.getElementById("group-mode").classList.remove("invalid");
+        });
+      });
+
+      function isValidPhone(value) {
+        const digits = value.replace(/[^0-9]/g, "");
+        return digits.length >= 7;
+      }
+      function setInvalid(groupId, isInvalid) {
+        const g = document.getElementById(groupId);
+        if (g) g.classList.toggle("invalid", isInvalid);
+      }
+
+      appointmentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fullName = document.getElementById("fullName").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const apptDate = dateInput.value;
+        const apptTime = document.getElementById("apptTime").value;
+        const notes = document.getElementById("notes").value.trim();
+
+        let valid = true;
+        setInvalid("group-name", !fullName);
+        if (!fullName) valid = false;
+        setInvalid("group-phone", !isValidPhone(phone));
+        if (!isValidPhone(phone)) valid = false;
+        setInvalid("group-concern", !selectedConcern);
+        if (!selectedConcern) valid = false;
+        setInvalid("group-mode", !selectedMode);
+        if (!selectedMode) valid = false;
+        setInvalid("group-date", !apptDate);
+        if (!apptDate) valid = false;
+        setInvalid("group-time", !apptTime);
+        if (!apptTime) valid = false;
+
+        if (!valid) {
+          const firstInvalid = document.querySelector(
+            "#appointmentForm .form-group.invalid",
+          );
+          if (firstInvalid)
+            firstInvalid.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          return;
+        }
+
+        const dateObj = new Date(apptDate + "T00:00:00");
+        const friendlyDate = dateObj.toLocaleDateString(undefined, {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        const summaryBox = document.getElementById("appointmentSummaryBox");
+        summaryBox.innerHTML = `
+          <div><strong>Name:</strong> ${fullName}</div>
+          <div><strong>Concern:</strong> ${selectedConcern}</div>
+          <div><strong>Mode:</strong> ${selectedMode}</div>
+          <div><strong>Date:</strong> ${friendlyDate}</div>
+          <div><strong>Time:</strong> ${apptTime}</div>
+          <div><strong>Phone:</strong> ${phone}</div>
+          ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+        `;
+        document.getElementById("appointmentFormState").style.display = "none";
+        document.getElementById("appointmentSuccess").classList.add("show");
+      });
+
+      document
+        .getElementById("appointmentAnotherBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          appointmentForm.reset();
+          concernOptionChips.forEach((c) => c.classList.remove("active"));
+          modeChips.forEach((c) => c.classList.remove("active"));
+          selectedConcern = "";
+          selectedMode = "";
+          document
+            .querySelectorAll("#appointmentForm .form-group.invalid")
+            .forEach((g) => g.classList.remove("invalid"));
+          document
+            .getElementById("appointmentSuccess")
+            .classList.remove("show");
+          document.getElementById("appointmentFormState").style.display =
+            "block";
+        });
+    </script>
+  </body>
+</html>
