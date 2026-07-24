@@ -1,0 +1,2512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vitalize Fitness — Premium Gym, Bareilly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --black: #0d0d0d;
+        --black-mid: #1a1a1a;
+        --black-soft: #242424;
+        --yellow: #f5c518;
+        --yellow-deep: #d4aa10;
+        --yellow-pale: #fff8dc;
+        --white: #ffffff;
+        --grey: #f5f5f5;
+        --text-soft: rgba(255, 255, 255, 0.6);
+        --text-mid: rgba(255, 255, 255, 0.85);
+        --ink-soft: rgba(13, 13, 13, 0.55);
+        --hairline: rgba(13, 13, 13, 0.1);
+        --hairline-dark: rgba(255, 255, 255, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--black);
+        font-family: "Manrope", sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .display {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow.light {
+        color: var(--yellow);
+      }
+      .eyebrow.dark {
+        color: var(--yellow-deep);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: currentColor;
+        display: inline-block;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--yellow);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* TOP STRIP */
+      .top-strip {
+        background: var(--yellow);
+        padding: 9px 0;
+      }
+      .top-strip-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 28px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--black);
+        gap: 10px;
+      }
+      @media (max-width: 700px) {
+        .top-strip-row span:last-child {
+          display: none;
+        }
+      }
+      @media (max-width: 600px) {
+        .top-strip-row {
+          font-size: 10.5px;
+          padding: 0 18px;
+        }
+      }
+
+      /* NAV */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--black);
+        border-bottom: 1px solid var(--hairline-dark);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        background: var(--yellow);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-mark svg {
+        width: 24px;
+        height: 24px;
+      }
+      .logo-text {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        color: var(--white);
+        line-height: 1;
+      }
+      .logo-text span {
+        display: block;
+        font-family: "Manrope", sans-serif;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--yellow);
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        font-size: 13.5px;
+        font-weight: 600;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--yellow);
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 800;
+        background: var(--yellow);
+        color: var(--black);
+        padding: 11px 24px;
+        border-radius: 4px;
+        transition: all 0.25s;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .nav-cta:hover {
+        background: var(--white);
+        transform: translateY(-1px);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        background: var(--black);
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--hairline-dark);
+      }
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--white);
+      }
+      .mobile-menu a {
+        padding: 18px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+        border-bottom: 1px solid var(--hairline-dark);
+      }
+      .mobile-menu .nav-cta {
+        margin: 18px 24px;
+        text-align: center;
+        display: block;
+      }
+      @media (max-width: 900px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+      }
+      @media (max-width: 480px) {
+        nav {
+          padding: 13px 18px;
+        }
+        .logo-text {
+          font-size: 18px;
+        }
+        .logo-mark {
+          width: 36px;
+          height: 36px;
+        }
+        .logo-mark svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .btn {
+        font-size: 13px;
+        font-weight: 800;
+        padding: 14px 28px;
+        border-radius: 4px;
+        display: inline-block;
+        transition: all 0.25s;
+        cursor: pointer;
+        border: 2px solid transparent;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .btn-yellow {
+        background: var(--yellow);
+        color: var(--black);
+      }
+      .btn-yellow:hover {
+        background: var(--white);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        border-color: var(--white);
+        color: var(--white);
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: var(--white);
+        color: var(--black);
+      }
+      .btn-outline-dark {
+        border-color: var(--black);
+        color: var(--black);
+        background: transparent;
+      }
+      .btn-outline-dark:hover {
+        background: var(--black);
+        color: var(--white);
+      }
+      @media (max-width: 480px) {
+        .btn {
+          padding: 13px 20px;
+          font-size: 12px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* HERO */
+      .hero {
+        background: var(--black);
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0 60px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(245, 197, 24, 0.08) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .hero-accent {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--yellow);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .hero-eyebrow {
+        margin-bottom: 20px;
+      }
+      .hero-h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(68px, 9vw, 110px);
+        letter-spacing: 0.02em;
+        line-height: 0.95;
+        color: var(--white);
+      }
+      .hero-h1 span {
+        color: var(--yellow);
+        display: block;
+      }
+      .hero-tagline {
+        font-size: 15px;
+        color: var(--text-soft);
+        margin-top: 18px;
+        line-height: 1.65;
+        max-width: 420px;
+      }
+      .hero-tagline .hindi {
+        font-size: 17px;
+        color: var(--yellow);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 40px;
+        padding-top: 32px;
+        border-top: 1px solid var(--hairline-dark);
+        flex-wrap: wrap;
+      }
+      .hero-stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 40px;
+        color: var(--yellow);
+        letter-spacing: 0.04em;
+      }
+      .hero-stat-label {
+        font-size: 11.5px;
+        color: var(--text-soft);
+        margin-top: 2px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      /* HERO VISUAL: Gym card */
+      .gym-card {
+        background: var(--black-mid);
+        border: 1px solid rgba(245, 197, 24, 0.25);
+        border-radius: 16px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+      .gym-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--yellow);
+      }
+      .gym-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        gap: 10px;
+      }
+      .gym-card-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.06em;
+        color: var(--white);
+      }
+      .gym-card-name span {
+        display: block;
+        font-family: "Manrope", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--yellow);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+      .gym-card-rating {
+        background: var(--yellow);
+        color: var(--black);
+        font-weight: 800;
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-shrink: 0;
+      }
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13.5px;
+        color: var(--text-mid);
+        font-weight: 500;
+      }
+      .feature-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--yellow);
+        flex-shrink: 0;
+      }
+      .gym-card-cta {
+        width: 100%;
+        background: var(--yellow);
+        color: var(--black);
+        border: none;
+        padding: 14px;
+        font-family: "Manrope", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .gym-card-cta:hover {
+        background: var(--white);
+      }
+      .gym-card-location {
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 12px;
+        text-align: center;
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .hero {
+          padding-bottom: 48px;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero {
+          min-height: auto;
+          padding: 36px 0 40px;
+        }
+        .hero-h1 {
+          font-size: clamp(44px, 13vw, 72px);
+        }
+        .hero-tagline {
+          font-size: 14px;
+        }
+        .hero-tagline .hindi {
+          font-size: 15px;
+        }
+        .hero-actions {
+          flex-direction: column;
+        }
+        .hero-actions .btn {
+          width: 100%;
+          text-align: center;
+        }
+        .hero-stats {
+          gap: 20px 28px;
+          margin-top: 28px;
+          padding-top: 24px;
+        }
+        .hero-stat-num {
+          font-size: 30px;
+        }
+        .gym-card {
+          padding: 22px;
+        }
+        .gym-card-name {
+          font-size: 24px;
+        }
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 92px 0;
+      }
+      @media (max-width: 860px) {
+        section {
+          padding: 56px 0;
+        }
+      }
+      @media (max-width: 600px) {
+        section {
+          padding: 44px 0;
+        }
+        .wrap {
+          padding: 0 18px;
+        }
+      }
+      .section-head {
+        max-width: 600px;
+        margin: 0 auto 52px;
+        text-align: center;
+      }
+      .section-head h2 {
+        font-size: clamp(28px, 4vw, 42px);
+        margin-top: 12px;
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        font-size: 15.5px;
+        margin-top: 14px;
+        line-height: 1.65;
+      }
+      .section-head.left {
+        text-align: left;
+        margin: 0 0 44px;
+      }
+      @media (max-width: 600px) {
+        .section-head {
+          margin-bottom: 36px;
+        }
+        .section-head.left {
+          margin-bottom: 28px;
+        }
+      }
+
+      /* ABOUT */
+      .about-bg {
+        background: var(--grey);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .about-visual {
+        background: var(--black);
+        border-radius: 12px;
+        aspect-ratio: 4/5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-visual::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--yellow);
+      }
+      .about-initials {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 120px;
+        color: rgba(245, 197, 24, 0.12);
+        letter-spacing: 0.02em;
+      }
+      .about-badge {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+        background: var(--yellow);
+        border-radius: 8px;
+        padding: 16px 18px;
+      }
+      .about-badge-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 22px;
+        color: var(--black);
+        letter-spacing: 0.04em;
+      }
+      .about-badge-sub {
+        font-size: 11.5px;
+        color: rgba(0, 0, 0, 0.65);
+        font-weight: 700;
+        margin-top: 4px;
+        letter-spacing: 0.04em;
+      }
+      .about-text .section-head {
+        text-align: left;
+        margin: 0 0 28px;
+      }
+      .about-text p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--ink-soft);
+      }
+      .about-text p + p {
+        margin-top: 14px;
+      }
+      .about-points {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .about-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .about-point-icon {
+        width: 34px;
+        height: 34px;
+        background: var(--yellow);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 16px;
+      }
+      .about-point-text strong {
+        display: block;
+        font-size: 14.5px;
+        color: var(--black);
+        margin-bottom: 3px;
+      }
+      .about-point-text span {
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .about-visual {
+          aspect-ratio: 16/10;
+        }
+        .about-initials {
+          font-size: 72px;
+        }
+      }
+
+      /* SERVICES */
+      .services-dark {
+        background: var(--black);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .svc-card {
+        background: var(--black-mid);
+        padding: 36px 28px;
+        transition: background 0.3s;
+      }
+      .svc-card:hover {
+        background: var(--black-soft);
+      }
+      .svc-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        color: rgba(245, 197, 24, 0.2);
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+      .svc-card h3 {
+        font-size: 18px;
+        color: var(--white);
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .svc-card p {
+        font-size: 13.5px;
+        color: var(--text-soft);
+        line-height: 1.6;
+      }
+      .svc-tag {
+        display: inline-block;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--black);
+        background: var(--yellow);
+        padding: 4px 10px;
+        border-radius: 3px;
+        margin-bottom: 14px;
+      }
+      @media (max-width: 860px) {
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .svc-card {
+          padding: 26px 22px;
+        }
+      }
+
+      /* TRAINERS */
+      .trainers-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .trainer-card {
+        background: var(--black);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+      .trainer-card:hover {
+        transform: translateY(-4px);
+      }
+      .trainer-visual {
+        aspect-ratio: 3/4;
+        background: var(--black-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .trainer-initials {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 80px;
+        color: rgba(245, 197, 24, 0.18);
+        letter-spacing: 0.02em;
+      }
+      .trainer-tag {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: var(--yellow);
+        color: var(--black);
+        font-size: 10.5px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .trainer-body {
+        padding: 22px;
+      }
+      .trainer-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 26px;
+        color: var(--white);
+        letter-spacing: 0.04em;
+      }
+      .trainer-role {
+        font-size: 12px;
+        color: var(--yellow);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 4px;
+      }
+      .trainer-desc {
+        font-size: 13px;
+        color: var(--text-soft);
+        margin-top: 10px;
+        line-height: 1.55;
+      }
+      @media (max-width: 860px) {
+        .trainers-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .trainers-grid {
+          grid-template-columns: 1fr;
+        }
+        .trainer-visual {
+          aspect-ratio: 16/10;
+        }
+        .trainer-initials {
+          font-size: 56px;
+        }
+      }
+
+      /* GALLERY */
+      .gallery-bg {
+        background: var(--grey);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 200px 200px;
+        gap: 12px;
+      }
+      .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 14px;
+      }
+      .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 50%);
+      }
+      .gallery-item span {
+        position: relative;
+        z-index: 1;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .gallery-item.tall {
+        grid-row: span 2;
+      }
+      .g1 {
+        background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      }
+      .g2 {
+        background: linear-gradient(145deg, #242424, #111);
+      }
+      .g3 {
+        background: linear-gradient(145deg, #1e1e1e, #0a0a0a);
+      }
+      .g4 {
+        background: linear-gradient(145deg, #1a1600, #2a2000);
+      }
+      .g5 {
+        background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+      }
+      .g6 {
+        background: linear-gradient(145deg, #1e1e1e, #242424);
+      }
+      @media (max-width: 860px) {
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .gallery-item.tall {
+          grid-row: span 1;
+        }
+        .gallery-item {
+          min-height: 160px;
+        }
+      }
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-item {
+          min-height: 130px;
+        }
+      }
+
+      /* TESTIMONIALS */
+      .testi-dark {
+        background: var(--black);
+      }
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .testi {
+        background: var(--black-mid);
+        border: 1px solid var(--hairline-dark);
+        padding: 28px;
+        border-radius: 10px;
+        position: relative;
+      }
+      .testi::before {
+        content: "\201C";
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 64px;
+        color: rgba(245, 197, 24, 0.15);
+        line-height: 1;
+      }
+      .testi-stars {
+        color: var(--yellow);
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+      }
+      .testi-quote {
+        font-size: 14.5px;
+        color: var(--text-mid);
+        line-height: 1.6;
+      }
+      .testi-name {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--hairline-dark);
+      }
+      .testi-name strong {
+        display: block;
+        color: var(--white);
+        font-size: 14px;
+      }
+      .testi-name span {
+        font-size: 11.5px;
+        color: var(--text-soft);
+      }
+      @media (max-width: 860px) {
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .testi {
+          padding: 22px;
+        }
+      }
+
+      /* MEMBERSHIP */
+      .membership-bg {
+        background: var(--grey);
+      }
+      .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .plan-card {
+        background: var(--white);
+        border: 2px solid var(--hairline);
+        border-radius: 12px;
+        padding: 32px;
+        position: relative;
+        transition: all 0.3s;
+      }
+      .plan-card:hover {
+        border-color: var(--yellow);
+        box-shadow: 0 20px 44px -24px rgba(0, 0, 0, 0.2);
+      }
+      .plan-card.featured {
+        background: var(--black);
+        border-color: var(--yellow);
+      }
+      .plan-card.featured::before {
+        content: "Most Popular";
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--yellow);
+        color: var(--black);
+        font-size: 10.5px;
+        font-weight: 800;
+        padding: 5px 16px;
+        border-radius: 20px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .plan-name {
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--yellow);
+      }
+      .plan-price {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 52px;
+        letter-spacing: 0.02em;
+        margin-top: 10px;
+        line-height: 1;
+      }
+      .plan-card:not(.featured) .plan-price {
+        color: var(--black);
+      }
+      .plan-card.featured .plan-price {
+        color: var(--white);
+      }
+      .plan-period {
+        font-size: 13px;
+        color: var(--ink-soft);
+        font-weight: 600;
+        margin-top: 4px;
+      }
+      .plan-card.featured .plan-period {
+        color: var(--text-soft);
+      }
+      .plan-feats {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .plan-feat {
+        font-size: 13.5px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .plan-card:not(.featured) .plan-feat {
+        color: var(--ink-soft);
+      }
+      .plan-card.featured .plan-feat {
+        color: var(--text-mid);
+      }
+      .plan-feat::before {
+        content: "✓";
+        font-weight: 800;
+        color: var(--yellow);
+        flex-shrink: 0;
+      }
+      .plan-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 26px;
+        border: none;
+      }
+      .plan-card:not(.featured) .btn {
+        background: var(--black);
+        color: var(--white);
+      }
+      .plan-card:not(.featured) .btn:hover {
+        background: var(--yellow);
+        color: var(--black);
+      }
+      .plan-card.featured .btn {
+        background: var(--yellow);
+        color: var(--black);
+      }
+      .plan-card.featured .btn:hover {
+        background: var(--white);
+      }
+      @media (max-width: 860px) {
+        .plans-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .plan-card {
+          padding: 24px 20px;
+        }
+        .plan-price {
+          font-size: 42px;
+        }
+      }
+
+      /* ENQUIRY FORM */
+      .enquiry-section {
+        background: var(--black);
+      }
+      .enquiry-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .enquiry-info h2 {
+        font-size: clamp(28px, 4vw, 44px);
+        color: var(--white);
+        margin-top: 14px;
+      }
+      .enquiry-info p {
+        font-size: 15px;
+        color: var(--text-soft);
+        margin-top: 14px;
+        line-height: 1.7;
+      }
+      .enquiry-points {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .enquiry-point {
+        display: flex;
+        gap: 14px;
+      }
+      .enquiry-point-mark {
+        width: 32px;
+        height: 32px;
+        background: var(--yellow);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--black);
+        flex-shrink: 0;
+      }
+      .enquiry-point-text strong {
+        display: block;
+        color: var(--white);
+        font-size: 14.5px;
+        margin-bottom: 3px;
+      }
+      .enquiry-point-text span {
+        font-size: 13px;
+        color: var(--text-soft);
+      }
+      .enquiry-card {
+        background: var(--black-mid);
+        border: 1px solid rgba(245, 197, 24, 0.2);
+        border-radius: 12px;
+        padding: 34px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background: var(--black-soft);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        padding: 13px 14px;
+        color: var(--white);
+        font-family: "Manrope", sans-serif;
+        font-size: 16px;
+        transition: border-color 0.25s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.28);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--yellow);
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        cursor: pointer;
+      }
+      .form-group select option {
+        background: var(--black-mid);
+        color: var(--white);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 76px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .field-error {
+        font-size: 11.5px;
+        color: #ff6b6b;
+        margin-top: 5px;
+        display: none;
+      }
+      .form-group.invalid input,
+      .form-group.invalid select {
+        border-color: #ff6b6b;
+      }
+      .form-group.invalid .field-error {
+        display: block;
+      }
+      .goal-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .goal-chip {
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        padding: 11px 8px;
+        text-align: center;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: rgba(255, 255, 255, 0.65);
+        background: var(--black-soft);
+        user-select: none;
+      }
+      .goal-chip:hover {
+        border-color: var(--yellow);
+      }
+      .goal-chip.active {
+        background: var(--yellow);
+        border-color: var(--yellow);
+        color: var(--black);
+        font-weight: 700;
+      }
+      .enquiry-submit {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 16px;
+        border-radius: 6px;
+        background: var(--yellow);
+        color: var(--black);
+        transition: all 0.25s;
+        font-family: "Manrope", sans-serif;
+      }
+      .enquiry-submit:hover {
+        background: var(--white);
+      }
+      .enquiry-note {
+        font-size: 11.5px;
+        color: var(--text-soft);
+        margin-top: 12px;
+        text-align: center;
+      }
+      .enquiry-success {
+        display: none;
+        text-align: center;
+        padding: 30px 10px;
+      }
+      .enquiry-success.show {
+        display: block;
+      }
+      .success-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--yellow);
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .enquiry-success h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 32px;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .enquiry-success p {
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .enquiry-summary {
+        margin-top: 20px;
+        background: var(--black-soft);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 16px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--text-soft);
+        display: inline-block;
+      }
+      .enquiry-summary div {
+        margin-bottom: 5px;
+      }
+      .enquiry-summary strong {
+        color: var(--white);
+      }
+      @media (max-width: 900px) {
+        .enquiry-layout {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .enquiry-card {
+          padding: 24px 18px;
+        }
+      }
+      @media (max-width: 480px) {
+        .enquiry-card {
+          padding: 20px 14px;
+        }
+        .goal-options {
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+        }
+        .goal-chip {
+          font-size: 11.5px;
+          padding: 10px 6px;
+        }
+      }
+
+      /* CONTACT PILLARS */
+      .contact-pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 52px;
+      }
+      .contact-pillar {
+        background: var(--black-mid);
+        padding: 26px 24px;
+      }
+      .contact-pillar h3 {
+        font-size: 16px;
+        color: var(--white);
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      .contact-pillar p {
+        color: var(--text-soft);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .contact-pillar a {
+        color: var(--yellow);
+      }
+      @media (max-width: 760px) {
+        .contact-pillars {
+          grid-template-columns: 1fr;
+          margin-top: 36px;
+        }
+      }
+      @media (max-width: 600px) {
+        .contact-pillar {
+          padding: 20px 18px;
+        }
+      }
+
+      /* FLOATING WHATSAPP */
+      .float-wa {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 55;
+        background: #25d366;
+        color: #fff;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s;
+      }
+      .float-wa:hover {
+        transform: scale(1.08);
+      }
+      .float-wa svg {
+        width: 28px;
+        height: 28px;
+      }
+      @media (max-width: 600px) {
+        .float-wa {
+          bottom: 16px;
+          right: 16px;
+          width: 50px;
+          height: 50px;
+        }
+        .float-wa svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--black-mid);
+        border-top: 3px solid var(--yellow);
+        padding-top: 48px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 36px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-brand p {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 280px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 12px;
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13.5px;
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.75);
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--yellow);
+      }
+      .footer-bottom {
+        padding: 18px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.35);
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      @media (max-width: 760px) {
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .footer-bottom {
+          justify-content: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Counter animation */
+      .count-up {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="top-strip-row">
+        <span
+          >📍 100 Futa Road, Veer Savarkar Nagar, Bareilly — Behind Asarfi
+          Banquet Hall</span
+        >
+        <span>📞 073007 82022 · Open 7 Days</span>
+      </div>
+    </div>
+
+    <header>
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#0d0d0d"
+              stroke-width="2.5"
+            >
+              <path d="M6 4v16M18 4v16M3 9h18M3 15h18" />
+            </svg>
+          </div>
+          <div class="logo-text">VITALIZE<span>Fitness · Bareilly</span></div>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#trainers">Trainers</a>
+          <a href="#membership">Membership</a>
+          <a href="#enquiry">Join Now</a>
+        </div>
+        <a href="#enquiry" class="nav-cta">Join Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-head">
+        <div
+          class="logo-text"
+          style="
+            color: #fff;
+            font-family: &quot;Bebas Neue&quot;, sans-serif;
+            font-size: 22px;
+            letter-spacing: 0.08em;
+          "
+        >
+          VITALIZE<span
+            style="
+              display: block;
+              font-family: &quot;Manrope&quot;, sans-serif;
+              font-size: 9px;
+              font-weight: 700;
+              color: var(--yellow);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+            "
+            >Fitness · Bareilly</span
+          >
+        </div>
+        <button class="mobile-menu-close" id="menuClose">×</button>
+      </div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#membership">Membership</a>
+      <a href="#enquiry">Join Now</a>
+      <a href="#enquiry" class="nav-cta">Join Now — Free Trial</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-accent"></div>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">
+              <span class="eyebrow light">Bareilly's Premium Gym</span>
+            </div>
+            <h1 class="hero-h1 reveal">
+              TRAIN<span>HARDER.</span>LIVE<span style="color: var(--white)"
+                >BETTER.</span
+              >
+            </h1>
+            <p class="hero-tagline reveal">
+              <span class="hindi"
+                >Get fit, get strong — with Bareilly's best.</span
+              >
+              Imported machines, experienced trainers, and an AC environment
+              built for serious fitness. Whether you're starting out or
+              levelling up — Vitalize is your gym.
+            </p>
+            <div class="hero-actions reveal">
+              <a href="#enquiry" class="btn btn-yellow">Start Free Trial</a>
+              <a href="#membership" class="btn btn-outline"
+                >View Membership Plans</a
+              >
+            </div>
+            <div class="hero-stats reveal">
+              <div>
+                <div class="hero-stat-num">
+                  <span class="count-up" data-target="46">0</span>+
+                </div>
+                <div class="hero-stat-label">5★ Reviews</div>
+              </div>
+              <div>
+                <div class="hero-stat-num">
+                  <span class="count-up" data-target="200">0</span>+
+                </div>
+                <div class="hero-stat-label">Active Members</div>
+              </div>
+              <div>
+                <div class="hero-stat-num">
+                  <span class="count-up" data-target="100">0</span>%
+                </div>
+                <div class="hero-stat-label">AC Gym</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="gym-card">
+              <div class="gym-card-top">
+                <div class="gym-card-name">
+                  VITALIZE<span>Fitness Club · Bareilly</span>
+                </div>
+                <div class="gym-card-rating">⭐ 5.0</div>
+              </div>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <span class="feature-dot"></span>Imported International
+                  Machines
+                </div>
+                <div class="feature-item">
+                  <span class="feature-dot"></span>100% Air Conditioned
+                </div>
+                <div class="feature-item">
+                  <span class="feature-dot"></span>Spacious & Hygienic
+                  Environment
+                </div>
+                <div class="feature-item">
+                  <span class="feature-dot"></span>Expert, Experienced Trainers
+                </div>
+                <div class="feature-item">
+                  <span class="feature-dot"></span>Open for Men & Women
+                </div>
+                <div class="feature-item">
+                  <span class="feature-dot"></span>Personalised Fitness Plans
+                </div>
+              </div>
+              <button
+                class="gym-card-cta"
+                onclick="
+                  document
+                    .getElementById('enquiry')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
+              >
+                Get Free Trial — Join Today
+              </button>
+              <div class="gym-card-location">
+                📍 Veer Savarkar Nagar, Bareilly · 073007 82022
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-bg">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="about-visual">
+              <span class="about-initials">VF</span>
+              <div class="about-badge">
+                <div class="about-badge-title">Vitalize Fitness</div>
+                <div class="about-badge-sub">
+                  5.0 ⭐ · 46 Reviews · Bareilly's Best
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <div class="section-head left">
+              <span class="eyebrow dark">About Us</span>
+              <h2>Bareilly's Best Gym.</h2>
+            </div>
+            <p>
+              Vitalize Fitness is Bareilly's premium fitness destination — built
+              for people who are serious about their health. From imported
+              international machines to a fully air-conditioned environment,
+              every detail is designed to give you the best workout experience
+              in the city.
+            </p>
+            <p>
+              Whether you're a complete beginner starting your fitness journey
+              or a seasoned athlete pushing your limits, Vitalize has the
+              equipment, trainers, and atmosphere to help you reach your goals.
+            </p>
+            <div class="about-points">
+              <div class="about-point">
+                <div class="about-point-icon">💪</div>
+                <div class="about-point-text">
+                  <strong>Imported Machines</strong
+                  ><span
+                    >International standard equipment for the best workout
+                    possible</span
+                  >
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="about-point-icon">❄️</div>
+                <div class="about-point-text">
+                  <strong>Fully Air Conditioned</strong
+                  ><span
+                    >Stay comfortable and focused through every session</span
+                  >
+                </div>
+              </div>
+              <div class="about-point">
+                <div class="about-point-icon">✨</div>
+                <div class="about-point-text">
+                  <strong>Clean & Safe Environment</strong
+                  ><span>Spacious, hygienic, and welcoming for everyone</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services-dark">
+      <div class="wrap">
+        <div
+          class="section-head reveal"
+          style="text-align: center; margin-bottom: 40px"
+        >
+          <span class="eyebrow light">What We Offer</span>
+          <h2
+            style="
+              color: var(--white);
+              font-size: clamp(28px, 4vw, 42px);
+              margin-top: 12px;
+            "
+          >
+            Everything, All in One Place.
+          </h2>
+          <p
+            style="color: var(--text-soft); font-size: 15.5px; margin-top: 14px"
+          >
+            Everything you need to build strength, endurance, and a body you're
+            proud of.
+          </p>
+        </div>
+        <div class="services-grid reveal">
+          <div class="svc-card">
+            <span class="svc-tag">Strength</span>
+            <div class="svc-num">01</div>
+            <h3>Weight Training</h3>
+            <p>
+              Full range of free weights, barbells, and imported machines for
+              every muscle group — beginner to advanced.
+            </p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-tag">Cardio</span>
+            <div class="svc-num">02</div>
+            <h3>Cardio Zone</h3>
+            <p>
+              Treadmills, ellipticals, cycles, and rowing machines — all
+              international standard, all AC-cooled.
+            </p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-tag">Guidance</span>
+            <div class="svc-num">03</div>
+            <h3>Personal Training</h3>
+            <p>
+              One-on-one sessions with experienced trainers who build
+              personalised plans around your goals and schedule.
+            </p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-tag">Diet</span>
+            <div class="svc-num">04</div>
+            <h3>Nutrition Counseling</h3>
+            <p>
+              Practical diet guidance from our trainers — no crash plans, just
+              sustainable habits that actually work.
+            </p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-tag">Group</span>
+            <div class="svc-num">05</div>
+            <h3>Group Fitness</h3>
+            <p>
+              High-energy group sessions for cardio, core, and flexibility —
+              train with a community, stay motivated.
+            </p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-tag">Women</span>
+            <div class="svc-num">06</div>
+            <h3>Women's Fitness Zone</h3>
+            <p>
+              A comfortable, safe, and fully equipped zone for women — with
+              female-friendly timings and trainers available.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINERS -->
+    <section id="trainers">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow dark">Our Trainers</span>
+          <h2>Experts Who Actually Care.</h2>
+          <p style="color: var(--ink-soft)">
+            Humble, experienced, and focused on your progress — not just putting
+            you through reps.
+          </p>
+        </div>
+        <div class="trainers-grid">
+          <div class="trainer-card reveal">
+            <div class="trainer-visual">
+              <span class="trainer-initials">RK</span>
+              <span class="trainer-tag">Head Trainer</span>
+            </div>
+            <div class="trainer-body">
+              <div class="trainer-name">RAHUL KUMAR</div>
+              <div class="trainer-role">Strength & Conditioning</div>
+              <div class="trainer-desc">
+                8+ years of training experience. Specialises in hypertrophy,
+                powerlifting, and beginner transformation programs.
+              </div>
+            </div>
+          </div>
+          <div class="trainer-card reveal">
+            <div class="trainer-visual">
+              <span class="trainer-initials">PS</span>
+              <span class="trainer-tag">Cardio Expert</span>
+            </div>
+            <div class="trainer-body">
+              <div class="trainer-name">PRIYA SHARMA</div>
+              <div class="trainer-role">Cardio & Women's Fitness</div>
+              <div class="trainer-desc">
+                Certified fitness trainer with a focus on women's health, weight
+                loss, and functional training programs.
+              </div>
+            </div>
+          </div>
+          <div class="trainer-card reveal">
+            <div class="trainer-visual">
+              <span class="trainer-initials">AV</span>
+              <span class="trainer-tag">Nutrition Coach</span>
+            </div>
+            <div class="trainer-body">
+              <div class="trainer-name">AMIT VERMA</div>
+              <div class="trainer-role">Nutrition & Body Composition</div>
+              <div class="trainer-desc">
+                Diet planning and body transformation specialist. Helps members
+                combine training with the right nutrition for results.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-bg">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow dark">Gym Tour</span>
+          <h2>See Where You'll Train.</h2>
+          <p style="color: var(--ink-soft)">
+            Spacious, clean, air-conditioned — the environment makes the
+            difference.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item tall g1 reveal">
+            <span>Weight Zone</span>
+          </div>
+          <div class="gallery-item g2 reveal"><span>Cardio Area</span></div>
+          <div class="gallery-item g3 reveal"><span>Machines Floor</span></div>
+          <div class="gallery-item tall g4 reveal">
+            <span>Free Weights</span>
+          </div>
+          <div class="gallery-item g5 reveal"><span>Women's Zone</span></div>
+          <div class="gallery-item g6 reveal"><span>Reception</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi-dark">
+      <div class="wrap">
+        <div
+          class="section-head reveal"
+          style="text-align: center; margin-bottom: 44px"
+        >
+          <span class="eyebrow light">Member Reviews</span>
+          <h2
+            style="
+              color: var(--white);
+              font-size: clamp(28px, 4vw, 42px);
+              margin-top: 12px;
+            "
+          >
+            46 Reviews. All 5 Star.
+          </h2>
+        </div>
+        <div class="testi-grid">
+          <div class="testi reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "I've trained there for a long time and it's a great gym. Trainers
+              are well experienced and humble, imported machines, spacious,
+              clean and safe environment."
+            </p>
+            <div class="testi-name">
+              <strong>Vaishali Shukla</strong><span>Member · 1 year</span>
+            </div>
+          </div>
+          <div class="testi reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Great place to workout for both male and female. Gym is very
+              spacious, no suffocation, and all equipments are of international
+              standard."
+            </p>
+            <div class="testi-name">
+              <strong>Manas Chaube</strong><span>Member</span>
+            </div>
+          </div>
+          <div class="testi reveal">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">
+              "Great gym, trainers are very good, environment is also good,
+              owner has good behaviour and gym is very hygienic. All machines
+              are imported."
+            </p>
+            <div class="testi-name">
+              <strong>Rishab Srivastava</strong><span>Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="membership" class="membership-bg">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow dark">Membership Plans</span>
+          <h2>Choose Your Plan.</h2>
+          <p style="color: var(--ink-soft)">
+            Flexible plans for every goal and budget. All plans include full gym
+            access and trainer guidance.
+          </p>
+        </div>
+        <div class="plans-grid">
+          <div class="plan-card reveal">
+            <div class="plan-name">Monthly</div>
+            <div class="plan-price">₹999</div>
+            <div class="plan-period">per month</div>
+            <div class="plan-feats">
+              <div class="plan-feat">Full gym access — all equipment</div>
+              <div class="plan-feat">Trainer guidance included</div>
+              <div class="plan-feat">AC environment</div>
+              <div class="plan-feat">Locker facility</div>
+            </div>
+            <button
+              class="btn"
+              onclick="
+                document
+                  .getElementById('enquiry')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              Enquire Now
+            </button>
+          </div>
+          <div class="plan-card featured reveal">
+            <div class="plan-name">Quarterly</div>
+            <div class="plan-price">₹2,499</div>
+            <div class="plan-period">3 months · save ₹498</div>
+            <div class="plan-feats">
+              <div class="plan-feat">Full gym access — all equipment</div>
+              <div class="plan-feat">Personalised fitness plan</div>
+              <div class="plan-feat">Diet & nutrition guidance</div>
+              <div class="plan-feat">Priority trainer slots</div>
+              <div class="plan-feat">Free body assessment</div>
+            </div>
+            <button
+              class="btn"
+              onclick="
+                document
+                  .getElementById('enquiry')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              Enquire Now
+            </button>
+          </div>
+          <div class="plan-card reveal">
+            <div class="plan-name">Annual</div>
+            <div class="plan-price">₹7,999</div>
+            <div class="plan-period">12 months · best value</div>
+            <div class="plan-feats">
+              <div class="plan-feat">Full gym access — all equipment</div>
+              <div class="plan-feat">Personal training sessions (4/month)</div>
+              <div class="plan-feat">Monthly progress tracking</div>
+              <div class="plan-feat">Supplement guidance</div>
+              <div class="plan-feat">Guest pass (2/year)</div>
+            </div>
+            <button
+              class="btn"
+              onclick="
+                document
+                  .getElementById('enquiry')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              Enquire Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENQUIRY FORM -->
+    <section id="enquiry" class="enquiry-section">
+      <div class="wrap">
+        <div class="enquiry-layout">
+          <div class="reveal">
+            <span class="eyebrow light">Join Vitalize</span>
+            <h2>Start Today.</h2>
+            <p>
+              Fill in your details and our team will call you back to confirm
+              your free trial slot and membership plan — usually within the
+              hour.
+            </p>
+            <div class="enquiry-points">
+              <div class="enquiry-point">
+                <span class="enquiry-point-mark">1</span>
+                <div class="enquiry-point-text">
+                  <strong>Tell us your goal</strong
+                  ><span
+                    >Weight loss, muscle gain, general fitness — we'll match the
+                    right plan.</span
+                  >
+                </div>
+              </div>
+              <div class="enquiry-point">
+                <span class="enquiry-point-mark">2</span>
+                <div class="enquiry-point-text">
+                  <strong>Pick your trial slot</strong
+                  ><span
+                    >Come in for a free session, see the gym, meet the
+                    trainers.</span
+                  >
+                </div>
+              </div>
+              <div class="enquiry-point">
+                <span class="enquiry-point-mark">3</span>
+                <div class="enquiry-point-text">
+                  <strong>Start training</strong
+                  ><span
+                    >Join the Vitalize family and start your
+                    transformation.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="enquiry-card reveal">
+            <div id="enquiryFormState">
+              <form id="enquiryForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="group-name">
+                    <label>Full Name</label>
+                    <input
+                      type="text"
+                      id="ename"
+                      placeholder="Apna naam likhein"
+                    />
+                    <div class="field-error">Please enter your name.</div>
+                  </div>
+                  <div class="form-group" id="group-phone">
+                    <label>WhatsApp Number</label>
+                    <input
+                      type="tel"
+                      id="ephone"
+                      placeholder="+91 98765 43210"
+                    />
+                    <div class="field-error">Please enter a valid number.</div>
+                  </div>
+                </div>
+                <div class="form-group" id="group-goal">
+                  <label>Your Fitness Goal</label>
+                  <div class="goal-options">
+                    <div class="goal-chip" data-value="Weight Loss">
+                      ⚡ Weight Loss
+                    </div>
+                    <div class="goal-chip" data-value="Muscle Gain">
+                      💪 Muscle Gain
+                    </div>
+                    <div class="goal-chip" data-value="General Fitness">
+                      🏃 General Fitness
+                    </div>
+                    <div class="goal-chip" data-value="Strength Training">
+                      🏋️ Strength Training
+                    </div>
+                  </div>
+                  <div class="field-error">Please select your goal.</div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group" id="group-plan">
+                    <label>Interested In</label>
+                    <select id="eplan">
+                      <option value="">Select Plan</option>
+                      <option>Monthly — ₹999</option>
+                      <option>Quarterly — ₹2,499</option>
+                      <option>Annual — ₹7,999</option>
+                      <option>Not sure yet</option>
+                    </select>
+                    <div class="field-error">Please select a plan.</div>
+                  </div>
+                  <div class="form-group" id="group-time">
+                    <label>Preferred Trial Time</label>
+                    <select id="etime">
+                      <option value="">Select Time</option>
+                      <option>6:00 AM — 8:00 AM</option>
+                      <option>8:00 AM — 10:00 AM</option>
+                      <option>10:00 AM — 12:00 PM</option>
+                      <option>4:00 PM — 6:00 PM</option>
+                      <option>6:00 PM — 8:00 PM</option>
+                    </select>
+                    <div class="field-error">Please pick a time.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label
+                    >Anything Else?
+                    <span
+                      style="
+                        text-transform: none;
+                        opacity: 0.5;
+                        font-weight: 400;
+                      "
+                      >(optional)</span
+                    ></label
+                  >
+                  <textarea
+                    id="enotes"
+                    placeholder="Any health concerns, previous experience, or questions..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="enquiry-submit">
+                  Book Free Trial →
+                </button>
+                <p class="enquiry-note">
+                  No payment needed. We'll call you to confirm within the hour.
+                </p>
+              </form>
+            </div>
+            <div id="enquirySuccess" class="enquiry-success">
+              <div class="success-icon">💪</div>
+              <h3>TRIAL BOOKED!</h3>
+              <p>
+                Our team will call you on WhatsApp shortly to confirm your free
+                trial slot at Vitalize Fitness.
+              </p>
+              <div class="enquiry-summary" id="enquirySummary"></div>
+              <div style="margin-top: 20px">
+                <button class="btn btn-outline" id="resetBtn">
+                  Book Another
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-pillars">
+          <div class="contact-pillar">
+            <span
+              class="eyebrow light"
+              style="font-size: 10px; margin-bottom: 10px; display: block"
+              >Location</span
+            >
+            <h3>Veer Savarkar Nagar</h3>
+            <p>
+              100 Futa Road, Rajeev Enclave Rd, behind Asarfi Banquet Hall,
+              Bareilly, UP 243122
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span
+              class="eyebrow light"
+              style="font-size: 10px; margin-bottom: 10px; display: block"
+              >Contact</span
+            >
+            <h3>073007 82022</h3>
+            <p>
+              Call or WhatsApp us.
+              <a href="https://wa.me/917300782022">Chat on WhatsApp →</a>
+            </p>
+          </div>
+          <div class="contact-pillar">
+            <span
+              class="eyebrow light"
+              style="font-size: 10px; margin-bottom: 10px; display: block"
+              >Timings</span
+            >
+            <h3>Mon – Sun</h3>
+            <p>Morning: 5:30 AM – 11:00 AM<br />Evening: 4:00 PM – 9:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a
+      href="https://wa.me/917300782022"
+      target="_blank"
+      rel="noopener"
+      class="float-wa"
+      aria-label="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="white">
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.52 21.5 10.21 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.5 0-2.91-.4-4.13-1.1l-.3-.17-3.07.8.82-3-.2-.32A7.94 7.94 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"
+        />
+        <path
+          d="M16.5 14.2c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.96-.15.17-.29.18-.54.06-1.46-.7-2.4-1.25-3.36-2.85-.25-.43.25-.4.72-1.32.08-.17.04-.31-.03-.43-.08-.12-.6-1.45-.82-1.98-.22-.52-.44-.45-.6-.46-.16-.01-.34-.01-.52-.01-.18 0-.47.07-.72.34-.25.27-.96.94-.96 2.3 0 1.35.98 2.66 1.12 2.85.14.18 1.9 2.9 4.6 3.95 2.7 1.05 2.7.7 3.18.66.48-.04 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"
+        />
+      </svg>
+    </a>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div
+              class="logo-text"
+              style="
+                color: #fff;
+                font-family: &quot;Bebas Neue&quot;, sans-serif;
+                font-size: 26px;
+                letter-spacing: 0.08em;
+              "
+            >
+              VITALIZE FITNESS<span
+                style="
+                  display: block;
+                  font-family: &quot;Manrope&quot;, sans-serif;
+                  font-size: 10px;
+                  font-weight: 700;
+                  color: var(--yellow);
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  margin-top: 3px;
+                "
+                >Bareilly · UP</span
+              >
+            </div>
+            <p>
+              Bareilly's premium fitness destination. Imported machines,
+              experienced trainers, and a clean AC environment — for everyone
+              serious about their health.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#trainers">Trainers</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#membership">Membership</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:07300782022">073007 82022</a>
+            <a href="https://wa.me/917300782022" target="_blank" rel="noopener"
+              >WhatsApp Us</a
+            >
+            <a href="#enquiry">Book Free Trial</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2026 Vitalize Fitness, Bareilly. Demo website — for illustration
+            purposes only.</span
+          >
+          <span>Designed by ROCKANK</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Reveal
+      const revealEls = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -6% 0px" },
+      );
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(
+        () => revealEls.forEach((el) => el.classList.add("visible")),
+        2000,
+      );
+
+      // Mobile menu
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuToggle.addEventListener("click", () =>
+        mobileMenu.classList.add("open"),
+      );
+      menuClose.addEventListener("click", () =>
+        mobileMenu.classList.remove("open"),
+      );
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () =>
+            mobileMenu.classList.remove("open"),
+          ),
+        );
+
+      // Count-up animation
+      function animateCounters() {
+        document.querySelectorAll(".count-up").forEach((el) => {
+          const target = parseInt(el.dataset.target);
+          let current = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current;
+            if (current >= target) clearInterval(timer);
+          }, 35);
+        });
+      }
+      const heroStats = document.querySelector(".hero-stats");
+      if (heroStats) {
+        const statsObs = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              animateCounters();
+              statsObs.disconnect();
+            }
+          },
+          { threshold: 0.5 },
+        );
+        statsObs.observe(heroStats);
+      }
+
+      // Goal chips
+      let selectedGoal = "";
+      document.querySelectorAll(".goal-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          document
+            .querySelectorAll(".goal-chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedGoal = chip.dataset.value;
+          document.getElementById("group-goal").classList.remove("invalid");
+        });
+      });
+
+      function setInvalid(id, bad) {
+        document.getElementById(id)?.classList.toggle("invalid", bad);
+      }
+      function isValidPhone(v) {
+        return v.replace(/\D/g, "").length >= 7;
+      }
+
+      document
+        .getElementById("enquiryForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("ename").value.trim();
+          const phone = document.getElementById("ephone").value.trim();
+          const plan = document.getElementById("eplan").value;
+          const time = document.getElementById("etime").value;
+          const notes = document.getElementById("enotes").value.trim();
+
+          let valid = true;
+          setInvalid("group-name", !name);
+          if (!name) valid = false;
+          setInvalid("group-phone", !isValidPhone(phone));
+          if (!isValidPhone(phone)) valid = false;
+          setInvalid("group-goal", !selectedGoal);
+          if (!selectedGoal) valid = false;
+          setInvalid("group-plan", !plan);
+          if (!plan) valid = false;
+          setInvalid("group-time", !time);
+          if (!time) valid = false;
+
+          if (!valid) {
+            document
+              .querySelector(".form-group.invalid")
+              ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+          }
+
+          document.getElementById("enquirySummary").innerHTML = `
+          <div><strong>Name:</strong> ${name}</div>
+          <div><strong>Goal:</strong> ${selectedGoal}</div>
+          <div><strong>Plan:</strong> ${plan}</div>
+          <div><strong>Trial Time:</strong> ${time}</div>
+          <div><strong>Contact:</strong> ${phone}</div>
+          ${notes ? `<div><strong>Notes:</strong> ${notes}</div>` : ""}
+        `;
+          document.getElementById("enquiryFormState").style.display = "none";
+          document.getElementById("enquirySuccess").classList.add("show");
+        });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        document.getElementById("enquiryForm").reset();
+        document
+          .querySelectorAll(".goal-chip")
+          .forEach((c) => c.classList.remove("active"));
+        selectedGoal = "";
+        document
+          .querySelectorAll(".form-group.invalid")
+          .forEach((g) => g.classList.remove("invalid"));
+        document.getElementById("enquirySuccess").classList.remove("show");
+        document.getElementById("enquiryFormState").style.display = "block";
+      });
+    </script>
+  </body>
+</html>
